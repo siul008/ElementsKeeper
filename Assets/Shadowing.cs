@@ -39,6 +39,10 @@ public class Shadowing : MonoBehaviour
         {
             Debug.Log("Player in shadow");
         }
+        else
+        {
+            Debug.Log("Player not in shadow");
+        }
     }
 
     private void OnDrawGizmosSelected()
