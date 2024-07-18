@@ -1,38 +1,107 @@
-using Unity.VisualScripting;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
-    public TowerObjects[] inv = new TowerObjects[6];
-    private int nbTower = 0;
+    
+    public List<TowerObjects> inv = new List<TowerObjects>();
     [SerializeField] private Transform images;
     public TowerObjects test;
+    int selected = 0;
+    public static InventoryManager Instance { get; private set; }
+
+    private void Awake() 
+    { 
+        // If there is an instance, and it's not me, delete myself.
     
-    // Start is called before the first frame update
+        if (Instance != null && Instance != this) 
+        { 
+            Destroy(this); 
+        } 
+        else 
+        { 
+            Instance = this; 
+        }
+
+        for (int i = 0; i < 6; i++)
+        {
+            inv.Add(null);
+        }
+    }
+    
     void Start()
     {
+        AddTower(test);
         AddTower(test);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            selected++;
+            if (selected >= 6)
+                selected = 0;
+            UpdateInventoryUI();
+        }
+        else if (Input.GetKeyDown(KeyCode.R))
+        {
+            selected--;
+            if (selected < 0)
+                selected = inv.Count - 1;
+            UpdateInventoryUI();
+        }
     }
 
     void UpdateInventoryUI()
     {
-        for (int i = 0; i < nbTower; i++)
+        int i;
+        for (i = 0; i < 6; i++)
         {
-            images.GetChild(i).GetComponent<Image>().sprite = inv[i].sprite;
+            if (inv[i] == null)
+            {
+                images.GetChild(i + 6).gameObject.SetActive(false);
+                continue;
+            }
+            Image child = images.GetChild(i).GetComponent<Image>();
+            Image tower = images.GetChild(i + 6).GetComponent<Image>();
+            //child.sprite = inv[i].sprite;
+            if (i == selected)
+                child.color = new Color(child.color.r, child.color.g, child.color.b, 0.9f);
+            else
+                child.color = new Color(child.color.r, child.color.g, child.color.b, 0.2f);
+            tower.gameObject.SetActive(true);
+            tower.sprite = inv[i].sprite;
         }
     }
 
     void AddTower(TowerObjects obj)
     {
-        inv[nbTower] = obj;
-        nbTower++;
+        for (int i = 0; i < 6; i++)
+        {
+            if (inv[i] == null)
+            {
+                inv[i] = obj;
+                break;
+            }
+        }
         UpdateInventoryUI();
+    }
+
+    public void Merge(int index1, int index2)
+    {
+        Debug.Log("Merging BRO");
+        inv[index1] = null;
+    }
+
+    public void Swap(int index1, int index2)
+    {
+        Debug.Log("Want to swap " + index1 + " with " + index2);
+        if (inv[index1] != null && inv[index2] != null)
+            Merge(index1, index2);
+        else
+            (inv[index1], inv[index2]) = (inv[index2], inv[index1]);
     }
 }
