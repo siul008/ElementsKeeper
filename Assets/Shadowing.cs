@@ -21,7 +21,15 @@ public class Shadowing : MonoBehaviour
             Vector3 directionToPlayer = player.position - light.transform.position;
             float distanceToPlayer = directionToPlayer.magnitude;
 
-            if (!Physics.Raycast(light.transform.position, directionToPlayer, distanceToPlayer))
+            if (Physics.Raycast(light.transform.position, directionToPlayer, out RaycastHit hit, distanceToPlayer))
+            {
+                if (hit.transform.CompareTag("Player"))
+                {
+                    playerInShadow = false;
+                    break;
+                }
+            }
+            else
             {
                 playerInShadow = false;
                 break;
@@ -40,7 +48,7 @@ public class Shadowing : MonoBehaviour
         {
             Vector3 directionToPlayer = player.position - light.transform.position;
 
-            Gizmos.DrawLine(light.transform.position, directionToPlayer);
+            Gizmos.DrawLine(light.transform.position, player.position);
         }
     }
 }
