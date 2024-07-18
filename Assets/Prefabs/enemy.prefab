@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 976166811777314489}
   - component: {fileID: 9105161307165497314}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -278,7 +278,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 5}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3094397420673186975}
@@ -299,8 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcade3b7c4a0a104b91c3132bff1f634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  health: 100
+  moveSpeed: 2
 --- !u!114 &3612770604976172234
 MonoBehaviour:
   m_ObjectHideFlags: 0
