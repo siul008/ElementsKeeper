@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Destroy(gameObject, 8f);
     }
 
     // Update is called once per frame
@@ -22,7 +22,7 @@ public class Bullet : MonoBehaviour
         Debug.Log("Hit: " + other.name);
         if (other.tag == "Enemy")
         {
-            other.GetComponent<EnemyMovement2D>().TakeDamage(34);
+            other.GetComponent<Enemy>().TakeDamage(34);
             Destroy(gameObject);
         }
     }

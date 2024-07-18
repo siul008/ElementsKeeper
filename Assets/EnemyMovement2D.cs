@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyMovement2D : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 5f;
-    [SerializeField] float health = 100f;
 
     void Update()
     {
@@ -14,14 +13,4 @@ public class EnemyMovement2D : MonoBehaviour
         // If the enemy is not at the endpoint
         transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
     }
-
-    public void TakeDamage(float damage)
-    {
-        health -= damage;
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
-    }
-
 }
