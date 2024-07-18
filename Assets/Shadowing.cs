@@ -15,7 +15,7 @@ public class Shadowing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool playerInShadow = true;
+        bool playerInShadow = false;
         foreach (Light light in lights)
         {
             Vector3 directionToPlayer = player.position - light.transform.position;
@@ -23,21 +23,21 @@ public class Shadowing : MonoBehaviour
 
             if (Physics.Raycast(light.transform.position, directionToPlayer, out RaycastHit hit, distanceToPlayer))
             {
-                if (hit.transform.CompareTag("Player"))
+                if (!hit.transform.CompareTag("Player"))
                 {
-                    playerInShadow = false;
+                    playerInShadow = true;
                     break;
                 }
             }
             else
             {
-                playerInShadow = false;
+                playerInShadow = true;
                 break;
             }
         }
         if (playerInShadow)
         {
-            Debug.Log("player in shadow");
+            Debug.Log("Player in shadow");
         }
     }
 
