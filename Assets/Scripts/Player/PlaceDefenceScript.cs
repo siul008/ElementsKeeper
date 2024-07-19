@@ -21,7 +21,8 @@ public class PlaceDefenceScript : MonoBehaviour
         {
             // Vector2Int pos(transform.position.x, transform.position.y);
             Vector2Int pos = new Vector2Int((int)(transform.position.x + 0.5), (int)(transform.position.y + 0.5));
-            if(dictionary.ContainsKey(pos))
+            if (dictionary.ContainsKey(pos) &&
+                InventoryManager.Instance.GetTower(dictionary[pos].GetComponent<TowerScript>().GetScriptable()))
             {
                 Destroy(dictionary[pos]);
                 dictionary.Remove(pos);

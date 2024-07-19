@@ -152,6 +152,20 @@ public class InventoryManager : MonoBehaviour
         }
         return t;
     }
+
+    public bool GetTower(TowerObjects tower)
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            if (inv[i] == null)
+            {
+                inv[i] = tower;
+                UpdateInventoryUI();
+                return true;
+            }
+        }
+        return false;
+    }
     
     public void AddFragment()
     {

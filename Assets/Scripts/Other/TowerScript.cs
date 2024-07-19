@@ -20,19 +20,19 @@ public class TowerScript : MonoBehaviour
         UpdateEnergyBar();
     }
 
-    bool isEnemyInFront()
+    bool IsEnemyInFront()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, 100f, mask);
-        if (hit)
-        {
-            return (true);
-        }
-        return (false);
+        return (Physics2D.Raycast(transform.position, Vector2.right, 100f, mask));
+    }
+
+    public TowerObjects GetScriptable()
+    {
+        return currentTower;
     }
 
     void Update()
     {
-        if (attackTime >= currentTower.attackRate && isEnemyInFront())
+        if (attackTime >= currentTower.attackRate && IsEnemyInFront())
         {
             Fire();
             attackTime = 0;
