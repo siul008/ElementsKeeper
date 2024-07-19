@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2978847877354692372}
   - component: {fileID: 6061883557353875698}
   - component: {fileID: 8638290612726505948}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 890491806243349198}
   - component: {fileID: 3875928649511106798}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8912689290661047680}
   - component: {fileID: 1043279459649779250}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HealthBorder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 3612770604976172234}
   - component: {fileID: 976166811777314489}
   - component: {fileID: 9105161307165497314}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -305,6 +305,7 @@ MonoBehaviour:
   dropChance: 30
   attackInterval: 0.5
   voidFragment: {fileID: 3310398405383277556, guid: ef1ce638bcf53794783d89cbef7d8c14, type: 3}
+  turret: {fileID: 0}
   attackTime: 0
   player: {fileID: 0}
 --- !u!58 &976166811777314489
@@ -379,7 +380,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3094397420673186975}
   - component: {fileID: 9144116276194750555}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -465,7 +466,7 @@ GameObject:
   - component: {fileID: 2357528852089441366}
   - component: {fileID: 6153069619602698887}
   - component: {fileID: 7422137187979788024}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -566,7 +567,7 @@ GameObject:
   - component: {fileID: 4086541194848071122}
   - component: {fileID: 8992735187280206295}
   - component: {fileID: 6214412332179023359}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -640,7 +641,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2254098511690524442}
   - component: {fileID: 3928857057601967081}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
