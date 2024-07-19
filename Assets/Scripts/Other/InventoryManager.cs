@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
 using Random = UnityEngine.Random;
 
 public class InventoryManager : MonoBehaviour
@@ -38,8 +39,7 @@ public class InventoryManager : MonoBehaviour
     
     void Start()
     {
-        AddTower(test);
-        AddTower(test);
+        UpdateInventoryUI();
     }
     void Update()
     {
@@ -103,6 +103,8 @@ public class InventoryManager : MonoBehaviour
         try
         {
             TowerObjects newTower = MergeManager.Instance.Merge(inv[index1], inv[index2]);
+            if (newTower == null)
+                return false;
             inv[index1] = null;
             inv[index2] = newTower;
             UpdateInventoryUI();
@@ -119,7 +121,14 @@ public class InventoryManager : MonoBehaviour
         if (inv[index1] != null && inv[index2] != null)
             return (Merge(index1, index2));
         else
+        {
+            // (transform.GetChild(6 + index1).GetComponent<RectTransform>().anchoredPosition,
+            //         transform.GetChild(6 + index2).GetComponent<RectTransform>().anchoredPosition)
+            //     = (transform.GetChild(6 + index2).GetComponent<RectTransform>().anchoredPosition,
+            //         transform.GetChild(6 + index1).GetComponent<RectTransform>().anchoredPosition);
+                //Debug.Log(transform.GetChild(6 + index1));
             (inv[index1], inv[index2]) = (inv[index2], inv[index1]);
+        }
         return true;
     }
 

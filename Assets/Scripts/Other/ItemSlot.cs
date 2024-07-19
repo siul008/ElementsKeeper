@@ -8,6 +8,9 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         if (eventData.pointerDrag != null)
-            eventData.pointerDrag.GetComponent<DragItems>().SetEndPos(GetComponent<RectTransform>().anchoredPosition, index);
+        {
+            eventData.pointerDrag.GetComponent<DragItems>()
+                .SetEndPos(GetComponent<RectTransform>().anchoredPosition, index);
+        }
     }
 }
