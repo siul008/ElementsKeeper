@@ -114,7 +114,7 @@ public class InventoryManager : MonoBehaviour
         return true;
     }
 
-    public void AddRandomFragment()
+    public void AddFragment()
     {
         currentFragments++;
         if (currentFragments < minFragments)
