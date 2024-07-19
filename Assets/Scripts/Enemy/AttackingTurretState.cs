@@ -11,14 +11,25 @@ public class AttackingTurretState : EnemyState
 
     public override void Execute(Enemy enemy)
     {
-       if (!enemy.IsTurretNearby())
-       {
-            enemy.ChangeState(new WalkingState());
-       }
-       else
-       {
-           Debug.Log("Attacking Tower");
-       }
+        if (!enemy.IsTurretNearby())
+        {
+            if (enemy.IsPlayerNearby() && enemy.IsFacingPlayer())
+            {
+                enemy.ChangeState(new AttackingPlayerState());
+            }
+            else
+            {
+                enemy.ChangeState(new WalkingState());
+            }
+        }
+        else
+        {
+            if (enemy.attackTime >= enemy.attackInterval)
+            {
+                //enemy.player.GetComponent<TowerScript>().TakeDamage(enemy.damage);
+                enemy.attackTime = 0;
+            }
+        }
     }
 
     public override void Exit(Enemy enemy)

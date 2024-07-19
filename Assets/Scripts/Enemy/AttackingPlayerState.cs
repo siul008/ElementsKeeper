@@ -13,7 +13,14 @@ public class AttackingPlayerState : EnemyState
     {
         if (!enemy.IsPlayerNearby() || !enemy.IsFacingPlayer())
         {
-            enemy.ChangeState(new WalkingState());
+            if (!enemy.IsTurretNearby())
+            {
+                enemy.ChangeState(new WalkingState());
+            }
+            else
+            {
+                enemy.ChangeState(new AttackingTurretState());
+            }
         }
         else
         {
