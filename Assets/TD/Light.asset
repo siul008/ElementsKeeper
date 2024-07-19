@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b51a81a48c1c8f741bb2ef6a63d44758, type: 3}
   m_Name: Light
   m_EditorClassIdentifier: 
-  type: 0
+  type: 3
   level: 1
   damage: 10
+  sprite: {fileID: 0}
