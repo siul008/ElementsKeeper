@@ -15,6 +15,7 @@ public abstract class Enemy : MonoBehaviour
     public float damage;
     [SerializeField]
     public float attackInterval;
+    public float attackTime;
     Slider healthBar;
     public GameObject player;
 
@@ -27,6 +28,7 @@ public abstract class Enemy : MonoBehaviour
         healthBar.maxValue = maxHealth;
         healthBar.value = currentHealth;
         player = GameObject.Find("Player");
+        attackTime = attackInterval;
     }
 
     private void Start()
@@ -35,6 +37,10 @@ public abstract class Enemy : MonoBehaviour
     }
     private void Update()
     {
+        if (attackTime < attackInterval)
+        {
+            attackTime += Time.deltaTime;
+        }
         if (currentState != null)
         {
             currentState.Execute(this);
