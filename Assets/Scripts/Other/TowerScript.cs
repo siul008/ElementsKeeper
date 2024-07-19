@@ -22,7 +22,12 @@ public class TowerScript : MonoBehaviour
 
     bool isEnemyInFront()
     {
-        return (Physics2D.Raycast(transform.position, Vector2.right, 100f, mask));
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, 100f, mask);
+        if (hit)
+        {
+            return (true);
+        }
+        return (false);
     }
 
     void Update()

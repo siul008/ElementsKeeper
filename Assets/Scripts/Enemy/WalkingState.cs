@@ -6,7 +6,6 @@ public class WalkingState : EnemyState
 {
     public override void Enter(Enemy enemy)
     {
-        Debug.Log("Entering Walking State for " + enemy.gameObject.name);
     }
 
     public override void Execute(Enemy enemy)
@@ -27,6 +26,5 @@ public class WalkingState : EnemyState
 
     public override void Exit(Enemy enemy)
     {
-        Debug.Log("Exiting Walking State for " + enemy.gameObject.name);
     }
 }
