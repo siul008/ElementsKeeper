@@ -8,6 +8,8 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] TowerObjects[] voidFragments = new TowerObjects[4];
     [SerializeField] private Transform images;
     public TowerObjects test;
+    private int currentFragments = 0;
+    [SerializeField] private int minFragments = 10;
     int selected = 0;
     public static InventoryManager Instance { get; private set; }
 
@@ -114,13 +116,19 @@ public class InventoryManager : MonoBehaviour
 
     public void AddRandomFragment()
     {
+        currentFragments++;
+        if (currentFragments < minFragments)
+            return;
         int rand = Random.Range(0, voidFragments.Length);
         for (int i = 0; i < 6; i++)
         {
-            if (inv[i] != null) continue;
-            inv[i] = voidFragments[rand];
-            UpdateInventoryUI();
-            return;
+            if (inv[i] == null)
+            {
+                inv[i] = voidFragments[rand];
+                UpdateInventoryUI();
+                currentFragments -= minFragments;
+                return;
+            }
         }
     }
 }
