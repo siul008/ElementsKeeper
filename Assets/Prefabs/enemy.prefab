@@ -302,7 +302,7 @@ MonoBehaviour:
   currentHealth: 0
   moveSpeed: 1
   damage: 5
-  dropChance: 30
+  dropChance: 100
   attackInterval: 0.5
   voidFragment: {fileID: 3310398405383277556, guid: ef1ce638bcf53794783d89cbef7d8c14, type: 3}
   turret: {fileID: 0}
