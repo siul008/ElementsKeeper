@@ -30,7 +30,7 @@ public class PlaceDefenceScript : MonoBehaviour
             {
                 TowerObjects tower = InventoryManager.Instance.GetSelectedTower();
                 if (tower != null)
-                    dictionary[pos] = Instantiate(tower.spawnableTower, new Vector3(pos.x, pos.y), Quaternion.identity);
+                    dictionary[pos] = Instantiate(tower.spawnableTower, new Vector3(pos.x, Random.Range(pos.y - 0.1f, pos.y + 0.1f), 1), Quaternion.identity);
             }
             // if(towers[posx][posy])
             // {

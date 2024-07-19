@@ -123,6 +123,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTower: {fileID: 11400000, guid: 95f938416b631a54ab5c5a6db4314d8d, type: 2}
+  mask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &1027511636346528040
 GameObject:
   m_ObjectHideFlags: 0

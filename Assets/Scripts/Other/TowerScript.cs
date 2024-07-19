@@ -9,6 +9,7 @@ public class TowerScript : MonoBehaviour
     float attackTime;
     float health;
     Slider energyBar;
+    public LayerMask mask;
     
 
     private void Start()
@@ -18,9 +19,15 @@ public class TowerScript : MonoBehaviour
         health = currentTower.maxHealth;
         UpdateEnergyBar();
     }
+
+    bool isEnemyInFront()
+    {
+        return (Physics2D.Raycast(transform.position, Vector2.right, 100f, mask));
+    }
+
     void Update()
     {
-        if (attackTime >= currentTower.attackRate)
+        if (attackTime >= currentTower.attackRate && isEnemyInFront())
         {
             Fire();
             attackTime = 0;
