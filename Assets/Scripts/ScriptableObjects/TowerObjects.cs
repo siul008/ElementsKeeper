@@ -16,4 +16,5 @@ public class TowerObjects : ScriptableObject
     public int level;
     public int damage;
     public Sprite sprite;
+    public GameObject spawnableObject;
 }
