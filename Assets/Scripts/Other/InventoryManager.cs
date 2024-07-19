@@ -60,18 +60,18 @@ public class InventoryManager : MonoBehaviour
         int i;
         for (i = 0; i < 6; i++)
         {
+            Image child = images.GetChild(i).GetComponent<Image>();
+            if (i == selected)
+                child.color = new Color(child.color.r, child.color.g, child.color.b, 0.9f);
+            else
+                child.color = new Color(child.color.r, child.color.g, child.color.b, 0.2f);
             if (inv[i] == null)
             {
                 images.GetChild(i + 6).gameObject.SetActive(false);
                 continue;
             }
-            Image child = images.GetChild(i).GetComponent<Image>();
             Image tower = images.GetChild(i + 6).GetComponent<Image>();
             //child.sprite = inv[i].sprite;
-            if (i == selected)
-                child.color = new Color(child.color.r, child.color.g, child.color.b, 0.9f);
-            else
-                child.color = new Color(child.color.r, child.color.g, child.color.b, 0.2f);
             tower.gameObject.SetActive(true);
             tower.sprite = inv[i].sprite;
         }
@@ -90,18 +90,25 @@ public class InventoryManager : MonoBehaviour
         UpdateInventoryUI();
     }
 
-    public void Merge(int index1, int index2)
+    public bool Merge(int index1, int index2)
     {
-        Debug.Log("Merging BRO");
+        Debug.Log("Merging BRO : " + index1 + " + " + index2);
+        TowerObjects newTower = MergeManager.Instance.Merge(inv[index1], inv[index2]);
+        if (newTower == null)
+            return false;
         inv[index1] = null;
+        inv[index2] = newTower;
+        UpdateInventoryUI();
+        return true;
     }
 
-    public void Swap(int index1, int index2)
+    public bool Swap(int index1, int index2)
     {
         Debug.Log("Want to swap " + index1 + " with " + index2);
         if (inv[index1] != null && inv[index2] != null)
-            Merge(index1, index2);
+            return (Merge(index1, index2));
         else
             (inv[index1], inv[index2]) = (inv[index2], inv[index1]);
+        return true;
     }
 }

@@ -70,8 +70,10 @@ public class DragItems : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     {
         if (eventData.pointerDrag != null)
         {
-            eventData.pointerDrag.SetActive(false);
-            InventoryManager.Instance.Swap(eventData.pointerDrag.GetComponent<DragItems>().GetMoveFrom(), moveFrom);
+            if (InventoryManager.Instance.Swap(eventData.pointerDrag.GetComponent<DragItems>().GetMoveFrom(), moveFrom))
+            {
+                eventData.pointerDrag.SetActive(false);
+            }
         }
         //eventData.pointerDrag.GetComponent<DragItems>().SetEndPos(GetComponent<RectTransform>().anchoredPosition, moveFrom);
     }
