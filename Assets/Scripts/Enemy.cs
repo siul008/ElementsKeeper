@@ -10,8 +10,6 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField]
     protected float currentHealth;
     Slider healthBar;
-    [SerializeField]
-    protected float damage;
 
     private void Awake()
     {
