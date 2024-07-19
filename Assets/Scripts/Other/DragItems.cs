@@ -12,7 +12,7 @@ public class DragItems : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     private Vector2 endPos;
     private bool reset = true;
     [SerializeField] private Canvas canvas;
-    [SerializeField] private int moveFrom;
+    public int moveFrom;
 
     private void Awake()
     {
@@ -45,7 +45,6 @@ public class DragItems : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
 
     private void EndMove()
     {
-        Debug.Log(endPos);
         if (reset)
             GetComponent<RectTransform>().anchoredPosition = startPos;
         else
@@ -55,9 +54,15 @@ public class DragItems : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
 
     public void SetEndPos(Vector2 pos, int moveTo)
     {
-        endPos = pos;
+        if (moveFrom == moveTo)
+            return;
         reset = false;
+        endPos = pos;
         InventoryManager.Instance.Swap(moveFrom, moveTo);
+        Debug.Log(transform.parent.GetChild(6 + moveTo).GetComponent<RectTransform>().anchoredPosition + "should move to :" + startPos);
+        transform.parent.GetChild(6 + moveTo).GetComponent<RectTransform>().anchoredPosition = startPos;
+        Debug.Log(transform.parent.GetChild(6 + moveTo).GetComponent<RectTransform>().anchoredPosition);
+        transform.parent.GetChild(6 + moveTo).GetComponent<DragItems>().moveFrom = moveFrom;
         moveFrom = moveTo;
     }
 
@@ -70,7 +75,7 @@ public class DragItems : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     {
         if (eventData.pointerDrag != null)
         {
-            if (InventoryManager.Instance.Swap(eventData.pointerDrag.GetComponent<DragItems>().GetMoveFrom(), moveFrom))
+            if (InventoryManager.Instance.Merge(eventData.pointerDrag.GetComponent<DragItems>().GetMoveFrom(), moveFrom))
             {
                 eventData.pointerDrag.SetActive(false);
             }

@@ -122,11 +122,6 @@ public class InventoryManager : MonoBehaviour
             return (Merge(index1, index2));
         else
         {
-            // (transform.GetChild(6 + index1).GetComponent<RectTransform>().anchoredPosition,
-            //         transform.GetChild(6 + index2).GetComponent<RectTransform>().anchoredPosition)
-            //     = (transform.GetChild(6 + index2).GetComponent<RectTransform>().anchoredPosition,
-            //         transform.GetChild(6 + index1).GetComponent<RectTransform>().anchoredPosition);
-                //Debug.Log(transform.GetChild(6 + index1));
             (inv[index1], inv[index2]) = (inv[index2], inv[index1]);
         }
         return true;
