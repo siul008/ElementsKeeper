@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
-    
     public List<TowerObjects> inv = new List<TowerObjects>();
+    [SerializeField] TowerObjects[] voidFragments = new TowerObjects[4];
     [SerializeField] private Transform images;
     public TowerObjects test;
     int selected = 0;
@@ -110,5 +110,17 @@ public class InventoryManager : MonoBehaviour
         else
             (inv[index1], inv[index2]) = (inv[index2], inv[index1]);
         return true;
+    }
+
+    public void AddRandomFragment()
+    {
+        int rand = Random.Range(0, voidFragments.Length);
+        for (int i = 0; i < 6; i++)
+        {
+            if (inv[i] != null) continue;
+            inv[i] = voidFragments[rand];
+            UpdateInventoryUI();
+            return;
+        }
     }
 }
