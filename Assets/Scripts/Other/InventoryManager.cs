@@ -150,7 +150,13 @@ public class InventoryManager : MonoBehaviour
 
     public TowerObjects GetSelectedTower()
     {
-        return inv[selected];
+        TowerObjects t = inv[selected];
+        if (t != null)
+        {
+            inv[selected] = null;
+            UpdateInventoryUI();
+        }
+        return t;
     }
     
     public void AddFragment()
