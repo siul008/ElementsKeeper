@@ -19,7 +19,6 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Hit: " + other.name);
         if (other.tag == "Enemy")
         {
             other.GetComponent<Enemy>().TakeDamage(34);

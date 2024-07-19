@@ -21,17 +21,17 @@ public class BasicEnemy : Enemy
 
     public override bool IsPlayerNearby()
     {
-        throw new System.NotImplementedException();
+        return false;
     }
 
     public override bool IsTurretNearby()
     {
-        throw new System.NotImplementedException();
+        return false;
     }
 
     public override void MoveTowardsGoal()
     {
-        throw new System.NotImplementedException();
+        transform.Translate(moveSpeed * Time.deltaTime * Vector2.left);
     }
 
     public override void TakeDamage(float damage)

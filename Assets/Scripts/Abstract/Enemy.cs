@@ -9,6 +9,8 @@ public abstract class Enemy : MonoBehaviour
     protected float maxHealth;
     [SerializeField]
     protected float currentHealth;
+    [SerializeField]
+    protected float moveSpeed;
     Slider healthBar;
 
     protected EnemyState currentState;
@@ -21,6 +23,10 @@ public abstract class Enemy : MonoBehaviour
         healthBar.value = currentHealth;
     }
 
+    private void Start()
+    {
+        ChangeState(new WalkingState());
+    }
     private void Update()
     {
         if (currentState != null)

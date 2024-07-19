@@ -257,12 +257,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3413463319128684771}
-  - component: {fileID: 7636823337144547070}
   - component: {fileID: 3612770604976172234}
   - component: {fileID: 976166811777314489}
   - component: {fileID: 9105161307165497314}
   m_Layer: 0
-  m_Name: enemy
+  m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -287,19 +286,6 @@ Transform:
   - {fileID: 3183254666161891805}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7636823337144547070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4495079335045865582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcade3b7c4a0a104b91c3132bff1f634, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 2
 --- !u!114 &3612770604976172234
 MonoBehaviour:
   m_ObjectHideFlags: 0

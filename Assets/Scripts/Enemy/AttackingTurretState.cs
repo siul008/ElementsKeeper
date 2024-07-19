@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackingTurretMachine : EnemyState
+public class AttackingTurretState : EnemyState
 {
     public override void Enter(Enemy enemy)
     {
