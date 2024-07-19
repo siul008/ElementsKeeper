@@ -20,7 +20,6 @@ public class InventoryManager : MonoBehaviour
 
     private void Awake() 
     { 
-        // If there is an instance, and it's not me, delete myself.
     
         if (Instance != null && Instance != this) 
         { 
@@ -42,22 +41,20 @@ public class InventoryManager : MonoBehaviour
         AddTower(test);
         AddTower(test);
     }
-
-    // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Y))
             AddFragment();
         if (Input.GetKeyDown(KeyCode.U))
             GenerateTower();
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             selected++;
             if (selected >= 6)
                 selected = 0;
             UpdateInventoryUI();
         }
-        else if (Input.GetKeyDown(KeyCode.R))
+        else if (Input.GetKeyDown(KeyCode.Q))
         {
             selected--;
             if (selected < 0)
@@ -83,7 +80,6 @@ public class InventoryManager : MonoBehaviour
                 continue;
             }
             Image tower = images.GetChild(i + 6).GetComponent<Image>();
-            //child.sprite = inv[i].sprite;
             tower.gameObject.SetActive(true);
             tower.sprite = inv[i].sprite;
         }
@@ -104,7 +100,6 @@ public class InventoryManager : MonoBehaviour
 
     public bool Merge(int index1, int index2)
     {
-        Debug.Log("Merging BRO : " + index1 + " + " + index2);
         try
         {
             TowerObjects newTower = MergeManager.Instance.Merge(inv[index1], inv[index2]);
@@ -121,7 +116,6 @@ public class InventoryManager : MonoBehaviour
 
     public bool Swap(int index1, int index2)
     {
-        Debug.Log("Want to swap " + index1 + " with " + index2);
         if (inv[index1] != null && inv[index2] != null)
             return (Merge(index1, index2));
         else

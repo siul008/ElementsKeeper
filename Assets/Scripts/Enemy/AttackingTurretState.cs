@@ -26,7 +26,7 @@ public class AttackingTurretState : EnemyState
         {
             if (enemy.attackTime >= enemy.attackInterval)
             {
-                //enemy.player.GetComponent<TowerScript>().TakeDamage(enemy.damage);
+                enemy.turret.GetComponent<TowerScript>().TakeDamage(enemy.damage);
                 enemy.attackTime = 0;
             }
         }

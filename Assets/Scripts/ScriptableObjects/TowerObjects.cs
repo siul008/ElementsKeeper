@@ -15,6 +15,10 @@ public class TowerObjects : ScriptableObject
     public Types type;
     public int level;
     public int damage;
+    public float maxHealth;
+    public GameObject projectile;
+    public float attackRate;
     public Sprite sprite;
-    public GameObject spawnableObject;
+    public GameObject spawnableTower;
+    public Color bulletColor;
 }

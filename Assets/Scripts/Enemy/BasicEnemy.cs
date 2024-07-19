@@ -5,7 +5,6 @@ using UnityEngine;
 public class BasicEnemy : Enemy
 {
     bool isPlayerContact = false;
-    bool isTurretContact = false;
 
     public override void AttackTurret()
     {
@@ -34,7 +33,7 @@ public class BasicEnemy : Enemy
 
     public override bool IsTurretNearby()
     {
-        return isTurretContact;
+        return turret != null;
     }
 
     public override void MoveTowardsGoal()
@@ -45,7 +44,7 @@ public class BasicEnemy : Enemy
     public override void TakeDamage(float damage)
     {
         currentHealth -= damage;
-        if (currentHealth < 0)
+        if (currentHealth <= 0)
         {
             Die();
         }
@@ -60,7 +59,7 @@ public class BasicEnemy : Enemy
         }
         if (collision.gameObject.CompareTag("Tower"))
         {
-            isTurretContact = true;
+            turret = collision.gameObject;
         }
     }
 
@@ -72,7 +71,7 @@ public class BasicEnemy : Enemy
         }
         if (collision.gameObject.CompareTag("Tower"))
         {
-            isTurretContact = false;
+            turret = null;
         }
     }
 }

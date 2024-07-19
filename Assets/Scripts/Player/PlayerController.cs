@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Collectables"))
         {
-            //GainFrag
+            InventoryManager.Instance.AddFragment();
             Destroy(collision.gameObject);
         }
     }

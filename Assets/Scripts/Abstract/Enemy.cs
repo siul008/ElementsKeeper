@@ -19,6 +19,7 @@ public abstract class Enemy : MonoBehaviour
     public float attackInterval;
     [SerializeField]
     protected GameObject voidFragment;
+    public GameObject turret;
     public float attackTime;
     Slider healthBar;
     public GameObject player;
@@ -27,6 +28,7 @@ public abstract class Enemy : MonoBehaviour
 
     private void Awake()
     {
+        turret = null;
         currentHealth = maxHealth;
         healthBar = GetComponentInChildren<Slider>();
         healthBar.maxValue = maxHealth;
