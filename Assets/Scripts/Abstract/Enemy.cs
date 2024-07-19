@@ -14,7 +14,11 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField]
     public float damage;
     [SerializeField]
+    public float dropChance;
+    [SerializeField]
     public float attackInterval;
+    [SerializeField]
+    protected GameObject voidFragment;
     public float attackTime;
     Slider healthBar;
     public GameObject player;

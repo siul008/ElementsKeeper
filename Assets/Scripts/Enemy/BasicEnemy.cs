@@ -14,6 +14,11 @@ public class BasicEnemy : Enemy
 
     public override void Die()
     {
+        int drop = Random.Range(0, 101);
+        if (drop <= dropChance)
+        {
+            Instantiate(voidFragment, transform.position, Quaternion.identity);
+        }
         Destroy(gameObject);
     }
 

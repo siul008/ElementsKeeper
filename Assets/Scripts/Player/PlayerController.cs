@@ -57,4 +57,13 @@ public class PlayerController : MonoBehaviour
         }
         UpdateHealthBar();
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Collectables"))
+        {
+            //GainFrag
+            Destroy(collision.gameObject);
+        }
+    }
 }
