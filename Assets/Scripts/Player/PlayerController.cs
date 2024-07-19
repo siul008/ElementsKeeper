@@ -2,24 +2,59 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     Vector2 moveDir;
     Rigidbody2D rb;
     public float moveSpeed = 5f;
-    // Start is called before the first frame update
+    SpriteRenderer sRenderer;
+    public float maxHealth;
+    public float currentHealth;
+    Slider healthBar;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        sRenderer = GetComponent<SpriteRenderer>();
+        healthBar = GetComponentInChildren<Slider>();
+        currentHealth = maxHealth;
+        UpdateHealthBar();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
         moveDir.x = Input.GetAxisRaw("Horizontal");
         moveDir.y = Input.GetAxisRaw("Vertical");
+        if (moveDir.x < 0)
+        {
+            sRenderer.flipY = true;
+        }
+        else if (moveDir.x > 0)
+        {
+            sRenderer.flipY = false;
+        }
         rb.MovePosition(rb.position + moveDir * moveSpeed * Time.deltaTime);
+    }
+
+    public void Die()
+    {
+        Destroy(gameObject);
+    }
+    public void UpdateHealthBar()
+    {
+        healthBar.maxValue = maxHealth;
+        healthBar.value = currentHealth;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
+        if (currentHealth < 0)
+        {
+            Die();
+        }
+        UpdateHealthBar();
     }
 }

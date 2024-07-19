@@ -6,16 +6,23 @@ public class AttackingTurretState : EnemyState
 {
     public override void Enter(Enemy enemy)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Entering Turret Attack State for " + enemy.gameObject.name);
     }
 
     public override void Execute(Enemy enemy)
     {
-        throw new System.NotImplementedException();
+       if (!enemy.IsTurretNearby())
+       {
+            enemy.ChangeState(new WalkingState());
+       }
+       else
+       {
+           Debug.Log("Attacking Tower");
+       }
     }
 
     public override void Exit(Enemy enemy)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Entering Turret Attack State for " + enemy.gameObject.name);
     }
 }

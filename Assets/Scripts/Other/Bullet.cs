@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] float bulletSpeed = 5f;
+    bool hitEnemy = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,8 +22,12 @@ public class Bullet : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-            other.GetComponent<Enemy>().TakeDamage(34);
-            Destroy(gameObject);
+            if (!hitEnemy)
+            {
+                hitEnemy = true;
+                other.GetComponent<Enemy>().TakeDamage(10);
+                Destroy(gameObject);
+            }
         }
     }
 }

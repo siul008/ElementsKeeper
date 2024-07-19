@@ -11,7 +11,7 @@ public class WalkingState : EnemyState
 
     public override void Execute(Enemy enemy)
     {
-        if (enemy.IsPlayerNearby())
+        if (enemy.IsPlayerNearby() && enemy.IsFacingPlayer())
         {
             enemy.ChangeState(new AttackingPlayerState());
         }

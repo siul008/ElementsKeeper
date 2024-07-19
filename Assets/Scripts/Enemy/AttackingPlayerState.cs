@@ -6,16 +6,23 @@ public class AttackingPlayerState : EnemyState
 {
     public override void Enter(Enemy enemy)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Entering Attacking State for " + enemy.gameObject.name);
     }
 
     public override void Execute(Enemy enemy)
     {
-        throw new System.NotImplementedException();
+        if (!enemy.IsPlayerNearby() || !enemy.IsFacingPlayer())
+        {
+            enemy.ChangeState(new WalkingState());
+        }
+        else
+        {
+            Debug.Log("Attacking player");
+        }
     }
 
     public override void Exit(Enemy enemy)
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Leaving Walking State for " + enemy.gameObject.name);
     }
 }
