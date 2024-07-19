@@ -11,8 +11,12 @@ public abstract class Enemy : MonoBehaviour
     protected float currentHealth;
     [SerializeField]
     protected float moveSpeed;
+    [SerializeField]
+    public float damage;
+    [SerializeField]
+    public float attackInterval;
     Slider healthBar;
-    protected Transform player;
+    public GameObject player;
 
     protected EnemyState currentState;
 
@@ -22,7 +26,7 @@ public abstract class Enemy : MonoBehaviour
         healthBar = GetComponentInChildren<Slider>();
         healthBar.maxValue = maxHealth;
         healthBar.value = currentHealth;
-        player = GameObject.Find("Player").transform;
+        player = GameObject.Find("Player");
     }
 
     private void Start()
@@ -63,6 +67,5 @@ public abstract class Enemy : MonoBehaviour
     public abstract bool IsFacingPlayer();
     public abstract bool IsTurretNearby();
     public abstract void MoveTowardsGoal();
-    public abstract void AttackPlayer();
     public abstract void AttackTurret();
 }
