@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlaceDefenceScript : MonoBehaviour
 {
-    [SerializeField] GameObject tower;
+    //[SerializeField] GameObject tower;
     // array of towers
     Dictionary<Vector2Int, GameObject> dictionary = new Dictionary<Vector2Int, GameObject>();
     // Start is called before the first frame update
@@ -28,7 +28,9 @@ public class PlaceDefenceScript : MonoBehaviour
             }
             else
             {
-                dictionary[pos] = Instantiate(tower, new Vector3(pos.x, pos.y), Quaternion.identity);
+                TowerObjects tower = InventoryManager.Instance.GetSelectedTower();
+                if (tower != null)
+                    dictionary[pos] = Instantiate(tower.spawnableObject, new Vector3(pos.x, pos.y), Quaternion.identity);
             }
             // if(towers[posx][posy])
             // {

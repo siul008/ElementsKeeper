@@ -1,6 +1,10 @@
+using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using Random = UnityEngine.Random;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -10,6 +14,7 @@ public class InventoryManager : MonoBehaviour
     public TowerObjects test;
     private int currentFragments = 0;
     [SerializeField] private int minFragments = 10;
+    [SerializeField] private TextMeshProUGUI fragmentText;
     int selected = 0;
     public static InventoryManager Instance { get; private set; }
 
@@ -41,6 +46,10 @@ public class InventoryManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Y))
+            AddFragment();
+        if (Input.GetKeyDown(KeyCode.U))
+            GenerateTower();
         if (Input.GetKeyDown(KeyCode.T))
         {
             selected++;
@@ -59,6 +68,7 @@ public class InventoryManager : MonoBehaviour
 
     void UpdateInventoryUI()
     {
+        fragmentText.text = GetFragments().ToString();
         int i;
         for (i = 0; i < 6; i++)
         {
@@ -95,13 +105,18 @@ public class InventoryManager : MonoBehaviour
     public bool Merge(int index1, int index2)
     {
         Debug.Log("Merging BRO : " + index1 + " + " + index2);
-        TowerObjects newTower = MergeManager.Instance.Merge(inv[index1], inv[index2]);
-        if (newTower == null)
+        try
+        {
+            TowerObjects newTower = MergeManager.Instance.Merge(inv[index1], inv[index2]);
+            inv[index1] = null;
+            inv[index2] = newTower;
+            UpdateInventoryUI();
+            return true;
+        }
+        catch (Exception e)
+        {
             return false;
-        inv[index1] = null;
-        inv[index2] = newTower;
-        UpdateInventoryUI();
-        return true;
+        }
     }
 
     public bool Swap(int index1, int index2)
@@ -114,21 +129,38 @@ public class InventoryManager : MonoBehaviour
         return true;
     }
 
-    public void AddFragment()
+    public void GenerateTower()
     {
-        currentFragments++;
         if (currentFragments < minFragments)
             return;
-        int rand = Random.Range(0, voidFragments.Length);
+        
         for (int i = 0; i < 6; i++)
         {
             if (inv[i] == null)
             {
+                int rand = Random.Range(0, voidFragments.Length);
+                Debug.Log(voidFragments[rand]);
                 inv[i] = voidFragments[rand];
-                UpdateInventoryUI();
                 currentFragments -= minFragments;
+                UpdateInventoryUI();
                 return;
             }
         }
+    }
+
+    public TowerObjects GetSelectedTower()
+    {
+        return inv[selected];
+    }
+    
+    public void AddFragment()
+    {
+        currentFragments++;
+        fragmentText.text = GetFragments().ToString();
+    }
+
+    public int GetFragments()
+    {
+        return currentFragments;
     }
 }
