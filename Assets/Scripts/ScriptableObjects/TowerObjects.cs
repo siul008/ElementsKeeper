@@ -9,7 +9,13 @@ public class TowerObjects : ScriptableObject
         Earth,
         Fire,
         Water,
-        Wind
+        Wind,
+        Mud,
+        Steam,
+        FlameThrower,
+        Geyser,
+        Boulder,
+        Lava
     }
 
     public Types type;

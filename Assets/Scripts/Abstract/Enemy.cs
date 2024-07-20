@@ -10,6 +10,7 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField]
     protected float currentHealth;
     [SerializeField]
+    protected float baseMoveSpeed;
     protected float moveSpeed;
     [SerializeField]
     public float damage;
@@ -35,6 +36,7 @@ public abstract class Enemy : MonoBehaviour
         healthBar.value = currentHealth;
         player = GameObject.Find("Player");
         attackTime = attackInterval;
+        moveSpeed = baseMoveSpeed;
     }
 
     private void Start()
@@ -60,6 +62,20 @@ public abstract class Enemy : MonoBehaviour
     {
         healthBar.maxValue = maxHealth;
         healthBar.value = currentHealth;
+    }
+
+    public void SlowEnemy(float slowFactor)
+    {
+        if (moveSpeed < baseMoveSpeed)
+        {
+            return;
+        }
+        moveSpeed *= slowFactor;
+    }
+
+    public void UnslowEnemy()
+    {
+        moveSpeed = baseMoveSpeed;
     }
 
     public void ChangeState(EnemyState newState)
