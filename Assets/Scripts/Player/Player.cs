@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     bool isNearTransmute;
     GameObject enemyTarget;
     GameObject movedTower = null;
-    TextMeshProUGUI state;
+    public TextMeshProUGUI state;
     public float attackTime;
     public float attackInterval;
 
