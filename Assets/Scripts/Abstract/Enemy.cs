@@ -36,6 +36,7 @@ public abstract class Enemy : MonoBehaviour
         healthBar.value = currentHealth;
         player = GameObject.Find("Player");
         attackTime = attackInterval;
+        moveSpeed = baseMoveSpeed;
     }
 
     private void Start()

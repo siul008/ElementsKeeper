@@ -16,7 +16,7 @@ MonoBehaviour:
   level: 1
   damage: 22
   maxHealth: 10
-  projectile: {fileID: 6614357707742448129, guid: 2a027ae271ce365459789d6584cdfabd, type: 3}
+  projectile: {fileID: 6614357707742448129, guid: 7f588817d114bd54cb30408a80e74d22, type: 3}
   attackRate: 1
   sprite: {fileID: 21300000, guid: aafa0498969ab3343990b1b4ced7bd0b, type: 3}
   spawnableTower: {fileID: 467800633276046567, guid: 27f1895d25f53b340a2ed4b6340a0193, type: 3}

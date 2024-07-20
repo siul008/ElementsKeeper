@@ -17,7 +17,7 @@ MonoBehaviour:
   damage: 5
   maxHealth: 10
   projectile: {fileID: 5304424959764980979, guid: 5a5e7e1c93b31d34786c86abd030237f, type: 3}
-  attackRate: 6
+  attackRate: 4
   sprite: {fileID: 21300000, guid: fb672d6794886b04d9b1d9106ba8f742, type: 3}
   spawnableTower: {fileID: 8691191293425952779, guid: 318eea55a93a15246bb20ad9edd10219, type: 3}
   bulletColor: {r: 1, g: 1, b: 1, a: 0}
