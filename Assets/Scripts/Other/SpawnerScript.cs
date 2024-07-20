@@ -28,8 +28,9 @@ public class SpawnerScript : MonoBehaviour
 
     void Spawn()
     {
-        int spawnPoint = Random.Range(0, spawns.Length);
-        Instantiate(enemy, spawns[spawnPoint].position, Quaternion.identity);
+        Vector3 spawnPoint = spawns[Random.Range(0, spawns.Length)].position;
+        spawnPoint.y = Random.Range(spawnPoint.y - 0.10f, spawnPoint.y + 0.11f);
+        Instantiate(enemy, spawnPoint, Quaternion.identity);
     }
 
 }
