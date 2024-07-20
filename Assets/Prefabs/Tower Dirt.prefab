@@ -125,7 +125,7 @@ MonoBehaviour:
   currentTower: {fileID: 11400000, guid: f28b0d1a25ebb1f4da6898f220dbc981, type: 2}
   mask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
 --- !u!1 &3174108528405173798
 GameObject:
   m_ObjectHideFlags: 0
