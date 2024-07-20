@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     Vector2 moveDir;
     Rigidbody2D rb;
     public float moveSpeed = 5f;
+    public float healthRegen;
     SpriteRenderer sRenderer;
     public float maxHealth;
     public float currentHealth;
@@ -36,8 +37,21 @@ public class PlayerController : MonoBehaviour
             sRenderer.flipY = false;
         }
         rb.MovePosition(rb.position + moveDir * moveSpeed * Time.deltaTime);
+        RegenHealth();
     }
 
+    void RegenHealth()
+    {
+        if (currentHealth + healthRegen > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        else
+        {
+            currentHealth += healthRegen;
+        }
+        UpdateHealthBar();
+    }
     public void Die()
     {
         Destroy(gameObject);
