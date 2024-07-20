@@ -13,7 +13,10 @@ public class Player : MonoBehaviour
     public float maxHealth;
     public float currentHealth;
     public float damage;
+    [SerializeField]
     Slider healthBar;
+    [SerializeField]
+    Slider progBar;
     bool isMoving;
     bool isCarrying;
     bool isTowerSelected;
@@ -23,6 +26,7 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI state;
     public float attackTime;
     public float attackInterval;
+    public float craftingTime;
 
     private PlayerState currentState = null;
 
@@ -31,10 +35,11 @@ public class Player : MonoBehaviour
         enemyTarget = null;
         rb = GetComponent<Rigidbody2D>();
         sRenderer = GetComponent<SpriteRenderer>();
-        healthBar = GetComponentInChildren<Slider>();
         currentHealth = maxHealth;
+        ChangeState(new PlayerIdleState());
         UpdateHealthBar();
         ChangeStateText("None");
+        HideProgBar();
     }
 
     void Update()
@@ -122,7 +127,7 @@ public class Player : MonoBehaviour
         {
             FaceRight();
         }
-        else
+        else if (moveDir.y == 0)
         {
             isMoving = false;
             return ;
@@ -162,6 +167,21 @@ public class Player : MonoBehaviour
         UpdateHealthBar();
     }
 
+    public void HideProgBar()
+    {
+        progBar.gameObject.SetActive(false);
+    }
+    public void ShowProgBar()
+    {
+        progBar.gameObject.SetActive(true);
+    }
+
+    public void UpdateProgBar(float _value, float _maxValue)
+    {
+        progBar.value = _value;
+        progBar.maxValue = _maxValue;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Collided");
@@ -196,6 +216,18 @@ public class Player : MonoBehaviour
         {
             InventoryManager.Instance.AddFragment();
             Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.CompareTag("Craft"))
+        {
+            isNearTransmute = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Craft"))
+        {
+            isNearTransmute = false;
         }
     }
 }

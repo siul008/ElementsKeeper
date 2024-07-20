@@ -181,4 +181,9 @@ public class InventoryManager : MonoBehaviour
     {
         return currentFragments;
     }
+
+    public int GetFragmentsCost()
+    {
+        return minFragments;
+    }
 }

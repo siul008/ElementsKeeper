@@ -13,7 +13,6 @@ public class PlayerAttackState : PlayerState
     {
         GameObject enemy = player.GetEnemy();
 
-
         if (enemy == null || player.PlayerInMovement())
         {
             player.ChangeState(new PlayerIdleState());
@@ -29,13 +28,16 @@ public class PlayerAttackState : PlayerState
         }
 
         //Direct player based on enemy position
-        if (PlayerFacingEnemy(player.transform, enemy.transform))
+        if (enemy != null)
         {
-            player.FaceRight();
-        }
-        else
-        {
-            player.FaceLeft();
+            if (PlayerFacingEnemy(player.transform, enemy.transform))
+            {
+                player.FaceRight();
+            }
+            else
+            {
+                player.FaceLeft();
+            }
         }
     }
 
