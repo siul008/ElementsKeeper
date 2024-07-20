@@ -38,13 +38,13 @@ public class DragItems : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        group.alpha = 1f;
         group.blocksRaycasts = true;
         EndMove();
     }
 
     private void EndMove()
     {
+        group.alpha = 1f;
         if (reset)
             GetComponent<RectTransform>().anchoredPosition = startPos;
         else
@@ -77,6 +77,7 @@ public class DragItems : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
         {
             if (InventoryManager.Instance.Merge(eventData.pointerDrag.GetComponent<DragItems>().GetMoveFrom(), moveFrom))
             {
+                eventData.pointerDrag.GetComponent<DragItems>().EndMove();
                 eventData.pointerDrag.SetActive(false);
             }
         }
