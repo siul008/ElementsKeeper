@@ -184,20 +184,16 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Collided");
         if (enemyTarget == null && collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Enemy collided");
             enemyTarget = collision.gameObject;
         }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
-        Debug.Log("Collided");
         if (enemyTarget == null && collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Enemy collided");
             enemyTarget = collision.gameObject;
         }
     }

@@ -32,11 +32,11 @@ public class PlayerAttackState : PlayerState
         {
             if (PlayerFacingEnemy(player.transform, enemy.transform))
             {
-                player.FaceRight();
+                player.FaceLeft();
             }
             else
             {
-                player.FaceLeft();
+                player.FaceRight();
             }
         }
     }
