@@ -26,7 +26,7 @@ public class AttackingPlayerState : EnemyState
         {
             if (enemy.attackTime >= enemy.attackInterval)
             {
-                enemy.player.GetComponent<PlayerController>().TakeDamage(enemy.damage);
+                enemy.player.GetComponent<Player>().TakeDamage(enemy.damage);
                 enemy.attackTime = 0;
             }
         }

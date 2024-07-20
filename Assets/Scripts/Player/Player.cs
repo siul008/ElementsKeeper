@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour
+public class Player : MonoBehaviour
 {
-    Vector2 moveDir;
     Rigidbody2D rb;
     public float moveSpeed = 5f;
     public float healthRegen;
@@ -14,9 +12,17 @@ public class PlayerController : MonoBehaviour
     public float maxHealth;
     public float currentHealth;
     Slider healthBar;
+    bool isMoving;
+    bool isCarrying;
+    bool isTowerSelected;
+    bool isEnemyInContact;
+    GameObject enemyTarget;
+
+    private PlayerState currentState;
 
     void Start()
     {
+        enemyTarget = null;
         rb = GetComponent<Rigidbody2D>();
         sRenderer = GetComponent<SpriteRenderer>();
         healthBar = GetComponentInChildren<Slider>();
@@ -26,6 +32,19 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        HandleMovement();
+        RegenHealth();
+
+        if (enemyTarget && !isMoving)
+        {
+            enemyTarget.GetComponent<Enemy>().TakeDamage(1);
+        }
+    }
+
+    void HandleMovement()
+    {
+        Vector2 moveDir;
+
         moveDir.x = Input.GetAxisRaw("Horizontal");
         moveDir.y = Input.GetAxisRaw("Vertical");
         if (moveDir.x < 0)
@@ -36,10 +55,14 @@ public class PlayerController : MonoBehaviour
         {
             sRenderer.flipY = false;
         }
+        else
+        {
+            isMoving = false;
+            return ;
+        }
+        isMoving = true;
         rb.MovePosition(rb.position + moveDir * moveSpeed * Time.deltaTime);
-        RegenHealth();
     }
-
     void RegenHealth()
     {
         if (currentHealth + healthRegen > maxHealth)
@@ -70,6 +93,34 @@ public class PlayerController : MonoBehaviour
             Die();
         }
         UpdateHealthBar();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Collided");
+        if (enemyTarget == null && collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Enemy collided");
+            enemyTarget = collision.gameObject;
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        Debug.Log("Collided");
+        if (enemyTarget == null && collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Enemy collided");
+            enemyTarget = collision.gameObject;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (enemyTarget != null && collision.gameObject == enemyTarget)
+        {
+            enemyTarget = null;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
