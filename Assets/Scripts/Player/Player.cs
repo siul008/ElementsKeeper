@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -11,14 +12,19 @@ public class Player : MonoBehaviour
     SpriteRenderer sRenderer;
     public float maxHealth;
     public float currentHealth;
+    public float damage;
     Slider healthBar;
     bool isMoving;
     bool isCarrying;
     bool isTowerSelected;
-    bool isEnemyInContact;
+    bool isNearTransmute;
     GameObject enemyTarget;
+    GameObject movedTower = null;
+    TextMeshProUGUI state;
+    public float attackTime;
+    public float attackInterval;
 
-    private PlayerState currentState;
+    private PlayerState currentState = null;
 
     void Start()
     {
@@ -28,18 +34,79 @@ public class Player : MonoBehaviour
         healthBar = GetComponentInChildren<Slider>();
         currentHealth = maxHealth;
         UpdateHealthBar();
+        ChangeStateText("None");
     }
 
     void Update()
     {
         HandleMovement();
         RegenHealth();
-
-        if (enemyTarget && !isMoving)
+        currentState.Execute(this);
+        if (attackTime < attackInterval)
         {
-            enemyTarget.GetComponent<Enemy>().TakeDamage(1);
+            attackTime += Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.Space) && IsTowerPlacementValid())
+        {
+            if (movedTower)
+            {
+                //place moved turret
+            }
+            else //if a tower is selected
+            {
+                //place selected turret
+            }
         }
     }
+    public void FaceLeft()
+    {
+        sRenderer.flipY = true;
+    }
+    public void FaceRight()
+    {
+        sRenderer.flipY = false;
+    }
+
+    public bool IsTowerPlacementValid()
+    {
+        return (false);
+    }
+    public void ChangeStateText(string text)
+    {
+        state.text = text;
+    }
+    public void ChangeState(PlayerState newState)
+    {
+        if (currentState != null)
+        {
+            currentState.Exit(this);
+        }
+        currentState = newState;
+        if (currentState != null)
+        {
+            currentState.Enter(this);
+        }
+    }
+
+    public bool PlayerCarryTower()
+    {
+        return (isCarrying);
+    }
+    public bool PlayerInMovement()
+    {
+        return (isMoving);
+    }
+
+    public bool PlayerNearTransmute()
+    {
+        return (isNearTransmute);
+    }
+
+    public GameObject GetEnemy()
+    {
+        return (enemyTarget);
+    }
+
 
     void HandleMovement()
     {
@@ -49,11 +116,11 @@ public class Player : MonoBehaviour
         moveDir.y = Input.GetAxisRaw("Vertical");
         if (moveDir.x < 0)
         {
-            sRenderer.flipY = true;
+            FaceLeft();
         }
         else if (moveDir.x > 0)
         {
-            sRenderer.flipY = false;
+            FaceRight();
         }
         else
         {
