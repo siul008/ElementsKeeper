@@ -1082,6 +1082,9 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   damage: 5
+  healthBar: {fileID: 5023885969029576031}
+  progBar: {fileID: 4743310426669933597}
   state: {fileID: 7530120905675027992}
   attackTime: 0.3
   attackInterval: 0.3
+  craftingTime: 5
