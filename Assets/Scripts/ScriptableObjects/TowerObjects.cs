@@ -6,10 +6,10 @@ public class TowerObjects : ScriptableObject
 {
     public enum Types
     {
-        Dirt,
+        Earth,
         Fire,
         Water,
-        Light
+        Wind
     }
 
     public Types type;
