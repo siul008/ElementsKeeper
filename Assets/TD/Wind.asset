@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 3
   level: 1
-  damage: 1
+  damage: 7
   maxHealth: 10
   projectile: {fileID: 6614357707742448129, guid: 2a027ae271ce365459789d6584cdfabd, type: 3}
-  attackRate: 0.2
+  attackRate: 0.5
   sprite: {fileID: 21300000, guid: 6deadfa5a9f095a498a9d88488a69792, type: 3}
   spawnableTower: {fileID: 2159776121869454321, guid: f2e5585e1373e09428767b79849ed813, type: 3}
-  bulletColor: {r: 0.754717, g: 0.7306037, b: 0, a: 1}
+  bulletColor: {r: 0.3793884, g: 1, b: 0.16037738, a: 1}

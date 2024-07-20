@@ -362,6 +362,7 @@ GameObject:
   - component: {fileID: 182671458168880377}
   - component: {fileID: 8319024577178402945}
   - component: {fileID: 2733389222818096820}
+  - component: {fileID: 1125835066039773550}
   m_Layer: 3
   m_Name: Tower Water
   m_TagString: Tower
@@ -470,6 +471,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e22355aad2db64c47b41cc92b216b8bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTower: {fileID: 11400000, guid: 84ca8aa57fbb0bc4baf43bdc5d80448a, type: 2}
+--- !u!114 &1125835066039773550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7602512536985985366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab54d93cdd644504094af7700af27492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentTower: {fileID: 11400000, guid: 84ca8aa57fbb0bc4baf43bdc5d80448a, type: 2}

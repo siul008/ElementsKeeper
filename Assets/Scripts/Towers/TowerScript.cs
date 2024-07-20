@@ -6,41 +6,20 @@ using UnityEngine.UI;
 public class TowerScript : MonoBehaviour
 {
     [SerializeField] private TowerObjects currentTower;
-    float attackTime;
     float health;
     Slider energyBar;
-    public LayerMask mask;
-    
+
 
     private void Start()
     {
         energyBar = GetComponentInChildren<Slider>();
-        attackTime = 0;
         health = currentTower.maxHealth;
         UpdateEnergyBar();
-    }
-
-    bool IsEnemyInFront()
-    {
-        return (Physics2D.Raycast(transform.position, Vector2.right, 100f, mask));
     }
 
     public TowerObjects GetScriptable()
     {
         return currentTower;
-    }
-
-    void Update()
-    {
-        if (attackTime >= currentTower.attackRate && IsEnemyInFront())
-        {
-            Fire();
-            attackTime = 0;
-        }
-        else
-        {
-            attackTime += Time.deltaTime;
-        }
     }
 
     public void TakeDamage(float damage)
@@ -51,13 +30,6 @@ public class TowerScript : MonoBehaviour
             Destroy(gameObject);
         }
         UpdateEnergyBar();
-    }
-
-    void Fire()
-    {
-       GameObject bullet = Instantiate(currentTower.projectile, transform.position, transform.rotation);
-       bullet.GetComponent<Bullet>().SetDamage(currentTower.damage);
-       bullet.GetComponent<SpriteRenderer>().color = currentTower.bulletColor;
     }
 
     void UpdateEnergyBar()

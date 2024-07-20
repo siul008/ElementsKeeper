@@ -8,6 +8,7 @@ TagManager:
   - Tower
   - Collectables
   - PlayerCollider
+  - Craft
   layers:
   - Default
   - TransparentFX
