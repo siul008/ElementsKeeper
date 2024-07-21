@@ -8,14 +8,11 @@ public class Geyser : MonoBehaviour
     [SerializeField] float stunDuration;
     [SerializeField] float bumpDistance;
     [SerializeField] float bumpSpeed;
-    [SerializeField] float activatedTime;
-    [SerializeField] float lifetime;
     [SerializeField] float damage;
 
     List<GameObject> enemiesHit = new List<GameObject>();
     void Start()
     {
-        Destroy(gameObject, lifetime);
         boxCollider = GetComponent<BoxCollider2D>();
     }
 
@@ -24,10 +21,14 @@ public class Geyser : MonoBehaviour
         boxCollider.enabled = true;
     }
 
-    public IEnumerator DesactivateHitbox()
+    public void DesactivateHitbox()
     {
-        yield return new WaitForSeconds(activatedTime);
         boxCollider.enabled = false;
+    }
+
+    public void DestroyObject()
+    {
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

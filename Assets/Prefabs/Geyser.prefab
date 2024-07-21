@@ -168,6 +168,4 @@ MonoBehaviour:
   stunDuration: 1
   bumpDistance: 1
   bumpSpeed: 1.9
-  activatedTime: 0.3
-  lifetime: 2
   damage: 2
