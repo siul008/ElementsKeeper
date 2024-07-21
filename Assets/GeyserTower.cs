@@ -33,7 +33,7 @@ public class GeyserTower : MonoBehaviour
 
     void Fire(Vector3 position)
     {
-        Instantiate(currentTower.projectile, new Vector3(position.x, Mathf.Floor(position.y) + 0.1f, position.z), Quaternion.identity);
+        Instantiate(currentTower.projectile, new Vector3(position.x, transform.position.y + 0.1f, transform.position.z), Quaternion.identity);
     }
 }
 

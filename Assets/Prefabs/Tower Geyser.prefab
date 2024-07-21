@@ -362,7 +362,7 @@ GameObject:
   - component: {fileID: 7939110251151620379}
   - component: {fileID: 9149456218282925419}
   - component: {fileID: 7459055288389831561}
-  - component: {fileID: 7861740925823589946}
+  - component: {fileID: 7224013809239818297}
   m_Layer: 3
   m_Name: Tower Geyser
   m_TagString: Tower
@@ -474,8 +474,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e22355aad2db64c47b41cc92b216b8bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTower: {fileID: 11400000, guid: 8cfab4cfc94611846aa27cfd7b553bd2, type: 2}
---- !u!114 &7861740925823589946
+  currentTower: {fileID: 11400000, guid: e1fb981397ef6474c8eeb21d07845cd3, type: 2}
+--- !u!114 &7224013809239818297
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -484,10 +484,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 4585192798052520163}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d81aeff72625c7498e171b39bc220d4, type: 3}
+  m_Script: {fileID: 11500000, guid: 8c378fd4c1b43884282338edf59eefd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTower: {fileID: 11400000, guid: 8cfab4cfc94611846aa27cfd7b553bd2, type: 2}
+  currentTower: {fileID: 11400000, guid: e1fb981397ef6474c8eeb21d07845cd3, type: 2}
+  mask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &5036333501929740979
 GameObject:
   m_ObjectHideFlags: 0
