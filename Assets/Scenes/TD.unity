@@ -5208,6 +5208,9 @@ MonoBehaviour:
   - obj1: {fileID: 11400000, guid: f28b0d1a25ebb1f4da6898f220dbc981, type: 2}
     obj2: {fileID: 11400000, guid: fd76bf3286bdc2547a47c93fe750a2ea, type: 2}
     result: {fileID: 11400000, guid: f468ea13c84376c4092b8fc7f9301490, type: 2}
+  - obj1: {fileID: 11400000, guid: 84ca8aa57fbb0bc4baf43bdc5d80448a, type: 2}
+    obj2: {fileID: 11400000, guid: f28b0d1a25ebb1f4da6898f220dbc981, type: 2}
+    result: {fileID: 11400000, guid: e1fb981397ef6474c8eeb21d07845cd3, type: 2}
 --- !u!4 &1680737293
 Transform:
   m_ObjectHideFlags: 0
