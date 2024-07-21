@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b51a81a48c1c8f741bb2ef6a63d44758, type: 3}
   m_Name: Boulder
   m_EditorClassIdentifier: 
-  type: 0
-  level: 0
-  damage: 0
-  maxHealth: 0
-  projectile: {fileID: 0}
-  attackRate: 0
+  type: 8
+  level: 1
+  damage: 50
+  maxHealth: 10
+  projectile: {fileID: 6250178768338717159, guid: afd6ac49ae34e1e4e894ae43a38cf285, type: 3}
+  attackRate: 8
   sprite: {fileID: 0}
-  spawnableTower: {fileID: 0}
+  spawnableTower: {fileID: 5873776623597427166, guid: 8a4924cb7ceb243449e7b381f19ba939, type: 3}
   bulletColor: {r: 0, g: 0, b: 0, a: 0}

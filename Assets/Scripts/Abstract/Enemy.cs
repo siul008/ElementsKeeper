@@ -55,6 +55,11 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
+    public void SetStunState(float dur, float dist, float speed)
+    {
+        ChangeState(new StunnedState(dur, dist, speed));
+    }
+
     public abstract void TakeDamage(float damage);
     public abstract void Die();
 
