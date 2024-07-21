@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 976166811777314489}
   - component: {fileID: 9105161307165497314}
   m_Layer: 8
-  m_Name: Enemy
+  m_Name: enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -301,7 +301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
-  baseMoveSpeed: 1
+  baseMoveSpeed: 0.5
   damage: 5
   dropChance: 100
   attackInterval: 0.5
@@ -515,7 +515,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &6153069619602698887
 MonoBehaviour:
