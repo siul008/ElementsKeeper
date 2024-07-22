@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
     public float attackInterval;
     public float craftingTime;
 
+    Vector2 moveDir;
+
     private PlayerState currentState = null;
 
     void Start()
@@ -61,6 +63,14 @@ public class Player : MonoBehaviour
             {
                 //place selected turret
             }
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (isMoving)
+        {
+            rb.MovePosition(rb.position + moveDir * moveSpeed * Time.fixedDeltaTime);
         }
     }
     public void FaceLeft()
@@ -115,8 +125,6 @@ public class Player : MonoBehaviour
 
     void HandleMovement()
     {
-        Vector2 moveDir;
-
         moveDir.x = Input.GetAxisRaw("Horizontal");
         moveDir.y = Input.GetAxisRaw("Vertical");
         if (moveDir.x < 0)
@@ -133,7 +141,6 @@ public class Player : MonoBehaviour
             return ;
         }
         isMoving = true;
-        rb.MovePosition(rb.position + moveDir * moveSpeed * Time.deltaTime);
     }
     void RegenHealth()
     {
