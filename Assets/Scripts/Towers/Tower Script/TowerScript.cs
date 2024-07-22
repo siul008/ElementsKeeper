@@ -8,6 +8,8 @@ public class TowerScript : MonoBehaviour
     [SerializeField] private TowerObjects currentTower;
     float health;
     Slider energyBar;
+    [SerializeField]
+    SpriteRenderer sRenderer;
 
 
     private void Start()
@@ -36,5 +38,19 @@ public class TowerScript : MonoBehaviour
     {
         energyBar.maxValue = currentTower.maxHealth;
         energyBar.value = health;
+    }
+
+    public void SetGhostTower()
+    {
+        Color color = sRenderer.color;
+        color.a = 0.4f;
+        sRenderer.color = color;
+        sRenderer.sortingOrder = 6;
+        TowerBehaviour behaviour = GetComponent<TowerBehaviour>();
+        if (behaviour != null)
+        {
+            behaviour.enabled = false;
+        }
+        this.enabled = false;
     }
 }

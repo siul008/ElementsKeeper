@@ -2,24 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlameThrower : MonoBehaviour
+public class FlameThrower : TowerBehaviour
 {
-
-    [SerializeField]
-    private TowerObjects currentTower;
-    public LayerMask mask;
     [SerializeField]
     float range;
     [SerializeField]
     GameObject flamethrow;
 
-    bool IsEnemyInFront()
+    public override bool IsEnemyInFront()
     {
         return (Physics2D.Raycast(transform.position, Vector2.right, range, mask));
     }
 
-
-    void Update()
+    public override void Update()
     {
         if (IsEnemyInFront())
         {
@@ -36,7 +31,7 @@ public class FlameThrower : MonoBehaviour
         flamethrow.SetActive(false);
     }
 
-    void Fire()
+    public override void Fire()
     {
         flamethrow.SetActive(true);
     }

@@ -11,12 +11,19 @@ public class PlaceDefenceScript : MonoBehaviour
     public GameObject cursor;
     public GameObject cursorGO;
 
+    public GameObject carriedTower;
+    public GameObject carriedTowerGO;
+
 
  
     // Start is called before the first frame update
     void Start()
     {
         cursorGO = Instantiate(cursor, transform.position, Quaternion.identity);
+        carriedTowerGO = Instantiate(carriedTower, transform.position, Quaternion.identity);
+        carriedTowerGO.GetComponent<TowerScript>().SetGhostTower();
+
+        Debug.Log(cursorGO == null);
     }
 
     // Update is called once per frame
@@ -25,6 +32,7 @@ public class PlaceDefenceScript : MonoBehaviour
 
         Vector2Int pos = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
         cursorGO.transform.position = new Vector3(pos.x, pos.y, 1);
+        carriedTowerGO.transform.position = new Vector3(pos.x, pos.y, 1);
         // if space is pressed spawn a tower
         if (Input.GetKeyDown(KeyCode.Space))
         {

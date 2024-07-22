@@ -44,7 +44,9 @@ public class InventoryManager : MonoBehaviour
     
     void Start()
     {
+        inv[0] = test;
         UpdateInventoryUI();
+
     }
     void Update()
     {            

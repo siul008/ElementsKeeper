@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab54d93cdd644504094af7700af27492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTower: {fileID: 11400000, guid: 89de638f6c91e7344943cfe5d9ca3ff9, type: 2}
+  tower: {fileID: 11400000, guid: 89de638f6c91e7344943cfe5d9ca3ff9, type: 2}
   mask:
     serializedVersion: 2
     m_Bits: 256

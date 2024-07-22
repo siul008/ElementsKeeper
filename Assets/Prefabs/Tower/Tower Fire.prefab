@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTower: {fileID: 11400000, guid: 95f938416b631a54ab5c5a6db4314d8d, type: 2}
+  sRenderer: {fileID: 3232151661653270330}
 --- !u!114 &-2356643518870041176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab54d93cdd644504094af7700af27492, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentTower: {fileID: 11400000, guid: 95f938416b631a54ab5c5a6db4314d8d, type: 2}
+  tower: {fileID: 11400000, guid: 95f938416b631a54ab5c5a6db4314d8d, type: 2}
   mask:
     serializedVersion: 2
     m_Bits: 256
