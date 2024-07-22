@@ -7,20 +7,28 @@ public class PlaceDefenceScript : MonoBehaviour
     //[SerializeField] GameObject tower;
     // array of towers
     Dictionary<Vector2Int, GameObject> dictionary = new Dictionary<Vector2Int, GameObject>();
+
+    public GameObject cursor;
+    public GameObject cursorGO;
+
+
+ 
     // Start is called before the first frame update
     void Start()
     {
-        
+        cursorGO = Instantiate(cursor, transform.position, Quaternion.identity);
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        Vector2Int pos = new Vector2Int(Mathf.RoundToInt(transform.position.x), Mathf.RoundToInt(transform.position.y));
+        cursorGO.transform.position = new Vector3(pos.x, pos.y, 1);
         // if space is pressed spawn a tower
         if (Input.GetKeyDown(KeyCode.Space))
         {
             // Vector2Int pos(transform.position.x, transform.position.y);
-            Vector2Int pos = new Vector2Int((int)(transform.position.x + 0.5), (int)(transform.position.y + 0.5));
             if (dictionary.ContainsKey(pos) &&
                 InventoryManager.Instance.GetTower(dictionary[pos].GetComponent<TowerScript>().GetScriptable()))
             {
