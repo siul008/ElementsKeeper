@@ -21,7 +21,7 @@ public class PlaceDefenceScript : MonoBehaviour
     {
         cursorGO = Instantiate(cursor, transform.position, Quaternion.identity);
         carriedTowerGO = Instantiate(carriedTower, transform.position, Quaternion.identity);
-        carriedTowerGO.GetComponent<TowerScript>().SetGhostTower();
+        carriedTowerGO.GetComponent<TowerScript>().SetGhostTower(Color.white);
 
         Debug.Log(cursorGO == null);
     }

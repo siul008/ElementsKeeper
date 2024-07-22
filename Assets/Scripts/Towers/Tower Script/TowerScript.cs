@@ -46,10 +46,12 @@ public class TowerScript : MonoBehaviour
     }
 
     public void SetTransparentTower(Color color)
-    { 
-        color.a = 0.4f;
-        sRenderer.color = color;
-        sRenderer.sortingOrder = 6;
+    {
+        if (sRenderer)
+        {
+            sRenderer.color = color;
+            sRenderer.sortingOrder = 6;
+        }
     }
 
     public void SetOpaqueTower()
@@ -60,9 +62,9 @@ public class TowerScript : MonoBehaviour
         sRenderer.sortingOrder = 0;
     }
 
-    public void SetGhostTower()
+    public void SetGhostTower(Color color)
     {
-        SetTransparentTower(Color.white);
+        SetTransparentTower(color);
         TowerBehaviour behaviour = GetComponent<TowerBehaviour>();
         if (behaviour != null)
         {

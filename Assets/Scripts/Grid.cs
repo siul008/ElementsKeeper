@@ -41,6 +41,11 @@ public class Grid : MonoBehaviour
         }
     }
 
+    public Vector3 GetTileSize()
+    {
+        return new Vector3(tileLength, tileHeight, 1);
+    }
+
     Vector2 RoundVector(Vector2 pos)
     {
         float x = Mathf.Round(pos.x / tileLength) * tileLength;

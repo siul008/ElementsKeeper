@@ -168,6 +168,14 @@ public class InventoryManager : MonoBehaviour
         }
         return t;
     }
+    
+    public GameObject GetSelectedTowerGO()
+    {
+        TowerObjects t = inv[selected];
+        if (t)
+            return t.spawnableTower;
+        return null;
+    }
 
     public bool GetTower(TowerObjects tower)
     {
