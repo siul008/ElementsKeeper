@@ -24,12 +24,17 @@ public class TowerScript : MonoBehaviour
         return currentTower;
     }
 
+    public void Die()
+    {
+        transform.parent.GetComponent<Tile>().RemoveTower();
+    }
+    
     public void TakeDamage(float damage)
     {
         health -= damage;
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
         UpdateEnergyBar();
     }
@@ -40,12 +45,25 @@ public class TowerScript : MonoBehaviour
         energyBar.value = health;
     }
 
-    public void SetGhostTower()
+    public void SetTransparentTower()
     {
         Color color = sRenderer.color;
         color.a = 0.4f;
         sRenderer.color = color;
         sRenderer.sortingOrder = 6;
+    }
+
+    public void SetOpaqueTower()
+    {
+        Color color = sRenderer.color;
+        color.a = 1;
+        sRenderer.color = color;
+        sRenderer.sortingOrder = 0;
+    }
+
+    public void SetGhostTower()
+    {
+        SetTransparentTower();
         TowerBehaviour behaviour = GetComponent<TowerBehaviour>();
         if (behaviour != null)
         {

@@ -45,6 +45,8 @@ public class InventoryManager : MonoBehaviour
     void Start()
     {
         inv[0] = test;
+        inv[1] = test;
+        inv[2] = test;
         UpdateInventoryUI();
 
     }
@@ -159,7 +161,7 @@ public class InventoryManager : MonoBehaviour
     public TowerObjects GetSelectedTower()
     {
         TowerObjects t = inv[selected];
-        if (t != null)
+        if (t)
         {
             inv[selected] = null;
             UpdateInventoryUI();

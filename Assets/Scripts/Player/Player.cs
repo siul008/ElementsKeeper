@@ -27,6 +27,8 @@ public class Player : MonoBehaviour
     public float attackTime;
     public float attackInterval;
     public float craftingTime;
+    private GameObject lastTower = null;
+    private GameObject currentTower = null;
 
     Vector2 moveDir;
 
@@ -48,6 +50,7 @@ public class Player : MonoBehaviour
     {
         HandleMovement();
         RegenHealth();
+        CheckTowerOnTile();
         currentState.Execute(this);
         if (attackTime < attackInterval)
         {
@@ -62,6 +65,12 @@ public class Player : MonoBehaviour
             else //if a tower is selected
             {
                 //place selected turret
+                TowerObjects tower = InventoryManager.Instance.GetSelectedTower();
+                if (tower)
+                {
+                    Debug.Log(Grid.Instance.GetTileAtPos(transform.position));
+                    Grid.Instance.GetTileAtPos(transform.position).SetTower(tower);
+                }
             }
         }
     }
@@ -84,7 +93,7 @@ public class Player : MonoBehaviour
 
     public bool IsTowerPlacementValid()
     {
-        return (false);
+        return (true);
     }
     public void ChangeStateText(string text)
     {
@@ -122,7 +131,40 @@ public class Player : MonoBehaviour
         return (enemyTarget);
     }
 
+    void CheckTowerOnTile()
+    {
+        Tile t = Grid.Instance.GetTileAtPos(transform.position);
+        if (!t)
+        {
+            if (lastTower)
+            {
+                lastTower.GetComponent<TowerScript>().SetOpaqueTower();
+                currentTower = null;
+                lastTower = null;
+            }  
+            return;
+        }
 
+        lastTower = currentTower;
+        currentTower = t.GetTower();
+        if (currentTower)
+        {
+            currentTower.GetComponent<TowerScript>().SetTransparentTower();
+        }
+        if (lastTower && lastTower != currentTower)
+                        lastTower.GetComponent<TowerScript>().SetOpaqueTower();
+        
+        /*if ((!currentTower || currentTower != lastTower) && lastTower)
+        { 
+            lastTower.GetComponent<TowerScript>().SetOpaqueTower();
+        }
+        else if (currentTower)
+        {
+            currentTower.GetComponent<TowerScript>().SetTransparentTower();
+            lastTower = currentTower;
+        }*/
+    }
+    
     void HandleMovement()
     {
         moveDir.x = Input.GetAxisRaw("Horizontal");
