@@ -38,13 +38,14 @@ public class DragItems : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        group.blocksRaycasts = true;
+        
         EndMove();
     }
 
     private void EndMove()
     {
         group.alpha = 1f;
+        group.blocksRaycasts = true;
         if (reset)
             GetComponent<RectTransform>().anchoredPosition = startPos;
         else
@@ -56,13 +57,14 @@ public class DragItems : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     {
         if (moveFrom == moveTo)
             return;
+        Debug.Log("set end move");
         reset = false;
         endPos = pos;
+        //Debug.Log(transform.parent.GetChild(6 + moveTo).GetComponent<RectTransform>().anchoredPosition + "should move to :" + startPos);
+        InventoryManager.Instance.images[moveTo].GetComponent<RectTransform>().anchoredPosition = startPos;
+        //Debug.Log(transform.parent.GetChild(6 + moveTo).GetComponent<RectTransform>().anchoredPosition);
+        InventoryManager.Instance.images[moveTo].GetComponent<DragItems>().moveFrom = moveFrom;
         InventoryManager.Instance.Swap(moveFrom, moveTo);
-        Debug.Log(transform.parent.GetChild(6 + moveTo).GetComponent<RectTransform>().anchoredPosition + "should move to :" + startPos);
-        transform.parent.GetChild(6 + moveTo).GetComponent<RectTransform>().anchoredPosition = startPos;
-        Debug.Log(transform.parent.GetChild(6 + moveTo).GetComponent<RectTransform>().anchoredPosition);
-        transform.parent.GetChild(6 + moveTo).GetComponent<DragItems>().moveFrom = moveFrom;
         moveFrom = moveTo;
     }
 

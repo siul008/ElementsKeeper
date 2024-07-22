@@ -10,8 +10,9 @@ using Random = UnityEngine.Random;
 public class InventoryManager : MonoBehaviour
 {
     public List<TowerObjects> inv = new List<TowerObjects>();
+    public List<Transform> images = new List<Transform>();
     [SerializeField] TowerObjects[] voidFragments = new TowerObjects[4];
-    [SerializeField] private Transform images;
+    [SerializeField] private Transform imagesParent;
     public TowerObjects test;
     private int currentFragments = 0;
     [SerializeField] private int minFragments = 10;
@@ -35,6 +36,10 @@ public class InventoryManager : MonoBehaviour
         {
             inv.Add(null);
         }
+        for (int i = 0; i < 6; i++)
+        {
+            images.Add(imagesParent.GetChild(6 + i));
+        }
     }
     
     void Start()
@@ -42,7 +47,8 @@ public class InventoryManager : MonoBehaviour
         UpdateInventoryUI();
     }
     void Update()
-    {
+    {            
+        UpdateInventoryUI();
         if(Input.GetKeyDown(KeyCode.Y))
             AddFragment();
         if (Input.GetKeyDown(KeyCode.U))
@@ -69,17 +75,17 @@ public class InventoryManager : MonoBehaviour
         int i;
         for (i = 0; i < 6; i++)
         {
-            Image child = images.GetChild(i).GetComponent<Image>();
+            Image child = imagesParent.GetChild(i).GetComponent<Image>();
             if (i == selected)
                 child.color = new Color(child.color.r, child.color.g, child.color.b, 0.9f);
             else
                 child.color = new Color(child.color.r, child.color.g, child.color.b, 0.2f);
             if (inv[i] == null)
             {
-                images.GetChild(i + 6).gameObject.SetActive(false);
+                images[i].gameObject.SetActive(false);
                 continue;
             }
-            Image tower = images.GetChild(i + 6).GetComponent<Image>();
+            Image tower = images[i].GetComponent<Image>();
             tower.gameObject.SetActive(true);
             tower.sprite = inv[i].sprite;
         }
@@ -105,6 +111,7 @@ public class InventoryManager : MonoBehaviour
             TowerObjects newTower = MergeManager.Instance.Merge(inv[index1], inv[index2]);
             if (newTower == null)
                 return false;
+            Debug.Log("set " + index1 + "to null and " + index2 + " to " + newTower);
             inv[index1] = null;
             inv[index2] = newTower;
             UpdateInventoryUI();
@@ -123,6 +130,7 @@ public class InventoryManager : MonoBehaviour
         else
         {
             (inv[index1], inv[index2]) = (inv[index2], inv[index1]);
+            (images[index1], images[index2]) = (images[index2], images[index1]);
         }
         return true;
     }
