@@ -18,6 +18,8 @@ public class BasicEnemy : Enemy
         {
             Instantiate(voidFragment, transform.position, Quaternion.identity);
         }
+
+        Instantiate(particles, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 

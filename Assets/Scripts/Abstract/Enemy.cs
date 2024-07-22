@@ -18,6 +18,7 @@ public abstract class Enemy : MonoBehaviour
     public float dropChance;
     [SerializeField]
     public float attackInterval;
+    [SerializeField] protected GameObject particles;
     [SerializeField]
     protected GameObject voidFragment;
     public GameObject turret;
