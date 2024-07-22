@@ -30,6 +30,12 @@ public class Player : MonoBehaviour
     private GameObject lastTower = null;
     private GameObject currentTower = null;
 
+    [SerializeField]
+    GameObject cursorPrefab;
+    GameObject cursor;
+
+    GameObject carriedTower = null;
+
     Vector2 moveDir;
 
     private PlayerState currentState = null;
@@ -44,6 +50,7 @@ public class Player : MonoBehaviour
         UpdateHealthBar();
         ChangeStateText("None");
         HideProgBar();
+        cursor = Instantiate(cursorPrefab, transform.position, Quaternion.identity);
     }
 
     void Update()
@@ -56,20 +63,31 @@ public class Player : MonoBehaviour
         {
             attackTime += Time.deltaTime;
         }
-        if (Input.GetKey(KeyCode.Space) && IsTowerPlacementValid())
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (movedTower)
+            Tile t = Grid.Instance.GetTileAtPos(transform.position);
+
+            if (currentTower && carriedTower == null)
             {
-                //place moved turret
+                carriedTower = currentTower;
+                currentTower.SetActive(false);
+                t.RemoveTower(false);    
             }
-            else //if a tower is selected
+            else if (t && !t.GetTower())
             {
-                //place selected turret
-                TowerObjects tower = InventoryManager.Instance.GetSelectedTower();
-                if (tower)
+                if (carriedTower != null)
                 {
-                    Debug.Log(Grid.Instance.GetTileAtPos(transform.position));
-                    Grid.Instance.GetTileAtPos(transform.position).SetTower(tower);
+                    t.SetTower(carriedTower);
+                    carriedTower.SetActive(true);
+                    carriedTower = null;
+                }
+                else
+                {
+                    TowerObjects tower = InventoryManager.Instance.GetSelectedTower();
+                    if (tower)
+                    {
+                        t.SetTower(tower);
+                    }
                 }
             }
         }
@@ -136,6 +154,7 @@ public class Player : MonoBehaviour
         Tile t = Grid.Instance.GetTileAtPos(transform.position);
         if (!t)
         {
+            cursor.SetActive(false);
             if (lastTower)
             {
                 lastTower.GetComponent<TowerScript>().SetOpaqueTower();
@@ -144,25 +163,17 @@ public class Player : MonoBehaviour
             }  
             return;
         }
+        cursor.SetActive(true);
+        cursor.transform.position = t.transform.position;
 
         lastTower = currentTower;
         currentTower = t.GetTower();
         if (currentTower)
         {
-            currentTower.GetComponent<TowerScript>().SetTransparentTower();
+            currentTower.GetComponent<TowerScript>().SetTransparentTower(Color.white);
         }
         if (lastTower && lastTower != currentTower)
                         lastTower.GetComponent<TowerScript>().SetOpaqueTower();
-        
-        /*if ((!currentTower || currentTower != lastTower) && lastTower)
-        { 
-            lastTower.GetComponent<TowerScript>().SetOpaqueTower();
-        }
-        else if (currentTower)
-        {
-            currentTower.GetComponent<TowerScript>().SetTransparentTower();
-            lastTower = currentTower;
-        }*/
     }
     
     void HandleMovement()

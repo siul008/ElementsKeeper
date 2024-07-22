@@ -26,7 +26,7 @@ public class TowerScript : MonoBehaviour
 
     public void Die()
     {
-        transform.parent.GetComponent<Tile>().RemoveTower();
+        transform.parent.GetComponent<Tile>().RemoveTower(true);
     }
     
     public void TakeDamage(float damage)
@@ -45,9 +45,8 @@ public class TowerScript : MonoBehaviour
         energyBar.value = health;
     }
 
-    public void SetTransparentTower()
-    {
-        Color color = sRenderer.color;
+    public void SetTransparentTower(Color color)
+    { 
         color.a = 0.4f;
         sRenderer.color = color;
         sRenderer.sortingOrder = 6;
@@ -63,7 +62,7 @@ public class TowerScript : MonoBehaviour
 
     public void SetGhostTower()
     {
-        SetTransparentTower();
+        SetTransparentTower(Color.white);
         TowerBehaviour behaviour = GetComponent<TowerBehaviour>();
         if (behaviour != null)
         {

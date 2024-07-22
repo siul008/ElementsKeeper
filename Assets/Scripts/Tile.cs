@@ -14,13 +14,25 @@ public class Tile : MonoBehaviour
         }
     }
 
-    public void RemoveTower()
+    public void SetTower(GameObject t)
     {
-        if (tower)
+        if (!tower)
+        {
+            tower = t;
+            tower.transform.parent = this.transform;
+            tower.transform.position = this.transform.position;
+        }
+    }
+
+    public void RemoveTower(bool destroy)
+    {
+        if (tower && destroy)
+        {
             Destroy(tower);
+        }
         tower = null;
     }
-    
+
     public GameObject GetTower()
     {
         return tower;
