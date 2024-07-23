@@ -14,8 +14,6 @@ public class SpawnerScript : MonoBehaviour
 
     [SerializeField]
     List<Wave> waves = new List<Wave>();
-
-    [SerializeField] private List<SpawnableEnemy> enemies = new List<SpawnableEnemy>();
     private int totalPercent = 0;
 
     void Start()
@@ -27,16 +25,6 @@ public class SpawnerScript : MonoBehaviour
         {
             Debug.Log(waves[index].lanes[i]);
             Grid.Instance.HighlightLane(waves[index].lanes[i]);
-        }
-        
-        foreach (var e in enemies)
-        {
-            totalPercent += e.percent;
-        }
-
-        if (totalPercent <= 0)
-        {
-            Debug.LogError("total percent is lower than 0%");
         }
     }
 
@@ -69,6 +57,17 @@ public class SpawnerScript : MonoBehaviour
             Debug.Log(waves[index + 1].lanes[i]);
             Grid.Instance.HighlightLane(waves[index + 1].lanes[i]);
         }
+
+        totalPercent = 0;
+        foreach (var e in waves[index].enemies)
+        {
+            totalPercent += e.percent;
+        }
+
+        if (totalPercent <= 0)
+        {
+            Debug.LogError("total percent is lower than 0%");
+        }
         //Wait the end of wave delay
         yield return new WaitForSeconds(endOfWaveDelay);
         index++;
@@ -96,7 +95,7 @@ public class SpawnerScript : MonoBehaviour
         int i = Random.Range(0, totalPercent);
         Debug.Log("total percent = " + totalPercent);
         Debug.Log("random nb = " + i);
-        foreach (var e in enemies)
+        foreach (var e in waves[index].enemies)
         {
             currentPercent += e.percent;
             if (i < currentPercent)
@@ -112,6 +111,7 @@ public class SpawnerScript : MonoBehaviour
         public float spawnRate;
         public int endReward;
         public int[] lanes;
+        public List<SpawnableEnemy> enemies;
     }
     
     [System.Serializable]

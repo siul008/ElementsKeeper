@@ -235,6 +235,7 @@ public class Player : MonoBehaviour
                     {
                         if (currentShadow.GetComponent<TowerScript>().GetScriptable() != selected.GetComponent<TowerScript>().GetScriptable())
                         {
+                            Destroy(currentShadow);
                             SpawnShadow(selected, t.transform.position, towerColor);
                         }
                         else if (currentShadow.transform.position != t.transform.position)
