@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2281702969477100992}
   - component: {fileID: 5839450685825877601}
   - component: {fileID: 1565062979337307326}
+  - component: {fileID: 8860072665834923481}
   - component: {fileID: 5206074677396018494}
-  - component: {fileID: -2356643518870041176}
   - component: {fileID: 3829867268230168409}
   m_Layer: 3
   m_Name: Tower Fire
@@ -113,21 +113,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &5206074677396018494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 467800633276046567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e22355aad2db64c47b41cc92b216b8bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentTower: {fileID: 11400000, guid: 95f938416b631a54ab5c5a6db4314d8d, type: 2}
-  sRenderer: {fileID: 3232151661653270330}
---- !u!114 &-2356643518870041176
+--- !u!114 &8860072665834923481
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,6 +129,20 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &5206074677396018494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467800633276046567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22355aad2db64c47b41cc92b216b8bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentTower: {fileID: 11400000, guid: 95f938416b631a54ab5c5a6db4314d8d, type: 2}
+  sRenderer: {fileID: 3232151661653270330}
 --- !u!212 &3829867268230168409
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -681,7 +681,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d37145785a2ed434ebc62a0ce88e07b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

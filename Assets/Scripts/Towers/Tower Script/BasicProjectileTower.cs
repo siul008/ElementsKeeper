@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class BasicProjectileTower : TowerBehaviour
 {
+    
     public override void Fire()
     {
         Instantiate(tower.projectile, transform.position, transform.rotation);
