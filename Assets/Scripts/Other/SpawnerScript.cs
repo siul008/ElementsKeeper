@@ -36,6 +36,12 @@ public class SpawnerScript : MonoBehaviour
 
     IEnumerator NextWave()
     {
+        //Get one element for each endReward of the wave
+        for (int i = 0; i < waves[index].endReward; i++)
+        {
+            InventoryManager.Instance.GenerateTower();
+        }
+        //Wait the end of wave delay
         yield return new WaitForSeconds(endOfWaveDelay);
         index++;
         remaining = waves[index].enemiesNbr;
@@ -45,7 +51,8 @@ public class SpawnerScript : MonoBehaviour
     void Spawn()
     {
         spawnTime = 0;
-        Vector3 spawnPoint = spawns[Random.Range(0, spawns.Length)].position;
+        int lane = waves[index].lanes[Random.Range(0, waves[index].lanes.Length)];
+        Vector3 spawnPoint = spawns[lane].position;
         spawnPoint.y = Random.Range(spawnPoint.y - 0.10f, spawnPoint.y + 0.11f);
         Instantiate(enemy, spawnPoint, Quaternion.identity);
         remaining--;
@@ -60,5 +67,7 @@ public class SpawnerScript : MonoBehaviour
     {
         public int enemiesNbr;
         public float spawnRate;
+        public int endReward;
+        public int[] lanes;
     }
 }

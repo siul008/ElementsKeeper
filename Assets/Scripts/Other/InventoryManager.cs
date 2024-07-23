@@ -15,7 +15,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private Transform imagesParent;
     public TowerObjects test;
     private int currentFragments = 0;
-    [SerializeField] private int minFragments = 10;
+    [SerializeField] private int minFragments = 1;
     [SerializeField] private TextMeshProUGUI fragmentText;
     int selected = 0;
     public static InventoryManager Instance { get; private set; }
@@ -139,11 +139,15 @@ public class InventoryManager : MonoBehaviour
         return true;
     }
 
-    public void GenerateTower()
+    public void PurchaseTower()
     {
         if (currentFragments < minFragments)
             return;
-        
+        GenerateTower();
+        currentFragments -= minFragments;
+    }
+    public void GenerateTower()
+    {
         for (int i = 0; i < 6; i++)
         {
             if (inv[i] == null)
@@ -151,7 +155,6 @@ public class InventoryManager : MonoBehaviour
                 int rand = Random.Range(0, voidFragments.Length);
                 Debug.Log(voidFragments[rand]);
                 inv[i] = voidFragments[rand];
-                currentFragments -= minFragments;
                 UpdateInventoryUI();
                 return;
             }

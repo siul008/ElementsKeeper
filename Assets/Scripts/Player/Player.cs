@@ -77,6 +77,10 @@ public class Player : MonoBehaviour
         {
             TryPlaceTower();
         }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            Grid.Instance.HighlightLane(0);
+        }
     }
 
     void TryPlaceTower()

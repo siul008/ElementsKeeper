@@ -23,7 +23,7 @@ public class PlayerTransmuteState : PlayerState
         {
             if (currentProg > player.craftingTime)
             {
-                InventoryManager.Instance.GenerateTower();
+                InventoryManager.Instance.PurchaseTower();
                 currentProg = 0;
             }
             else

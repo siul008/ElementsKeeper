@@ -13,6 +13,8 @@ public class Grid : MonoBehaviour
     [SerializeField] private float tileHeight;
     [SerializeField] private GameObject tilePrefab;
 
+    [SerializeField] private Color laneHighlightColor;
+
     private Dictionary<Vector2, Tile> tiles = new Dictionary<Vector2, Tile>();
     
     public static Grid Instance { get; private set; }
@@ -59,10 +61,23 @@ public class Grid : MonoBehaviour
         return tiles.GetValueOrDefault(pos);
     }
     
-
-    // Update is called once per frame
-    void Update()
+    public void HighlightLane(int lane)
     {
-        
+        for (int w = 0; w < length; w++)
+        {
+            Vector2 pos = new Vector2(w, lane);
+            SpriteRenderer tileRender = tiles.GetValueOrDefault(pos).GetComponent<SpriteRenderer>();
+            tileRender.color = laneHighlightColor;
+        }
+    }
+
+    public void DisableHightLight(int lane)
+    {
+        for (int w = 0; w < length; w++)
+        {
+            Vector2 pos = new Vector2(w, lane);
+            SpriteRenderer tileRender = tiles.GetValueOrDefault(pos).GetComponent<SpriteRenderer>();
+            tileRender.color = Color.white;
+        }
     }
 }
