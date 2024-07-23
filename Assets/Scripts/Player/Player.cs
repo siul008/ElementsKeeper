@@ -39,6 +39,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform cursorHolder;
     [SerializeField] private Color carryingColor;
     [SerializeField] private Color towerColor;
+    [SerializeField] private Color hoverColor;
     GameObject cursor;
 
     GameObject carriedTower = null;
@@ -74,31 +75,36 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Tile t = Grid.Instance.GetTileAtPos(transform.position);
+            TryPlaceTower();
+        }
+    }
 
-            if (currentTower && carriedTower == null)
+    void TryPlaceTower()
+    {
+        Tile t = Grid.Instance.GetTileAtPos(transform.position);
+
+        if (currentTower && carriedTower == null)
+        {
+            isCarrying = true;
+            carriedTower = currentTower;
+            currentTower.SetActive(false);
+            t.RemoveTower(false);
+        }
+        else if (t && !t.GetTower())
+        {
+            if (carriedTower != null)
             {
-                isCarrying = true;
-                carriedTower = currentTower;
-                currentTower.SetActive(false);
-                t.RemoveTower(false);    
+                t.SetTower(carriedTower);
+                carriedTower.SetActive(true);
+                isCarrying = false;
+                carriedTower = null;
             }
-            else if (t && !t.GetTower())
+            else
             {
-                if (carriedTower != null)
+                TowerObjects tower = InventoryManager.Instance.GetSelectedTower();
+                if (tower)
                 {
-                    t.SetTower(carriedTower);
-                    carriedTower.SetActive(true);
-                    isCarrying = false;
-                    carriedTower = null;
-                }
-                else
-                {
-                    TowerObjects tower = InventoryManager.Instance.GetSelectedTower();
-                    if (tower)
-                    {
-                        t.SetTower(tower);
-                    }
+                    t.SetTower(tower);
                 }
             }
         }
@@ -181,32 +187,28 @@ public class Player : MonoBehaviour
         currentTower = t.GetTower();
         if (currentTower)
         {
-            currentTower.GetComponent<TowerScript>().SetTransparentTower(Color.white);
+            currentTower.GetComponent<TowerScript>().SetTransparentTower(hoverColor);
         }
         if (lastTower && lastTower != currentTower)
-                        lastTower.GetComponent<TowerScript>().SetOpaqueTower();
+            lastTower.GetComponent<TowerScript>().SetOpaqueTower();
     }
 
     void ManageShadow()
     {
         GameObject selected = InventoryManager.Instance.GetSelectedTowerGO();
-        // if (lastShadow && lastShadow != currentShadow)
-        //     lastShadow.SetActive(false);
-        Debug.Log("Managing");
         Tile t = Grid.Instance.GetTileAtPos(transform.position);
         if (t && !t.GetTower() && (selected || isCarrying))
         {
+            if (currentShadow)
+                currentShadow.SetActive(true);
             if (isCarrying)
             {
-                Debug.Log("Carrying");
                 if (carriedTower&& !wasCarrying)
                 {
-                    Debug.Log("Was Not Carrying");
-                    //Destroy(lastShadow);
                     Destroy(currentShadow);
                     SpawnShadow(carriedTower, t.transform.position, carryingColor);
                 }
-                else if (wasCarrying && currentShadow.transform.position != t.transform.position)
+                else if (carriedTower && wasCarrying && currentShadow.transform.position != t.transform.position)
                 {
                     currentShadow.transform.position = t.transform.position;
                 }
@@ -216,7 +218,6 @@ public class Player : MonoBehaviour
             {
                 if (wasCarrying)
                 {
-                    //Destroy(lastShadow);
                     Destroy(currentShadow);
                     SpawnShadow(selected, t.transform.position, towerColor);
                 }
@@ -225,15 +226,12 @@ public class Player : MonoBehaviour
                     if (!currentShadow)
                     {
                         SpawnShadow(selected, t.transform.position, towerColor);
-                        Debug.Log("WAS NULL");
-                        //lastShadow = currentShadow;
                     }
                     else
                     {
                         if (currentShadow.GetComponent<TowerScript>().GetScriptable() != selected.GetComponent<TowerScript>().GetScriptable())
                         {
                             SpawnShadow(selected, t.transform.position, towerColor);
-                            Debug.Log("scriptable : " + currentShadow.name + " != " + selected.name);
                         }
                         else if (currentShadow.transform.position != t.transform.position)
                         {
@@ -247,8 +245,10 @@ public class Player : MonoBehaviour
         }
         else if (currentShadow)
         {
-            //Destroy(lastShadow);
-            Destroy(currentShadow);
+            if (isCarrying)
+                currentShadow.SetActive(false);
+            else
+                Destroy(currentShadow);
         }
     }
 

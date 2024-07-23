@@ -56,7 +56,7 @@ public class TowerScript : MonoBehaviour
 
     public void SetOpaqueTower()
     {
-        Color color = sRenderer.color;
+        Color color = Color.white;
         color.a = 1;
         sRenderer.color = color;
         sRenderer.sortingOrder = 0;
