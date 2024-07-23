@@ -474,7 +474,6 @@ GameObject:
   - component: {fileID: 2458424608608053772}
   - component: {fileID: 7378389712525691582}
   - component: {fileID: 5694504148882926206}
-  - component: {fileID: 8189883288880057150}
   - component: {fileID: 83095110193762059}
   - component: {fileID: 2162012678671286470}
   m_Layer: 6
@@ -513,13 +512,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inv: []
+  images: []
   voidFragments:
   - {fileID: 11400000, guid: f28b0d1a25ebb1f4da6898f220dbc981, type: 2}
   - {fileID: 11400000, guid: 95f938416b631a54ab5c5a6db4314d8d, type: 2}
   - {fileID: 11400000, guid: fd76bf3286bdc2547a47c93fe750a2ea, type: 2}
   - {fileID: 11400000, guid: 84ca8aa57fbb0bc4baf43bdc5d80448a, type: 2}
-  images: {fileID: 0}
-  test: {fileID: 11400000, guid: f28b0d1a25ebb1f4da6898f220dbc981, type: 2}
+  imagesParent: {fileID: 0}
+  test: {fileID: 11400000, guid: 95f938416b631a54ab5c5a6db4314d8d, type: 2}
   minFragments: 10
   fragmentText: {fileID: 0}
 --- !u!212 &7378389712525691582
@@ -601,18 +601,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &8189883288880057150
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 3069076482725893911, guid: 632d147b169baa54fad1fae86a3da811, type: 3}
-  m_PrefabInstance: {fileID: 3800606797902582457}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5889182893618319608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d4166f587a54fc44ba28284e25cfe94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5988208058778715315
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,3 +1245,10 @@ MonoBehaviour:
   attackTime: 0.3
   attackInterval: 0.3
   craftingTime: 5
+  currentShadow: {fileID: 0}
+  lastShadow: {fileID: 0}
+  cursorPrefab: {fileID: 4270427637140553966, guid: e8f67d08af0eba34383e1d4124d9516f, type: 3}
+  cursorHolder: {fileID: 0}
+  carryingColor: {r: 0.14271975, g: 0.63570446, b: 0.79622644, a: 0.62352943}
+  towerColor: {r: 1, g: 1, b: 1, a: 0.28235295}
+  hoverColor: {r: 0.14117648, g: 0.63529414, b: 0.79607844, a: 0.40784314}
