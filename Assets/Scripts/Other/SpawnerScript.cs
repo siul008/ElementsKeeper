@@ -53,7 +53,7 @@ public class SpawnerScript : MonoBehaviour
         }
         for (int i = 0; i < waves[index].lanes.Length; i++)
         {
-            Debug.Log(waves[index].lanes[i]);
+            Debug.Log(waves[index + 1].lanes[i]);
             Grid.Instance.HighlightLane(waves[index + 1].lanes[i]);
         }
         //Wait the end of wave delay

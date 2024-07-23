@@ -30,9 +30,6 @@ public class Grid : MonoBehaviour
         { 
             Instance = this; 
         }
-    }
-    void Start()
-    {
         for (float y = 0; y < height; y += tileHeight)
         {
             for (float x = 0; x < length; x += tileLength)
@@ -43,6 +40,7 @@ public class Grid : MonoBehaviour
             }
         }
     }
+
 
     public Vector3 GetTileSize()
     {
@@ -64,10 +62,9 @@ public class Grid : MonoBehaviour
     
     public void HighlightLane(int lane)
     {
-        lane = height - 1 - lane;
         for (int w = 0; w < length; w++)
         {
-            Vector2 pos = new Vector2(w, lane);
+            Vector2 pos = new Vector2(w, height - 1 - lane);
             SpriteRenderer tileRender = tiles.GetValueOrDefault(pos).GetComponent<SpriteRenderer>();
             tileRender.color = laneHighlightColor;
         }
@@ -77,7 +74,7 @@ public class Grid : MonoBehaviour
     {
         for (int w = 0; w < length; w++)
         {
-            Vector2 pos = new Vector2(w, lane);
+            Vector2 pos = new Vector2(w, height - 1 - lane);
             SpriteRenderer tileRender = tiles.GetValueOrDefault(pos).GetComponent<SpriteRenderer>();
             tileRender.color = Color.white;
         }
