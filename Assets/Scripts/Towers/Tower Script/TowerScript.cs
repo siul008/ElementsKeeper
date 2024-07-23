@@ -70,6 +70,6 @@ public class TowerScript : MonoBehaviour
         {
             behaviour.enabled = false;
         }
-        this.enabled = false;
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
     }
 }
