@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Grid : MonoBehaviour
@@ -32,9 +33,9 @@ public class Grid : MonoBehaviour
     }
     void Start()
     {
-        for (float x = 0; x < length; x += tileLength)
+        for (float y = 0; y < height; y += tileHeight)
         {
-            for (float y = 0; y < height; y += tileHeight)
+            for (float x = 0; x < length; x += tileLength)
             {
                 GameObject tile = Instantiate(tilePrefab, new Vector3(x, y, 0), Quaternion.identity, transform);
                 tile.transform.localScale = new Vector3(tileLength, tileHeight, 1);
@@ -63,6 +64,7 @@ public class Grid : MonoBehaviour
     
     public void HighlightLane(int lane)
     {
+        lane = height - 1 - lane;
         for (int w = 0; w < length; w++)
         {
             Vector2 pos = new Vector2(w, lane);
