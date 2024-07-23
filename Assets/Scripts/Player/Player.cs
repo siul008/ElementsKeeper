@@ -203,12 +203,12 @@ public class Player : MonoBehaviour
                 currentShadow.SetActive(true);
             if (isCarrying)
             {
-                if (carriedTower&& !wasCarrying)
+                if ((carriedTower && !wasCarrying) || !currentShadow)
                 {
                     Destroy(currentShadow);
                     SpawnShadow(carriedTower, t.transform.position, carryingColor);
                 }
-                else if (carriedTower && wasCarrying && currentShadow.transform.position != t.transform.position)
+                else if (currentShadow && carriedTower && wasCarrying && currentShadow.transform.position != t.transform.position)
                 {
                     currentShadow.transform.position = t.transform.position;
                 }
@@ -256,8 +256,6 @@ public class Player : MonoBehaviour
     {
         if (g)
         {
-            Debug.Log("Spawn Shadow at " + pos);
-            //lastShadow = currentTower;
             currentShadow = Instantiate(g, pos, Quaternion.identity, cursorHolder);
             currentShadow.GetComponent<TowerScript>().SetGhostTower(color);
             currentShadow.SetActive(true);
