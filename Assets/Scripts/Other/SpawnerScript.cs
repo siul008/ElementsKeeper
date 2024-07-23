@@ -20,6 +20,11 @@ public class SpawnerScript : MonoBehaviour
         index = 0;
         remaining = waves[index].enemiesNbr;
         spawnTime = 0;
+        for (int i = 0; i < waves[index].lanes.Length; i++)
+        {
+            Debug.Log(waves[index].lanes[i]);
+            Grid.Instance.HighlightLane(waves[index].lanes[i]);
+        }
     }
 
     void Update()
@@ -40,6 +45,16 @@ public class SpawnerScript : MonoBehaviour
         for (int i = 0; i < waves[index].endReward; i++)
         {
             InventoryManager.Instance.GenerateTower();
+        }
+        for (int i = 0; i < waves[index].lanes.Length; i++)
+        {
+            Debug.Log(waves[index].lanes[i]);
+            Grid.Instance.DisableHightLight(waves[index].lanes[i]);
+        }
+        for (int i = 0; i < waves[index].lanes.Length; i++)
+        {
+            Debug.Log(waves[index].lanes[i]);
+            Grid.Instance.HighlightLane(waves[index + 1].lanes[i]);
         }
         //Wait the end of wave delay
         yield return new WaitForSeconds(endOfWaveDelay);
