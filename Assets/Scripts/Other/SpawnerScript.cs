@@ -28,16 +28,15 @@ public class SpawnerScript : MonoBehaviour
             Debug.Log(waves[index].lanes[i]);
             Grid.Instance.HighlightLane(waves[index].lanes[i]);
         }
-
+        
         foreach (var e in enemies)
         {
             totalPercent += e.percent;
-            Debug.Log("percent = " + e.percent);
         }
 
         if (totalPercent <= 0)
         {
-            Debug.LogError("total percent bigger than 100% or lower than 0%");
+            Debug.LogError("total percent is lower than 0%");
         }
     }
 
@@ -100,10 +99,10 @@ public class SpawnerScript : MonoBehaviour
         foreach (var e in enemies)
         {
             currentPercent += e.percent;
-            if (i <= currentPercent)
+            if (i < currentPercent)
                 return e.obj;
         }
-        return null;
+        return enemy;
     }
 
     [System.Serializable]
