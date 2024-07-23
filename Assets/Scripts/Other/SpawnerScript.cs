@@ -15,6 +15,9 @@ public class SpawnerScript : MonoBehaviour
     [SerializeField]
     List<Wave> waves = new List<Wave>();
 
+    [SerializeField] private List<SpawnableEnemy> enemies = new List<SpawnableEnemy>();
+    private int totalPercent = 0;
+
     void Start()
     {
         index = 0;
@@ -24,6 +27,17 @@ public class SpawnerScript : MonoBehaviour
         {
             Debug.Log(waves[index].lanes[i]);
             Grid.Instance.HighlightLane(waves[index].lanes[i]);
+        }
+
+        foreach (var e in enemies)
+        {
+            totalPercent += e.percent;
+            Debug.Log("percent = " + e.percent);
+        }
+
+        if (totalPercent <= 0)
+        {
+            Debug.LogError("total percent bigger than 100% or lower than 0%");
         }
     }
 
@@ -69,12 +83,27 @@ public class SpawnerScript : MonoBehaviour
         int lane = waves[index].lanes[Random.Range(0, waves[index].lanes.Length)];
         Vector3 spawnPoint = spawns[lane].position;
         spawnPoint.y = Random.Range(spawnPoint.y - 0.10f, spawnPoint.y + 0.11f);
-        Instantiate(enemy, spawnPoint, Quaternion.identity);
+        Instantiate(ChooseEnemy(), spawnPoint, Quaternion.identity);
         remaining--;
         if (remaining <= 0)
         {
             StartCoroutine(NextWave());
         }
+    }
+
+    GameObject ChooseEnemy()
+    {
+        int currentPercent = 0;
+        int i = Random.Range(0, totalPercent);
+        Debug.Log("total percent = " + totalPercent);
+        Debug.Log("random nb = " + i);
+        foreach (var e in enemies)
+        {
+            currentPercent += e.percent;
+            if (i <= currentPercent)
+                return e.obj;
+        }
+        return null;
     }
 
     [System.Serializable]
@@ -84,5 +113,12 @@ public class SpawnerScript : MonoBehaviour
         public float spawnRate;
         public int endReward;
         public int[] lanes;
+    }
+    
+    [System.Serializable]
+    public class SpawnableEnemy
+    {
+        public int percent;
+        public GameObject obj;
     }
 }
