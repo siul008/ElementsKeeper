@@ -19,6 +19,6 @@ public class PlayerMoveTowerState : PlayerState
 
     public override void Exit(Player player)
     {
-        throw new System.NotImplementedException();
+        
     }
 }
