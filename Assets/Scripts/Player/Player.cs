@@ -47,16 +47,17 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        enemyTarget = null;
         rb = GetComponent<Rigidbody2D>();
         sRenderer = GetComponent<SpriteRenderer>();
+
+        enemyTarget = null;
         currentHealth = maxHealth;
-        ChangeState(new PlayerIdleState());
-        UpdateHealthBar();
-        ChangeStateText("None");
-        HideProgBar();
         cursor = Instantiate(cursorPrefab, transform.position, Quaternion.identity, cursorHolder);
         cursorHolder.localScale = Grid.Instance.GetTileSize();
+
+        ChangeState(new PlayerIdleState());
+        UpdateHealthBar();
+        HideProgBar();
     }
 
     void Update()
@@ -65,6 +66,7 @@ public class Player : MonoBehaviour
         RegenHealth();
         CheckTowerOnTile();
         ManageShadow();
+
         currentState.Execute(this);
         if (attackTime < attackInterval)
         {
