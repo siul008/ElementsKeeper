@@ -447,7 +447,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0115433, y: 1.0115433, z: 1.0115433}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3937981920540066876}
@@ -477,7 +477,67 @@ MonoBehaviour:
   - {fileID: 203213820384947477}
   - {fileID: 6530219337824720444}
   - {fileID: 4452604063890373320}
-  spawnRate: 3
+  endOfWaveDelay: 6
+  remaining: 0
+  waves:
+  - enemiesNbr: 5
+    spawnRate: 2
+    endReward: 1
+    lanes: 01000000
+    enemies:
+    - percent: 1
+      obj: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
+  - enemiesNbr: 15
+    spawnRate: 1.5
+    endReward: 1
+    lanes: 0100000003000000
+    enemies:
+    - percent: 10
+      obj: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
+    - percent: 1
+      obj: {fileID: 4495079335045865582, guid: 7a69115bf7180654ab83b386193ec131, type: 3}
+  - enemiesNbr: 20
+    spawnRate: 2
+    endReward: 1
+    lanes: 010000000200000003000000
+    enemies:
+    - percent: 10
+      obj: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
+    - percent: 1
+      obj: {fileID: 4495079335045865582, guid: bf3755f052ed55c43af86c253042348e, type: 3}
+  - enemiesNbr: 30
+    spawnRate: 2
+    endReward: 1
+    lanes: 0000000001000000020000000300000004000000
+    enemies:
+    - percent: 8
+      obj: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
+    - percent: 2
+      obj: {fileID: 4495079335045865582, guid: 7a69115bf7180654ab83b386193ec131, type: 3}
+    - percent: 1
+      obj: {fileID: 4495079335045865582, guid: bf3755f052ed55c43af86c253042348e, type: 3}
+  - enemiesNbr: 50
+    spawnRate: 2
+    endReward: 1
+    lanes: 0000000001000000020000000300000004000000
+    enemies:
+    - percent: 6
+      obj: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
+    - percent: 2
+      obj: {fileID: 4495079335045865582, guid: 7a69115bf7180654ab83b386193ec131, type: 3}
+    - percent: 1
+      obj: {fileID: 4495079335045865582, guid: bf3755f052ed55c43af86c253042348e, type: 3}
+  - enemiesNbr: 50
+    spawnRate: 1.5
+    endReward: 1
+    lanes: 0000000001000000020000000300000004000000
+    enemies:
+    - percent: 5
+      obj: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
+    - percent: 2
+      obj: {fileID: 4495079335045865582, guid: 7a69115bf7180654ab83b386193ec131, type: 3}
+    - percent: 1
+      obj: {fileID: 4495079335045865582, guid: bf3755f052ed55c43af86c253042348e, type: 3}
 --- !u!1 &9013939563494825617
 GameObject:
   m_ObjectHideFlags: 0
