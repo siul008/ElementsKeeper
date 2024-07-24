@@ -15,7 +15,7 @@ MonoBehaviour:
   type: 8
   level: 1
   damage: 50
-  maxHealth: 10
+  maxHealth: 20
   projectile: {fileID: 6250178768338717159, guid: afd6ac49ae34e1e4e894ae43a38cf285, type: 3}
   attackRate: 8
   sprite: {fileID: 21300000, guid: 13714ee27ddd6c34ea87d399bc2eb6db, type: 3}

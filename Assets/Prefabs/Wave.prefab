@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 5
   damage: 5
-  knockbackForce: 20000
+  knockbackForce: 30000
 --- !u!61 &1907649284930682215
 BoxCollider2D:
   m_ObjectHideFlags: 0

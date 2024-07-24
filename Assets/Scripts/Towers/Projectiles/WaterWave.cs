@@ -26,6 +26,10 @@ public class WaterWave : MonoBehaviour
             enemiesHit.Add(other.gameObject);
             other.GetComponent<Enemy>().TakeDamage(damage);
             other.GetComponent<Rigidbody2D>().AddForce(Vector2.right * knockbackForce, ForceMode2D.Impulse);
+            if (enemiesHit.Count > 3)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
