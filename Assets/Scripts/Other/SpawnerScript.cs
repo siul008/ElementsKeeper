@@ -10,23 +10,46 @@ public class SpawnerScript : MonoBehaviour
     [SerializeField]
     float endOfWaveDelay;
     int index;
-    public int remaining;
+    int enemiesToSpawn;
+    int remaining;
+
+    [SerializeField] int firstElementsStart;
+
 
     [SerializeField]
     List<Wave> waves = new List<Wave>();
     private int totalPercent = 0;
 
+    public static SpawnerScript Instance { get; private set; }
+
+    private void Awake()
+    {
+
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
     void Start()
     {
         index = 0;
-        remaining = waves[index].enemiesNbr;
+        enemiesToSpawn = waves[index].enemiesNbr;
         spawnTime = 0;
         Grid.Instance.HighlightLanes(waves[index].lanes);
+        for (int i = 0; i < firstElementsStart; i++)
+        {
+            InventoryManager.Instance.GenerateFirstTowers();
+        }
     }
 
     void Update()
     {
-        if (spawnTime >= waves[index].spawnRate && remaining > 0)
+        if (spawnTime >= waves[index].spawnRate && enemiesToSpawn > 0)
         {
             Spawn();
         }
@@ -38,12 +61,17 @@ public class SpawnerScript : MonoBehaviour
 
     IEnumerator NextWave()
     {
+        if (index + 1 < waves.Count)
+        {
+            index++;
+        }
+
         //Get one element for each endReward of the wave
         for (int i = 0; i < waves[index].endReward; i++)
         {
             InventoryManager.Instance.GenerateTower();
         }
-        Grid.Instance.HighlightLanes(waves[index + 1].lanes);
+        Grid.Instance.HighlightLanes(waves[index].lanes);
 
         totalPercent = 0;
         foreach (var e in waves[index].enemies)
@@ -55,13 +83,21 @@ public class SpawnerScript : MonoBehaviour
         {
             Debug.LogError("total percent is lower than 0%");
         }
+
         //Wait the end of wave delay
         yield return new WaitForSeconds(endOfWaveDelay);
-        index++;
-        remaining = waves[index].enemiesNbr;
+        enemiesToSpawn = waves[index].enemiesNbr;
         spawnTime = 0;
     }
 
+    public void EnemyDied()
+    {
+        remaining--;
+        if (remaining <= 0 && enemiesToSpawn <= 0)
+        {
+            StartCoroutine(NextWave());
+        }
+    }
     void Spawn()
     {
         spawnTime = 0;
@@ -69,11 +105,8 @@ public class SpawnerScript : MonoBehaviour
         Vector3 spawnPoint = spawns[lane].position;
         spawnPoint.y = Random.Range(spawnPoint.y - 0.10f, spawnPoint.y + 0.11f);
         Instantiate(ChooseEnemy(), spawnPoint, Quaternion.identity);
-        remaining--;
-        if (remaining <= 0)
-        {
-            StartCoroutine(NextWave());
-        }
+        remaining++;
+        enemiesToSpawn--;
     }
 
     GameObject ChooseEnemy()

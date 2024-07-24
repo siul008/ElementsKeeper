@@ -42,14 +42,6 @@ public class InventoryManager : MonoBehaviour
         }
     }
     
-    void Start()
-    {
-        inv[0] = test;
-        inv[1] = test;
-        inv[2] = test;
-        UpdateInventoryUI();
-
-    }
     void Update()
     {            
         UpdateInventoryUI();
@@ -146,6 +138,7 @@ public class InventoryManager : MonoBehaviour
         GenerateTower();
         currentFragments -= minFragments;
     }
+
     public void GenerateTower()
     {
         for (int i = 0; i < 6; i++)
@@ -153,12 +146,47 @@ public class InventoryManager : MonoBehaviour
             if (inv[i] == null)
             {
                 int rand = Random.Range(0, voidFragments.Length);
-                Debug.Log(voidFragments[rand]);
                 inv[i] = voidFragments[rand];
                 UpdateInventoryUI();
                 return;
             }
         }
+    }
+
+    public void GenerateFirstTowers()
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            if (inv[i] == null)
+            {
+                int rand;
+                do
+                {
+                    rand = Random.Range(0, voidFragments.Length);
+                }
+                while (voidFragments[rand].type == TowerObjects.Types.Earth && ContainsOnlyEarth());
+                inv[i] = voidFragments[rand];
+                UpdateInventoryUI();
+                return;
+            }
+        }
+    }
+
+    bool ContainsOnlyEarth()
+    {
+        bool containsEarth = false;
+        for (int i = 0; i < 6; i++)
+        {
+            if (inv[i] != null && inv[i].type == TowerObjects.Types.Earth)
+            {
+                containsEarth = true;
+            }
+            else if (inv[i] != null && inv[i].type != TowerObjects.Types.Earth && containsEarth)
+            {
+                return (false);
+            }
+        }
+        return (containsEarth);
     }
 
     public TowerObjects GetSelectedTower()

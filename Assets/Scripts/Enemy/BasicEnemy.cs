@@ -18,7 +18,7 @@ public class BasicEnemy : Enemy
         {
             Instantiate(voidFragment, transform.position, Quaternion.identity);
         }
-
+        SpawnerScript.Instance.EnemyDied();
         Instantiate(particles, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
