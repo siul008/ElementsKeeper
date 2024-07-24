@@ -17,6 +17,10 @@ public class Grid : MonoBehaviour
     [SerializeField] private Color laneHighlightColor;
 
     private Dictionary<Vector2, Tile> tiles = new Dictionary<Vector2, Tile>();
+
+    List<GameObject> shadowGrass = new List<GameObject>();
+    [SerializeField]
+    GameObject shadowGrassPrefab;
     
     public static Grid Instance { get; private set; }
 
@@ -59,24 +63,37 @@ public class Grid : MonoBehaviour
         pos = RoundVector(pos);
         return tiles.GetValueOrDefault(pos);
     }
-    
-    public void HighlightLane(int lane)
+
+    public void HighlightLanes(int[] lanes)
     {
-        for (int w = 0; w < length; w++)
+        foreach (GameObject shadow in shadowGrass)
         {
-            Vector2 pos = new Vector2(w, height - 1 - lane);
-            SpriteRenderer tileRender = tiles.GetValueOrDefault(pos).GetComponent<SpriteRenderer>();
-            tileRender.color = laneHighlightColor;
+            Destroy(shadow);
+        }
+        shadowGrass.Clear();
+        for (int y = 0; y < lanes.Length; y++)
+        {
+            for (int w = 0; w < length; w++)
+            {
+                Vector2 pos = new Vector2(w, height - 1 - lanes[y]);
+                Tile tile = tiles.GetValueOrDefault(pos);
+                shadowGrass.Add(Instantiate(shadowGrassPrefab, tile.transform));
+            }
         }
     }
 
-    public void DisableHightLight(int lane)
+}
+
+    /*public void DisableHightLight(int lane)
     {
         for (int w = 0; w < length; w++)
         {
             Vector2 pos = new Vector2(w, height - 1 - lane);
-            SpriteRenderer tileRender = tiles.GetValueOrDefault(pos).GetComponent<SpriteRenderer>();
-            tileRender.color = Color.white;
+            foreach (GameObject shadow in shadowGrass)
+            {
+                Destroy(shadow);
+            }
+            shadowGrass.Clear();
         }
     }
-}
+}*/
