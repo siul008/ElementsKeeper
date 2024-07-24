@@ -94,6 +94,7 @@ public class SpawnerScript : MonoBehaviour
     [System.Serializable]
     public class Wave 
     {
+        public string name;
         public int enemiesNbr;
         public float spawnRate;
         public int endReward;
@@ -104,6 +105,7 @@ public class SpawnerScript : MonoBehaviour
     [System.Serializable]
     public class SpawnableEnemy
     {
+        public string name;
         public int percent;
         public GameObject obj;
     }

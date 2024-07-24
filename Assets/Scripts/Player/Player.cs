@@ -6,47 +6,44 @@ using TMPro;
 
 public class Player : MonoBehaviour
 {
-    Rigidbody2D rb;
+    [Header("Slider Bars")]
+    [SerializeField] Slider healthBar;
+    [SerializeField] Slider progBar;
+
+    [Header("Attributes")]
     public float moveSpeed = 5f;
-    public float healthRegen;
-    SpriteRenderer sRenderer;
     public float maxHealth;
     public float currentHealth;
-    public float damage;
-    [SerializeField]
-    Slider healthBar;
-    [SerializeField]
-    Slider progBar;
-    bool isMoving;
-    bool isCarrying;
-    bool isTowerSelected;
-    bool isNearTransmute;
-    GameObject enemyTarget;
-    GameObject movedTower = null;
-    public TextMeshProUGUI state;
+    public float healthRegen;
     public float attackTime;
     public float attackInterval;
     public float craftingTime;
-    private GameObject lastTower = null;
-    private GameObject currentTower = null;
+    public float damage;
 
-    public GameObject currentShadow;
-    public GameObject lastShadow;
-    private bool wasCarrying = false;
-    [SerializeField]
-    GameObject cursorPrefab;
-
+    [Header("Editor Assignation")]
     [SerializeField] private Transform cursorHolder;
     [SerializeField] private Color carryingColor;
     [SerializeField] private Color towerColor;
     [SerializeField] private Color hoverColor;
+    [SerializeField] TextMeshProUGUI state;
+    [SerializeField] GameObject cursorPrefab;
+
     GameObject cursor;
-
-    GameObject carriedTower = null;
-
+    Rigidbody2D rb;
+    SpriteRenderer sRenderer;
+    GameObject enemyTarget;
     Vector2 moveDir;
+    PlayerState currentState = null;
 
-    private PlayerState currentState = null;
+    bool isMoving;
+    bool isCarrying;
+    bool isNearTransmute;
+    bool wasCarrying = false;
+
+    GameObject lastTower = null;
+    GameObject currentTower = null;
+    GameObject currentShadow;
+    GameObject carriedTower = null;
 
     void Start()
     {
