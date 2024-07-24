@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FlameThrower : TowerBehaviour
 {
+    
     [SerializeField]
     float range;
     [SerializeField]

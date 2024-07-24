@@ -131,6 +131,11 @@ public class InventoryManager : MonoBehaviour
         return true;
     }
 
+    public void RemoveTower(int index)
+    {
+        inv[index] = null;
+    }
+
     public void PurchaseTower()
     {
         if (currentFragments < minFragments)

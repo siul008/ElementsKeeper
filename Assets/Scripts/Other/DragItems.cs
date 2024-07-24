@@ -38,7 +38,6 @@ public class DragItems : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        
         EndMove();
     }
 
@@ -51,6 +50,12 @@ public class DragItems : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
         else
             GetComponent<RectTransform>().anchoredPosition = endPos;
         reset = true;
+    }
+
+    public void TrashTower()
+    {
+        InventoryManager.Instance.RemoveTower(moveFrom);
+        EndMove();
     }
 
     public void SetEndPos(Vector2 pos, int moveTo)
