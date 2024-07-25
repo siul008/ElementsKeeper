@@ -3858,8 +3858,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 323eafbf708fbcd46ae1a25e59ea7219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xThreshold: 4
-  cameraSpeed: 0.5
+  xThreshold: 0.58
+  cameraSpeed: 1.22
   maxX: 7
   minX: 0.63
 --- !u!114 &1740169656
@@ -4026,6 +4026,10 @@ PrefabInstance:
       propertyPath: progBar
       value: 
       objectReference: {fileID: 1079013080}
+    - target: {fileID: 2162012678671286470, guid: 27abef29747cdbd45b6603866cbc2ac0, type: 3}
+      propertyPath: moveSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2162012678671286470, guid: 27abef29747cdbd45b6603866cbc2ac0, type: 3}
       propertyPath: cursorHolder
       value: 
