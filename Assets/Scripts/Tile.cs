@@ -5,13 +5,21 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
     private GameObject tower;
+    [SerializeField] private GameObject particles;
 
     public void SetTower(TowerObjects t)
     {
         if (!tower)
         {
-            tower = Instantiate(t.spawnableTower, transform);
+            StartCoroutine(SpawnTower(t));
         }
+    }
+
+    IEnumerator SpawnTower(TowerObjects t)
+    {
+        Instantiate(particles, transform);
+        yield return new WaitForSeconds(1f);
+        tower = Instantiate(t.spawnableTower, transform);
     }
 
     public void SetTower(GameObject t)

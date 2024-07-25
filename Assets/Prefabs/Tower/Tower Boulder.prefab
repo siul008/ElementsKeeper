@@ -363,6 +363,7 @@ GameObject:
   - component: {fileID: 4603732347594521722}
   - component: {fileID: 4173090183943175546}
   - component: {fileID: 3398784171758795457}
+  - component: {fileID: 7941104833870402762}
   m_Layer: 3
   m_Name: Tower Boulder
   m_TagString: Tower
@@ -491,6 +492,27 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 256
+--- !u!95 &7941104833870402762
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5873776623597427166}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7826eb02151378b4fbbab6df3622bd12, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6061279413211935937
 GameObject:
   m_ObjectHideFlags: 0

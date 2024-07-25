@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: 1473922925727841766}
   - component: {fileID: 5834710933130480624}
   - component: {fileID: 3458554750543215084}
+  - component: {fileID: 6440142204638435036}
   m_Layer: 3
   m_Name: Tower Earth
   m_TagString: Tower
@@ -213,6 +214,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentTower: {fileID: 11400000, guid: f28b0d1a25ebb1f4da6898f220dbc981, type: 2}
   sRenderer: {fileID: 7844819747094848066}
+--- !u!95 &6440142204638435036
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935476993548274179}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7826eb02151378b4fbbab6df3622bd12, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3344810451045255725
 GameObject:
   m_ObjectHideFlags: 0

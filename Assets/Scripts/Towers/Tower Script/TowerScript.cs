@@ -11,7 +11,6 @@ public class TowerScript : MonoBehaviour
     [SerializeField]
     SpriteRenderer sRenderer;
 
-
     private void Start()
     {
         energyBar = GetComponentInChildren<Slider>();
@@ -64,6 +63,7 @@ public class TowerScript : MonoBehaviour
 
     public void SetGhostTower(Color color)
     {
+        GetComponent<Animator>().enabled = false;
         SetTransparentTower(color);
         TowerBehaviour behaviour = GetComponent<TowerBehaviour>();
         if (behaviour != null)

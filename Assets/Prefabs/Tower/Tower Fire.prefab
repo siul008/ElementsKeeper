@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8860072665834923481}
   - component: {fileID: 5206074677396018494}
   - component: {fileID: 3829867268230168409}
+  - component: {fileID: 5723658825077619605}
   m_Layer: 3
   m_Name: Tower Fire
   m_TagString: Tower
@@ -195,6 +196,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &5723658825077619605
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467800633276046567}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7826eb02151378b4fbbab6df3622bd12, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1027511636346528040
 GameObject:
   m_ObjectHideFlags: 0

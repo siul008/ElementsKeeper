@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 7830900944064437776}
   - component: {fileID: 4810417032328886853}
   - component: {fileID: -2423139542604474757}
+  - component: {fileID: 4652989967409303076}
   m_Layer: 3
   m_Name: Tower Mud
   m_TagString: Tower
@@ -216,6 +217,27 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 256
+--- !u!95 &4652989967409303076
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327739111004629211}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7826eb02151378b4fbbab6df3622bd12, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1995946001487631482
 GameObject:
   m_ObjectHideFlags: 0
