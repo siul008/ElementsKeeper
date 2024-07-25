@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   level: 1
-  damage: 8
+  damage: 15
   maxHealth: 20
   projectile: {fileID: 8600742552600779083, guid: 3053bcb6ae4ce574a92146e45ba62446, type: 3}
   attackRate: 3

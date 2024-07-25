@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     public float attackInterval;
     public float craftingTime;
     public float damage;
+    public float towerPickupDuration;
+    float towerPickupTime;
 
     [Header("Editor Assignation")]
     [SerializeField] private Transform cursorHolder;
@@ -39,6 +41,7 @@ public class Player : MonoBehaviour
     bool isCarrying;
     bool isNearTransmute;
     bool wasCarrying = false;
+    bool spaceRelease = true;
 
     GameObject lastTower = null;
     GameObject currentTower = null;
@@ -50,6 +53,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sRenderer = GetComponent<SpriteRenderer>();
 
+        spaceRelease = true;
         enemyTarget = null;
         currentHealth = maxHealth;
         cursor = Instantiate(cursorPrefab, transform.position, Quaternion.identity, cursorHolder);
@@ -57,7 +61,8 @@ public class Player : MonoBehaviour
 
         ChangeState(new PlayerIdleState());
         UpdateHealthBar();
-        HideProgBar();
+        //HideProgBar();
+        UpdateProgBar(0, towerPickupDuration);
     }
 
     void Update()
@@ -66,6 +71,10 @@ public class Player : MonoBehaviour
         RegenHealth();
         CheckTowerOnTile();
         ManageShadow();
+        if (isMoving && towerPickupTime != 0)
+        {
+            towerPickupTime = 0;
+        }
 
         currentState.Execute(this);
         if (attackTime < attackInterval)
@@ -74,22 +83,47 @@ public class Player : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            TryPlaceTower();
+            spaceRelease = false;
         }
+        if (Input.GetKey(KeyCode.Space))
+        {
+            TowerInteraction();
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            spaceRelease = true;
+        }
+        if (spaceRelease)
+        {
+            towerPickupTime = 0;
+        }
+        UpdateProgBar(towerPickupTime, towerPickupDuration);
+        Debug.Log("Space Release  : " + spaceRelease);
     }
 
-    void TryPlaceTower()
+    void TowerInteraction()
     {
         Tile t = Grid.Instance.GetTileAtPos(transform.position);
 
-        if (currentTower && carriedTower == null)
+        if (currentTower && carriedTower == null && spaceRelease == false)
         {
-            isCarrying = true;
-            carriedTower = currentTower;
-            currentTower.SetActive(false);
-            t.RemoveTower(false);
+            if (towerPickupTime >= towerPickupDuration)
+            {
+                isCarrying = true;
+                carriedTower = currentTower;
+                currentTower.SetActive(false);
+                t.RemoveTower(false);
+                towerPickupTime = 0;
+                spaceRelease = true;
+            }
+            else
+            {
+                towerPickupTime += Time.deltaTime;
+            }
+            UpdateProgBar(towerPickupTime, towerPickupDuration);
+
         }
-        else if (t && !t.GetTower())
+        else if (t && !t.GetTower() && spaceRelease == false)
         {
             if (carriedTower != null)
             {
@@ -97,6 +131,7 @@ public class Player : MonoBehaviour
                 carriedTower.SetActive(true);
                 isCarrying = false;
                 carriedTower = null;
+                spaceRelease = true;
             }
             else
             {
@@ -104,6 +139,7 @@ public class Player : MonoBehaviour
                 if (tower)
                 {
                     t.SetTower(tower);
+                    spaceRelease = true;
                 }
             }
         }
