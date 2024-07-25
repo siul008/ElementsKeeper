@@ -8,7 +8,6 @@ public class PlayerTransmuteState : PlayerState
     public override void Enter(Player player)
     {
         player.ChangeStateText("PlayerTransmuteState");
-        player.ShowProgBar();
         currentProg = 0;
         player.UpdateProgBar(currentProg, player.craftingTime);
     }
@@ -37,6 +36,5 @@ public class PlayerTransmuteState : PlayerState
     public override void Exit(Player player)
     {
         player.UpdateProgBar(0, player.craftingTime);
-        player.HideProgBar();
     }
 }

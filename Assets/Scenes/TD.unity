@@ -3450,6 +3450,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1079013080 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2355453465001365761, guid: 27abef29747cdbd45b6603866cbc2ac0, type: 3}
+  m_PrefabInstance: {fileID: 7020607652629645183}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1099553685 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2168062383442734166, guid: 62cb39e8efce9344c82e3ce85a96abf3, type: 3}
@@ -4012,6 +4023,10 @@ PrefabInstance:
       value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 2162012678671286470, guid: 27abef29747cdbd45b6603866cbc2ac0, type: 3}
+      propertyPath: progBar
+      value: 
+      objectReference: {fileID: 1079013080}
+    - target: {fileID: 2162012678671286470, guid: 27abef29747cdbd45b6603866cbc2ac0, type: 3}
       propertyPath: cursorHolder
       value: 
       objectReference: {fileID: 380171114}
@@ -4067,6 +4082,10 @@ PrefabInstance:
       propertyPath: carryingColor.r
       value: 0.14271975
       objectReference: {fileID: 0}
+    - target: {fileID: 2162012678671286470, guid: 27abef29747cdbd45b6603866cbc2ac0, type: 3}
+      propertyPath: towerPickupDuration
+      value: 1.3
+      objectReference: {fileID: 0}
     - target: {fileID: 2458424608608053772, guid: 27abef29747cdbd45b6603866cbc2ac0, type: 3}
       propertyPath: test
       value: 
@@ -4112,7 +4131,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: a616d0315dc57774d84ae7aa7801de21, type: 2}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1155112453831109, guid: 27abef29747cdbd45b6603866cbc2ac0, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27abef29747cdbd45b6603866cbc2ac0, type: 3}

@@ -97,8 +97,11 @@ public class Player : MonoBehaviour
         {
             towerPickupTime = 0;
         }
-        UpdateProgBar(towerPickupTime, towerPickupDuration);
-        Debug.Log("Space Release  : " + spaceRelease);
+        if (!isNearTransmute)
+        {
+            UpdateProgBar(towerPickupTime, towerPickupDuration);
+        }
+
     }
 
     void TowerInteraction()
