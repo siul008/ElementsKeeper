@@ -157,11 +157,11 @@ public class Player : MonoBehaviour
     }
     public void FaceLeft()
     {
-        sRenderer.flipY = true;
+        sRenderer.flipX = false;
     }
     public void FaceRight()
     {
-        sRenderer.flipY = false;
+        sRenderer.flipX  = true;
     }
 
     public bool IsTowerPlacementValid()
