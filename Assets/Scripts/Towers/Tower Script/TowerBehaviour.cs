@@ -28,5 +28,9 @@ public abstract class TowerBehaviour : MonoBehaviour
         }
     }
 
+    public void ResetAttackTime()
+    {
+        attackTime = 0;
+    }
     public abstract void Fire();
 }

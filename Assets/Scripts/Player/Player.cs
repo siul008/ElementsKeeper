@@ -114,6 +114,7 @@ public class Player : MonoBehaviour
             {
                 isCarrying = true;
                 carriedTower = currentTower;
+                currentTower.GetComponent<TowerBehaviour>().ResetAttackTime();
                 currentTower.SetActive(false);
                 t.RemoveTower(false);
                 towerPickupTime = 0;

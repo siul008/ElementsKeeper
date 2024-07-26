@@ -44,6 +44,7 @@ public class TowerScript : MonoBehaviour
         energyBar.value = health;
     }
 
+
     public void SetTransparentTower(Color color)
     {
         if (sRenderer)
