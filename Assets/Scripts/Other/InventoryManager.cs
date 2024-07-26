@@ -110,7 +110,7 @@ public class InventoryManager : MonoBehaviour
             Debug.Log("set " + index1 + "to null and " + index2 + " to " + newTower);
             inv[index1] = null;
             inv[index2] = newTower;
-            UpdateInventoryUI();
+            SetSelected(index2);
             return true;
         }
         catch (Exception e)
@@ -136,6 +136,14 @@ public class InventoryManager : MonoBehaviour
         inv[index] = null;
     }
 
+    public void SetSelected(int index)
+    {
+        if (selected != index)
+        {
+            selected = index;
+            UpdateInventoryUI();
+        }
+    }
     public void PurchaseTower()
     {
         if (currentFragments < minFragments)

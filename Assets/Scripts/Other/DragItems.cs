@@ -23,11 +23,12 @@ public class DragItems : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
     public void OnPointerDown(PointerEventData eventData)
     {
         startPos = GetComponent<RectTransform>().anchoredPosition;
+        InventoryManager.Instance.SetSelected(moveFrom);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        rect.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        rect.anchoredPosition += eventData.delta / (canvas.scaleFactor * transform.parent.GetComponent<RectTransform>().localScale);
     }
 
     public void OnBeginDrag(PointerEventData eventData)

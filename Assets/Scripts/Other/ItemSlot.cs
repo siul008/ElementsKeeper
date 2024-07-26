@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-public class ItemSlot : MonoBehaviour, IDropHandler
+public class ItemSlot : MonoBehaviour, IDropHandler, IPointerDownHandler
 {
     [SerializeField] private int index;
     [SerializeField] private bool isTrash;
@@ -18,7 +18,13 @@ public class ItemSlot : MonoBehaviour, IDropHandler
             {
                 eventData.pointerDrag.GetComponent<DragItems>()
                     .SetEndPos(GetComponent<RectTransform>().anchoredPosition, index);
+                InventoryManager.Instance.SetSelected(index);
             }
         }
+    }
+    
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        InventoryManager.Instance.SetSelected(index);
     }
 }
