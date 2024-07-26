@@ -4291,7 +4291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50bd9ff90ca636b46be53ec45c75ac60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightDown: {x: 0.1, y: 0.1, z: 0.1}
+  lightDown: {x: 0.02, y: 0.02, z: 0.02}
   lightUp: {x: 0.1, y: 0.1, z: 0.1}
 --- !u!1 &883923927
 GameObject:
@@ -4905,25 +4905,37 @@ PrefabInstance:
       propertyPath: m_ScaleFactor
       value: 2.41
       objectReference: {fileID: 0}
+    - target: {fileID: 7502647314056196929, guid: 693ff526a3fd1dd42a432a52af4f49d1, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7502647314056196929, guid: 693ff526a3fd1dd42a432a52af4f49d1, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 7502647314056196929, guid: 693ff526a3fd1dd42a432a52af4f49d1, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 7753527954288788817, guid: 693ff526a3fd1dd42a432a52af4f49d1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 2.182
       objectReference: {fileID: 0}
     - target: {fileID: 7753527954288788817, guid: 693ff526a3fd1dd42a432a52af4f49d1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 2.182
       objectReference: {fileID: 0}
     - target: {fileID: 7753527954288788817, guid: 693ff526a3fd1dd42a432a52af4f49d1, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 2.182
       objectReference: {fileID: 0}
     - target: {fileID: 7753527954288788817, guid: 693ff526a3fd1dd42a432a52af4f49d1, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 31
+      value: 29.464
       objectReference: {fileID: 0}
     - target: {fileID: 7753527954288788817, guid: 693ff526a3fd1dd42a432a52af4f49d1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 186
+      value: 378
       objectReference: {fileID: 0}
     - target: {fileID: 7753527954288788817, guid: 693ff526a3fd1dd42a432a52af4f49d1, type: 3}
       propertyPath: m_ConstrainProportionsScale
