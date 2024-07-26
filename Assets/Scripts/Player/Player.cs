@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -47,7 +48,7 @@ public class Player : MonoBehaviour
     GameObject currentTower = null;
     GameObject currentShadow;
     GameObject carriedTower = null;
-
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -67,7 +68,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        HandleMovement();
+        //HandleMovement();
         RegenHealth();
         CheckTowerOnTile();
         ManageShadow();
@@ -81,17 +82,9 @@ public class Player : MonoBehaviour
         {
             attackTime += Time.deltaTime;
         }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            spaceRelease = false;
-        }
-        if (Input.GetKey(KeyCode.Space))
+        if (!spaceRelease)
         {
             TowerInteraction();
-        }
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            spaceRelease = true;
         }
         if (spaceRelease)
         {
@@ -153,7 +146,7 @@ public class Player : MonoBehaviour
     {
         if (isMoving)
         {
-            rb.MovePosition(rb.position + moveDir * moveSpeed * Time.fixedDeltaTime);
+            rb.MovePosition(rb.position + moveDir * (moveSpeed * Time.fixedDeltaTime));
         }
     }
     public void FaceLeft()
@@ -302,25 +295,35 @@ public class Player : MonoBehaviour
         }
     }
     
-    void HandleMovement()
+    public void OnMove(InputValue value)
     {
-        moveDir.x = Input.GetAxisRaw("Horizontal");
-        moveDir.y = Input.GetAxisRaw("Vertical");
-        if (moveDir.x < 0)
+        // Read value from control. The type depends on what type of controls.
+        // the action is bound to.
+        var v = value.Get<Vector2>();
+        moveDir.x = v.x;
+        moveDir.y = v.y;
+        Debug.Log("Player is moving");
+        if (v.x < 0)
         {
             FaceLeft();
         }
-        else if (moveDir.x > 0)
+        else if (v.x > 0)
         {
             FaceRight();
         }
-        else if (moveDir.y == 0)
+        else if (v.y == 0)
         {
             isMoving = false;
             return ;
         }
         isMoving = true;
     }
+
+    public void OnInteract(InputValue value)
+    {
+        spaceRelease = !value.isPressed;
+    }
+    
     void RegenHealth()
     {
         if (currentHealth + healthRegen > maxHealth)
