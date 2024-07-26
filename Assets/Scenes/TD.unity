@@ -5199,6 +5199,41 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 11.427842, y: 4.749645}
   m_EdgeRadius: 0
+--- !u!1 &2080841399 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5889182893618319608, guid: 27abef29747cdbd45b6603866cbc2ac0, type: 3}
+  m_PrefabInstance: {fileID: 7020607652629645183}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2080841400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080841399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: e57b8a790959a76429eb09e11764f46b, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: KeyboardMouse
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1001 &420579321724232916
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5517,7 +5552,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 406343068368012264, guid: 27abef29747cdbd45b6603866cbc2ac0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 290360154}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5889182893618319608, guid: 27abef29747cdbd45b6603866cbc2ac0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2080841400}
   m_SourcePrefab: {fileID: 100100000, guid: 27abef29747cdbd45b6603866cbc2ac0, type: 3}
 --- !u!1001 &7864372966707664025
 PrefabInstance:
