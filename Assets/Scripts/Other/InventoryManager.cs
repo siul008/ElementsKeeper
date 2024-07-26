@@ -240,6 +240,12 @@ public class InventoryManager : MonoBehaviour
         currentFragments++;
         fragmentText.text = GetFragments().ToString();
     }
+    
+    public void RemoveFragment()
+    {
+        currentFragments--;
+        fragmentText.text = GetFragments().ToString();
+    }
 
     public int GetFragments()
     {
