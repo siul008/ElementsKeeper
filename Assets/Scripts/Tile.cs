@@ -16,6 +16,12 @@ public class Tile : MonoBehaviour
         }
     }
 
+    public bool GetAssignable()
+    {
+        return assigneable;
+    }
+    
+
     IEnumerator SpawnTower(TowerObjects t)
     {
         assigneable = false;
