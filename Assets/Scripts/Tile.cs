@@ -5,11 +5,12 @@ using UnityEngine;
 public class Tile : MonoBehaviour
 {
     private GameObject tower;
+    private bool assigneable = true;
     [SerializeField] private GameObject particles;
 
     public void SetTower(TowerObjects t)
     {
-        if (!tower)
+        if (!tower && assigneable)
         {
             StartCoroutine(SpawnTower(t));
         }
@@ -17,9 +18,11 @@ public class Tile : MonoBehaviour
 
     IEnumerator SpawnTower(TowerObjects t)
     {
+        assigneable = false;
         Instantiate(particles, transform);
         yield return new WaitForSeconds(1f);
         tower = Instantiate(t.spawnableTower, transform);
+        assigneable = true;
     }
 
     public void SetTower(GameObject t)
