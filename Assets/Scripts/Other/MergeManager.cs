@@ -22,11 +22,11 @@ public class MergeManager : MonoBehaviour
         }
     }
 
-    public TowerObjects Merge(TowerObjects obj1, TowerObjects obj2)
+    public TowerObjects Merge(Elements obj1, Elements obj2)
     {
         for (int i = 0; i < combos.Count; i++)
         {
-            if (combos[i].obj1 == obj1 && combos[i].obj2 == obj2 || combos[i].obj1 == obj2 && combos[i].obj2 == obj1)
+            if ((combos[i].obj1 == obj1 && combos[i].obj2 == obj2) || (combos[i].obj1 == obj2 && combos[i].obj2 == obj1))
                 return combos[i].result;
         }
         return null;

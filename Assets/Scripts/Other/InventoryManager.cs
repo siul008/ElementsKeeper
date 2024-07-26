@@ -87,7 +87,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    void AddTower(TowerObjects obj)
+    public void AddTower(TowerObjects obj)
     {
         for (int i = 0; i < 6; i++)
         {
@@ -102,21 +102,22 @@ public class InventoryManager : MonoBehaviour
 
     public bool Merge(int index1, int index2)
     {
-        try
-        {
-            TowerObjects newTower = MergeManager.Instance.Merge(inv[index1], inv[index2]);
-            if (newTower == null)
-                return false;
-            Debug.Log("set " + index1 + "to null and " + index2 + " to " + newTower);
-            inv[index1] = null;
-            inv[index2] = newTower;
-            SetSelected(index2);
-            return true;
-        }
-        catch (Exception e)
-        {
-            return false;
-        }
+        return true;
+        // try
+        // {
+        //     TowerObjects newTower = MergeManager.Instance.Merge(inv[index1], inv[index2]);
+        //     if (newTower == null)
+        //         return false;
+        //     Debug.Log("set " + index1 + "to null and " + index2 + " to " + newTower);
+        //     inv[index1] = null;
+        //     inv[index2] = newTower;
+        //     SetSelected(index2);
+        //     return true;
+        // }
+        // catch (Exception e)
+        // {
+        //     return false;
+        // }
     }
 
     public bool Swap(int index1, int index2)

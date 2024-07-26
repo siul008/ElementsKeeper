@@ -13,6 +13,7 @@ public class DragElements : MonoBehaviour, IPointerDownHandler, IBeginDragHandle
     public bool atStart = true;
     private bool reset = true;
     private bool called = false;
+    private bool isOriginal = true;
     [SerializeField] private Canvas canvas;
     [SerializeField] private Elements element;
 
@@ -23,6 +24,11 @@ public class DragElements : MonoBehaviour, IPointerDownHandler, IBeginDragHandle
         startPos = rect.anchoredPosition;
     }
 
+    public Elements GetElement()
+    {
+        return element;
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     {
         pos = rect.anchoredPosition;
@@ -31,39 +37,37 @@ public class DragElements : MonoBehaviour, IPointerDownHandler, IBeginDragHandle
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (CraftingManager.Instance.GetElementAmount(element) <= 0 && isOriginal)
+            return;
         rect.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        if (CraftingManager.Instance.GetElementAmount(element) <= 0 && isOriginal)
+            return;
         group.alpha = 0.6f;
         group.blocksRaycasts = false;
     }
 
     void EndMove()
     {
-        if (called)
+        if (!isOriginal)
         {
-            called = false;
-            return;
-        }
-        Debug.Log(atStart);
-        if (!atStart)
-        {
-            pos = startPos;
-            atStart = true;
+            Debug.Log("Add Element");
+            CraftingManager.Instance.ForceAddElement(element);
+            Destroy(gameObject);
         }
         group.alpha = 1f;
         group.blocksRaycasts = true;
         rect.anchoredPosition = pos;
     }
 
-    public void SetEndPos(Vector2 newPos, bool b)
+    public void Duplicate()
     {
-        pos = newPos;
-        EndMove();
-        called = true;
-        atStart = b;
+        isOriginal = false;
+        group.alpha = 1f;
+        group.blocksRaycasts = true;
     }
     
     public void OnEndDrag(PointerEventData eventData)

@@ -5,7 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class Combination
 {
-    public TowerObjects obj1;
-    public TowerObjects obj2;
+    public Elements obj1;
+    public Elements obj2;
     public TowerObjects result;
+    public int price;
 }
