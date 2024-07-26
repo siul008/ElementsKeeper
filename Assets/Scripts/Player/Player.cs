@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
     bool isNearTransmute;
     bool wasCarrying = false;
     bool spaceRelease = true;
+    bool paused;
 
     GameObject lastTower = null;
     GameObject currentTower = null;
@@ -51,6 +52,7 @@ public class Player : MonoBehaviour
     
     void Start()
     {
+        paused = false;
         rb = GetComponent<Rigidbody2D>();
         sRenderer = GetComponent<SpriteRenderer>();
 
@@ -295,10 +297,27 @@ public class Player : MonoBehaviour
         }
     }
     
+    public void OnPause(InputValue value)
+    {
+        if (!paused)
+        {
+            Time.timeScale = 0;
+            paused = true;
+            moveDir = Vector2.zero;
+        }
+        else
+        {
+            Time.timeScale = 1;
+            paused = false;
+        }
+    }
+
     public void OnMove(InputValue value)
     {
-        // Read value from control. The type depends on what type of controls.
-        // the action is bound to.
+        if (paused)
+        {
+            return;
+        }
         var v = value.Get<Vector2>();
         moveDir.x = v.x;
         moveDir.y = v.y;
@@ -321,6 +340,10 @@ public class Player : MonoBehaviour
 
     public void OnInteract(InputValue value)
     {
+        if (paused)
+        {
+            return;
+        }
         spaceRelease = !value.isPressed;
     }
     
