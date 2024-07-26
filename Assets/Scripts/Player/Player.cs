@@ -130,7 +130,7 @@ public class Player : MonoBehaviour
                 carriedTower = null;
                 spaceRelease = true;
             }
-            else
+            else if (t.GetAssignable())
             {
                 TowerObjects tower = InventoryManager.Instance.GetSelectedTower();
                 if (tower)
