@@ -23,5 +23,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: ce08847694e3c704ea3f1920b7b8c019, type: 3}
   spawnableTower: {fileID: 5153326819425807088, guid: aefc7ae9213db6f4b865bce9a1be3220, type: 3}
   bulletColor: {r: 0, g: 0.41182423, b: 1, a: 1}
+  price: 3
   description: Brutally launches a wave of water dealing damage to a maximum of 3
     enemies and knocking them back.

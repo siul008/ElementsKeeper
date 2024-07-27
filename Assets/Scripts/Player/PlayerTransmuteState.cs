@@ -8,6 +8,7 @@ public class PlayerTransmuteState : PlayerState
     public override void Enter(Player player)
     {
         player.ChangeStateText("PlayerTransmuteState");
+        CraftingManager.Instance.UpdateFragmentText();
         player.SetCraftingTableUIVisibility(true);
     }
 

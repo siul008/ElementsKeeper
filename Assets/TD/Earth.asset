@@ -23,5 +23,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: f0e98eed11492f9479753e11292144a7, type: 3}
   spawnableTower: {fileID: 1935476993548274179, guid: bd0bf17ac2394ec4daa125399021d382, type: 3}
   bulletColor: {r: 0.4009434, g: 0.20994087, b: 0, a: 1}
+  price: 3
   description: Cannot attack but can whistand a lot of enemies attacks before being
     destroyed.

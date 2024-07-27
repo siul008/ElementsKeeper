@@ -23,5 +23,6 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 8d2b58fd16142744e8fe80f36054bba0, type: 3}
   spawnableTower: {fileID: 8691191293425952779, guid: 318eea55a93a15246bb20ad9edd10219, type: 3}
   bulletColor: {r: 1, g: 1, b: 1, a: 0}
+  price: 8
   description: Create in a 3x3 area around the tower a smoke of steam burning all
     enemies in contact of it.

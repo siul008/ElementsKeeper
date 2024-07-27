@@ -37,5 +37,6 @@ public class TowerObjects : ScriptableObject
     public Sprite sprite;
     public GameObject spawnableTower;
     public Color bulletColor;
+    public int price;
     public string description = "Default description";
 }

@@ -20,12 +20,14 @@ public class CraftingManager : MonoBehaviour
     [SerializeField] private ElementSlot slot1, slot2;
     private TowerObjects currentTower;
     [SerializeField] private Image towerImg;
+    [Header("Tower Informations ")]
     [SerializeField] private GameObject towerInfos;
     [SerializeField] private TextMeshProUGUI towerDes;
     [SerializeField] private TextMeshProUGUI towerName;
     [SerializeField] private TextMeshProUGUI towerDmgVal;
     [SerializeField] private TextMeshProUGUI towerASVal;
     [SerializeField] private TextMeshProUGUI towerTypeVal;
+    [SerializeField] private TextMeshProUGUI towerPrice;
     private int selected = 0;
 
     
@@ -57,11 +59,20 @@ public class CraftingManager : MonoBehaviour
             selected = i;
         UpdateCraftingUI();
     }
+
+    public void UpdateFragmentText()
+    {
+        voidTxt.text = InventoryManager.Instance.GetFragments().ToString();
+    }
     
     public void AddSelected()
     {
-        elements[(Elements)selected] += 1;
-        AddElement((Elements)selected);
+        if (InventoryManager.Instance.GetFragments() >= 1)
+        {
+            elements[(Elements)selected] += 1;
+            AddElement((Elements)selected);
+
+        }
     }
 
     public void AddElement(Elements el)
@@ -97,7 +108,7 @@ public class CraftingManager : MonoBehaviour
                 
             texts[i].text = elements[(Elements)i].ToString();
         }
-        voidTxt.text = InventoryManager.Instance.GetFragments().ToString();
+        UpdateFragmentText();
     }
 
     public TowerObjects GetCurrentTower()
@@ -115,6 +126,7 @@ public class CraftingManager : MonoBehaviour
     void GetTowerInfosText()
     {
         towerDes.text = currentTower.description;
+        towerPrice.text = currentTower.price.ToString();
         towerName.text = currentTower.towerName.ToUpper();
         towerDmgVal.text = currentTower.damage.ToString();
         towerASVal.text = currentTower.attackRate > 0 ? currentTower.attackRate.ToString() : "None";
@@ -172,10 +184,20 @@ public class CraftingManager : MonoBehaviour
     {
         TowerObjects tower = GetCurrentMerge();
         Debug.Log("ADD Tower");
-        InventoryManager.Instance.AddTower(tower);
-        slot1.ResetSlot();
-        slot2.ResetSlot();
+        if (tower.price <= InventoryManager.Instance.GetFragments())
+        {
+            InventoryManager.Instance.AddTower(tower);
+            for (int i = 0; i < tower.price; i++)
+            {
+                InventoryManager.Instance.RemoveFragment();
+            }
+            UpdateFragmentText();
+            slot1.ResetSlot();
+            slot2.ResetSlot();
+        }
         return;
+
+
     }
 
     // Start is called before the first frame update
