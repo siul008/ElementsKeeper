@@ -1,3 +1,4 @@
+using System.Collections.Specialized;
 using UnityEngine;
 
 
@@ -18,7 +19,16 @@ public class TowerObjects : ScriptableObject
         Lava
     }
 
+    public enum DmgType
+    {
+        Single,
+        AreaOfEffect,
+        None
+    }
+
     public Types type;
+    public string towerName = "Defaut name";
+    public DmgType dmgType;
     public int level;
     public int damage;
     public float maxHealth;

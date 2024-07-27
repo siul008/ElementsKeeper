@@ -13,11 +13,15 @@ MonoBehaviour:
   m_Name: FlameThrower
   m_EditorClassIdentifier: 
   type: 6
+  towerName: Flame Thrower
+  dmgType: 1
   level: 1
   damage: 3
   maxHealth: 20
   projectile: {fileID: 0}
-  attackRate: 0
+  attackRate: 0.2
   sprite: {fileID: 21300000, guid: c29979206408e5e4a874cef556bf153c, type: 3}
   spawnableTower: {fileID: 703254261779522440, guid: 5dc4d27780b7e6f4a9c275ceee76334e, type: 3}
   bulletColor: {r: 0, g: 0, b: 0, a: 0}
+  description: Launches flame in front of itself dealing damage to all enemies in
+    a 1x3 area.

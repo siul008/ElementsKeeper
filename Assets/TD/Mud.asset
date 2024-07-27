@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Mud
   m_EditorClassIdentifier: 
   type: 4
+  towerName: Mud Tower
+  dmgType: 0
   level: 1
   damage: 2
   maxHealth: 20
@@ -21,3 +23,5 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: c50dc4fcedbb8a348b7aa2bc76ce4ef9, type: 3}
   spawnableTower: {fileID: 1327739111004629211, guid: 90f439b8449ee084eb79a5530fcb4daa, type: 3}
   bulletColor: {r: 0, g: 0, b: 0, a: 0}
+  description: Launches a mud projectile that creates a mud pool that slows enemies
+    walking on it.

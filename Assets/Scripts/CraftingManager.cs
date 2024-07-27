@@ -20,7 +20,12 @@ public class CraftingManager : MonoBehaviour
     [SerializeField] private ElementSlot slot1, slot2;
     private TowerObjects currentTower;
     [SerializeField] private Image towerImg;
+    [SerializeField] private GameObject towerInfos;
     [SerializeField] private TextMeshProUGUI towerDes;
+    [SerializeField] private TextMeshProUGUI towerName;
+    [SerializeField] private TextMeshProUGUI towerDmgVal;
+    [SerializeField] private TextMeshProUGUI towerASVal;
+    [SerializeField] private TextMeshProUGUI towerTypeVal;
     private int selected = 0;
 
     
@@ -104,7 +109,34 @@ public class CraftingManager : MonoBehaviour
     {
         currentTower = null;
         towerImg.color = new Color(255, 255, 255, 0);
-        towerDes.text = "";
+        towerInfos.SetActive(false);
+    }
+
+    void GetTowerInfosText()
+    {
+        towerDes.text = currentTower.description;
+        towerName.text = currentTower.towerName.ToUpper();
+        towerDmgVal.text = currentTower.damage.ToString();
+        towerASVal.text = currentTower.attackRate > 0 ? currentTower.attackRate.ToString() : "None";
+        switch (currentTower.dmgType)
+        {
+            case TowerObjects.DmgType.Single:
+                {
+                    towerTypeVal.text = "Single Target";
+                    break;
+                }
+            case TowerObjects.DmgType.AreaOfEffect:
+                {
+                    towerTypeVal.text = "Area of effect";
+                    break;
+                }
+            case TowerObjects.DmgType.None:
+                {
+                    towerTypeVal.text = "None";
+                    break;
+                }
+        }
+        towerInfos.gameObject.SetActive(true);
     }
 
     public void SetCurrentTower()
@@ -115,7 +147,7 @@ public class CraftingManager : MonoBehaviour
             return;
         towerImg.sprite = currentTower.sprite;
         towerImg.color = new Color(255, 255, 255, 0.8f);
-        towerDes.text = currentTower.description;
+        GetTowerInfosText();
     }
 
     TowerObjects GetCurrentMerge()
