@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-public class ElementSlot : MonoBehaviour, IDropHandler, IPointerDownHandler
+public class ElementSlot : MonoBehaviour, IDropHandler
 {
-    [SerializeField] private int index;
     [SerializeField] private Transform canvas;
     private GameObject currentElement;
     public void OnDrop(PointerEventData eventData)
@@ -15,6 +14,7 @@ public class ElementSlot : MonoBehaviour, IDropHandler, IPointerDownHandler
             currentElement = Instantiate(eventData.pointerDrag, canvas);
             Debug.Log("Remove Element");
             CraftingManager.Instance.RemoveElement(currentElement.GetComponent<DragElements>().GetElement());
+            CraftingManager.Instance.SetCurrentTower();
             currentElement.GetComponent<DragElements>().Duplicate();
             currentElement.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
         }
@@ -28,10 +28,6 @@ public class ElementSlot : MonoBehaviour, IDropHandler, IPointerDownHandler
     public void ResetSlot()
     {
         Destroy(currentElement);
-    }
-    
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        InventoryManager.Instance.SetSelected(index);
+        CraftingManager.Instance.ResetCurrentTower();
     }
 }

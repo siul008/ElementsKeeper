@@ -56,6 +56,7 @@ public class DragElements : MonoBehaviour, IPointerDownHandler, IBeginDragHandle
         {
             Debug.Log("Add Element");
             CraftingManager.Instance.ForceAddElement(element);
+            CraftingManager.Instance.ResetCurrentTower();
             Destroy(gameObject);
         }
         group.alpha = 1f;

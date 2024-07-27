@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum Elements
 {
@@ -17,6 +18,9 @@ public class CraftingManager : MonoBehaviour
     [SerializeField] List<TextMeshProUGUI> texts = new List<TextMeshProUGUI>();
     [SerializeField] private TextMeshProUGUI voidTxt;
     [SerializeField] private ElementSlot slot1, slot2;
+    private TowerObjects currentTower;
+    [SerializeField] private Image towerImg;
+    [SerializeField] private TextMeshProUGUI towerDes;
     private int selected = 0;
 
     
@@ -91,21 +95,50 @@ public class CraftingManager : MonoBehaviour
         voidTxt.text = InventoryManager.Instance.GetFragments().ToString();
     }
 
-    public void Merge()
+    public TowerObjects GetCurrentTower()
+    {
+        return currentTower;
+    }
+
+    public void ResetCurrentTower()
+    {
+        currentTower = null;
+        towerImg.color = new Color(255, 255, 255, 0);
+        towerDes.text = "";
+    }
+
+    public void SetCurrentTower()
+    {
+        ResetCurrentTower();
+        currentTower = GetCurrentMerge();
+        if (!currentTower)
+            return;
+        towerImg.sprite = currentTower.sprite;
+        towerImg.color = new Color(255, 255, 255, 0.8f);
+        towerDes.text = currentTower.description;
+    }
+
+    TowerObjects GetCurrentMerge()
     {
         GameObject tmp = slot1.GetCurrentElement();
         if (!tmp)
-            return;
+            return null;
         Debug.Log("slot 1 OK");
         Elements el1 = tmp.GetComponent<DragElements>().GetElement();
         tmp = slot2.GetCurrentElement();
         if (!tmp)
-            return;
+            return null;
         Debug.Log("slot 2 OK");
         Elements el2 = tmp.GetComponent<DragElements>().GetElement();
         TowerObjects tower = MergeManager.Instance.Merge(el1, el2);
         if (!tower)
-            return;
+            return null;
+        return tower;
+    }
+    
+    public void Merge()
+    {
+        TowerObjects tower = GetCurrentMerge();
         Debug.Log("ADD Tower");
         InventoryManager.Instance.AddTower(tower);
         slot1.ResetSlot();
