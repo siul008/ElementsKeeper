@@ -8,17 +8,16 @@ public class PlayerTransmuteState : PlayerState
     public override void Enter(Player player)
     {
         player.ChangeStateText("PlayerTransmuteState");
-        currentProg = 0;
-        player.UpdateProgBar(currentProg, player.craftingTime);
+        player.SetCraftingTableUIVisibility(true);
     }
 
     public override void Execute(Player player)
     {
-        if (!player.PlayerNearTransmute() || player.PlayerInMovement())
+        if (!player.PlayerNearTransmute() /*|| player.PlayerInMovement()*/)
         {
             player.ChangeState(new PlayerIdleState());
         }
-        if (InventoryManager.Instance.GetFragmentsCost() <= InventoryManager.Instance.GetFragments())
+        /*if (InventoryManager.Instance.GetFragmentsCost() <= InventoryManager.Instance.GetFragments())
         {
             if (currentProg > player.craftingTime)
             {
@@ -30,11 +29,12 @@ public class PlayerTransmuteState : PlayerState
                 currentProg += Time.deltaTime;
             }
         }
-        player.UpdateProgBar(currentProg, player.craftingTime);
+        player.UpdateProgBar(currentProg, player.craftingTime);*/
     }
 
     public override void Exit(Player player)
     {
-        player.UpdateProgBar(0, player.craftingTime);
+        //player.UpdateProgBar(0, player.craftingTime);
+        player.SetCraftingTableUIVisibility(false);
     }
 }

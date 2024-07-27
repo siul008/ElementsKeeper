@@ -19,7 +19,7 @@ public class PlayerIdleState : PlayerState
         {
             player.ChangeState(new PlayerAttackState());
         }
-        else if (!player.PlayerInMovement() && player.PlayerNearTransmute())
+        else if (/*!player.PlayerInMovement() && */player.PlayerNearTransmute())
         {
             player.ChangeState(new PlayerTransmuteState());
         }

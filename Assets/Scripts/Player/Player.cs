@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Color hoverColor;
     [SerializeField] TextMeshProUGUI state;
     [SerializeField] GameObject cursorPrefab;
+    [SerializeField] GameObject craftTableUI;
 
     GameObject cursor;
     Rigidbody2D rb;
@@ -287,6 +288,10 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void SetCraftingTableUIVisibility(bool visible)
+    {
+        craftTableUI.SetActive(visible);
+    }
     void SpawnShadow(GameObject g, Vector3 pos, Color color)
     {
         if (g)
