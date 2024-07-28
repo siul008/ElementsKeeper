@@ -16,13 +16,13 @@ MonoBehaviour:
   towerName: Geyser
   dmgType: 1
   level: 1
-  damage: 5
+  damage: 20
   maxHealth: 20
   projectile: {fileID: 7971395050237439814, guid: 36fe106f62674ed408ce6b760b519e73, type: 3}
-  attackRate: 5
+  attackRate: 8
   sprite: {fileID: 21300000, guid: 0515cab125ee40b47bb0b58bbea868bc, type: 3}
   spawnableTower: {fileID: 2618601473685315997, guid: c62bb77ecd3dbac47815d59632914629, type: 3}
   bulletColor: {r: 0, g: 0, b: 0, a: 0}
-  price: 20
+  price: 8
   description: Create a geyser under an enemy in sight knocking up and damaging all
     enemies caught and stun them upon landing.

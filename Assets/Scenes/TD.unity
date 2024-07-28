@@ -1403,71 +1403,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 255698122}
   m_CullTransparentMesh: 1
---- !u!1001 &271230574
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2978847877354692372, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2978847877354692372, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3413463319128684771, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 12.512824
-      objectReference: {fileID: 0}
-    - target: {fileID: 3413463319128684771, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.8822875
-      objectReference: {fileID: 0}
-    - target: {fileID: 3413463319128684771, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3413463319128684771, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3413463319128684771, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3413463319128684771, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3413463319128684771, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3413463319128684771, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3413463319128684771, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3413463319128684771, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
-      propertyPath: m_Name
-      value: Enemy
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
 --- !u!1 &301270592
 GameObject:
   m_ObjectHideFlags: 0
@@ -1755,6 +1690,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 373200507}
   m_CullTransparentMesh: 1
+--- !u!1 &379257978 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6340520813343471042, guid: 2b162c25758ee0441b9783b71a8f99f3, type: 3}
+  m_PrefabInstance: {fileID: 1456163375}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &380171113
 GameObject:
   m_ObjectHideFlags: 0
@@ -5267,18 +5207,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1273663099993843171, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.0115433
-      objectReference: {fileID: 0}
-    - target: {fileID: 1273663099993843171, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.0115433
-      objectReference: {fileID: 0}
-    - target: {fileID: 1273663099993843171, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.0115433
-      objectReference: {fileID: 0}
-    - target: {fileID: 1273663099993843171, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.03
       objectReference: {fileID: 0}
@@ -5319,28 +5247,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: endOfWaveDelay
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.size
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: enemies.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: firstElementsStart
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[0].name
       value: T1 L0 D2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[1].lane
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[1].name
@@ -5399,20 +5311,8 @@ PrefabInstance:
       value: T1 L1 D0,4
       objectReference: {fileID: 0}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: enemies.Array.data[0].obj
-      value: 
-      objectReference: {fileID: 4495079335045865582, guid: bf3755f052ed55c43af86c253042348e, type: 3}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: enemies.Array.data[1].obj
-      value: 
-      objectReference: {fileID: 4495079335045865582, guid: 7a69115bf7180654ab83b386193ec131, type: 3}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: enemies.Array.data[2].obj
-      value: 
-      objectReference: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[0].delay
-      value: 2
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[0].enemy
@@ -5425,10 +5325,6 @@ PrefabInstance:
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[10].name
       value: T1 L1 D0,6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[11].lane
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[11].name
@@ -5491,16 +5387,12 @@ PrefabInstance:
       value: T3 L3 D9
       objectReference: {fileID: 0}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[19].lane
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[19].name
       value: T0 L0 D5
       objectReference: {fileID: 0}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[1].delay
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[1].enemy
@@ -5508,7 +5400,7 @@ PrefabInstance:
       objectReference: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[2].delay
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[2].enemy
@@ -5516,7 +5408,7 @@ PrefabInstance:
       objectReference: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[3].delay
-      value: 3
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[3].enemy
@@ -5524,7 +5416,7 @@ PrefabInstance:
       objectReference: {fileID: 4495079335045865582, guid: 06c389cb49e1d2e4ca2df65875ecd742, type: 3}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[4].delay
-      value: 0.2
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[4].enemy
@@ -5532,7 +5424,7 @@ PrefabInstance:
       objectReference: {fileID: 4495079335045865582, guid: 06c389cb49e1d2e4ca2df65875ecd742, type: 3}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[5].delay
-      value: 6
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[5].enemy
@@ -5540,7 +5432,7 @@ PrefabInstance:
       objectReference: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[6].delay
-      value: 4
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[6].enemy
@@ -5556,7 +5448,7 @@ PrefabInstance:
       objectReference: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[8].delay
-      value: 12
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[8].enemy
@@ -5580,7 +5472,7 @@ PrefabInstance:
       objectReference: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[11].delay
-      value: 8
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[11].enemy
@@ -5588,7 +5480,7 @@ PrefabInstance:
       objectReference: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[12].delay
-      value: 0.3
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[12].enemy
@@ -5596,7 +5488,7 @@ PrefabInstance:
       objectReference: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[13].delay
-      value: 0.3
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[13].enemy
@@ -5604,7 +5496,7 @@ PrefabInstance:
       objectReference: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[14].delay
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[14].enemy
@@ -5612,7 +5504,7 @@ PrefabInstance:
       objectReference: {fileID: 7090447527747214131, guid: 3c684ae6f52daa148a9b18215163f1e0, type: 3}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[15].delay
-      value: 9
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[15].enemy
@@ -5620,7 +5512,7 @@ PrefabInstance:
       objectReference: {fileID: 7090447527747214131, guid: 3c684ae6f52daa148a9b18215163f1e0, type: 3}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[16].delay
-      value: 0.4
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[16].enemy
@@ -5628,7 +5520,7 @@ PrefabInstance:
       objectReference: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[17].delay
-      value: 0.4
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[17].enemy
@@ -5636,7 +5528,7 @@ PrefabInstance:
       objectReference: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[18].delay
-      value: 9
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[18].enemy
@@ -5644,409 +5536,26 @@ PrefabInstance:
       objectReference: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[19].delay
-      value: 5
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[19].enemy
       value: 
       objectReference: {fileID: 4495079335045865582, guid: 06c389cb49e1d2e4ca2df65875ecd742, type: 3}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: enemies.Array.data[0].percent
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: enemies.Array.data[1].percent
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: enemies.Array.data[2].percent
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[0].endReward
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[0].spawnRate
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[1].spawnRate
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[2].endReward
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[2].spawnRate
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[3].endReward
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[3].spawnRate
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[4].endReward
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[4].spawnRate
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[5].endReward
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[5].spawnRate
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[6].endReward
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[6].spawnRate
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[0].enemiesNbr
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[1].enemiesNbr
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[2].enemiesNbr
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[3].enemiesNbr
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[4].enemiesNbr
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[5].enemiesNbr
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[6].enemiesNbr
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[0].lanes.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[1].lanes.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[2].lanes.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[3].lanes.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[4].lanes.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[5].lanes.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[6].lanes.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[0].enemies.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[1].enemies.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[2].enemies.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[3].enemies.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[6].enemies.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[0].lanes.Array.data[0]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[0].lanes.Array.data[1]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[0].lanes.Array.data[2]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[1].lanes.Array.data[0]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[1].lanes.Array.data[1]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[1].lanes.Array.data[2]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[1].lanes.Array.data[3]
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[2].lanes.Array.data[0]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[2].lanes.Array.data[1]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[3].lanes.Array.data[0]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[3].lanes.Array.data[1]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[3].lanes.Array.data[2]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[4].lanes.Array.data[0]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[4].lanes.Array.data[1]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[4].lanes.Array.data[2]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[4].lanes.Array.data[3]
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[5].lanes.Array.data[0]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[5].lanes.Array.data[1]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[5].lanes.Array.data[2]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[5].lanes.Array.data[3]
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[6].lanes.Array.data[0]
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[6].lanes.Array.data[1]
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[6].lanes.Array.data[2]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[6].lanes.Array.data[3]
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[6].lanes.Array.data[4]
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[0].enemies.Array.data[0].obj
-      value: 
-      objectReference: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[1].enemies.Array.data[0].obj
-      value: 
-      objectReference: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[2].enemies.Array.data[0].obj
-      value: 
-      objectReference: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[3].enemies.Array.data[0].obj
-      value: 
-      objectReference: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[3].enemies.Array.data[1].obj
-      value: 
-      objectReference: {fileID: 4495079335045865582, guid: 7a69115bf7180654ab83b386193ec131, type: 3}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[6].enemies.Array.data[0].obj
-      value: 
-      objectReference: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[6].enemies.Array.data[1].obj
-      value: 
-      objectReference: {fileID: 4495079335045865582, guid: 7a69115bf7180654ab83b386193ec131, type: 3}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[6].enemies.Array.data[2].obj
-      value: 
-      objectReference: {fileID: 4495079335045865582, guid: bf3755f052ed55c43af86c253042348e, type: 3}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[0].enemies.Array.data[0].name
-      value: Basic Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[1].enemies.Array.data[0].name
-      value: Basic Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[2].enemies.Array.data[0].name
-      value: Basic Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[3].enemies.Array.data[0].name
-      value: Basic Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[3].enemies.Array.data[1].name
-      value: Fast Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[4].enemies.Array.data[0].name
-      value: Basic Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[4].enemies.Array.data[1].name
-      value: Fast Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[4].enemies.Array.data[2].name
-      value: Strong Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[5].enemies.Array.data[0].name
-      value: Basic Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[5].enemies.Array.data[1].name
-      value: Fast Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[5].enemies.Array.data[2].name
-      value: Strong Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[6].enemies.Array.data[0].name
-      value: Basic Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[6].enemies.Array.data[1].name
-      value: Fast Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[6].enemies.Array.data[2].name
-      value: Strong Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[0].enemies.Array.data[0].percent
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[1].enemies.Array.data[0].percent
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[2].enemies.Array.data[0].percent
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[3].enemies.Array.data[0].percent
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[3].enemies.Array.data[1].percent
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[4].enemies.Array.data[0].percent
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[4].enemies.Array.data[1].percent
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[4].enemies.Array.data[2].percent
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[5].enemies.Array.data[0].percent
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[5].enemies.Array.data[1].percent
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[5].enemies.Array.data[2].percent
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[6].enemies.Array.data[0].percent
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[6].enemies.Array.data[1].percent
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: waves.Array.data[6].enemies.Array.data[2].percent
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 8370743241901530406, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: m_Name
       value: Spawner
-      objectReference: {fileID: 0}
-    - target: {fileID: 8370743241901530406, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
+--- !u!1 &500271162 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4239856240270013311, guid: 2b162c25758ee0441b9783b71a8f99f3, type: 3}
+  m_PrefabInstance: {fileID: 1456163375}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &576966731
 GameObject:
   m_ObjectHideFlags: 0
@@ -6624,6 +6133,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 818833967}
   m_CullTransparentMesh: 1
+--- !u!1 &842854542 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 480082435143079885, guid: 2b162c25758ee0441b9783b71a8f99f3, type: 3}
+  m_PrefabInstance: {fileID: 1456163375}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &872638089
 GameObject:
   m_ObjectHideFlags: 0
@@ -7253,6 +6767,11 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &1071725320 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8872084523237116390, guid: 2b162c25758ee0441b9783b71a8f99f3, type: 3}
+  m_PrefabInstance: {fileID: 1456163375}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1081116099
 GameObject:
   m_ObjectHideFlags: 0
@@ -8242,6 +7761,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 669402660489750127, guid: 2b162c25758ee0441b9783b71a8f99f3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 952977061409668386, guid: 2b162c25758ee0441b9783b71a8f99f3, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.2
@@ -8403,10 +7926,11 @@ MonoBehaviour:
   towerASVal: {fileID: 727699297}
   towerTypeVal: {fileID: 1120808173}
   towerPrice: {fileID: 186267830}
-  fireSelector: {fileID: 1947215823}
-  waterSelector: {fileID: 872638089}
-  windSelector: {fileID: 1279104132}
-  earthSelector: {fileID: 1251572095}
+  selector:
+  - {fileID: 379257978}
+  - {fileID: 842854542}
+  - {fileID: 500271162}
+  - {fileID: 1071725320}
 --- !u!4 &1464452433
 Transform:
   m_ObjectHideFlags: 0
@@ -10121,4 +9645,3 @@ SceneRoots:
   - {fileID: 44583413}
   - {fileID: 1054403334}
   - {fileID: 1464452433}
-  - {fileID: 271230574}
