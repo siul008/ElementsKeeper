@@ -441,7 +441,6 @@ GameObject:
   - component: {fileID: 5797092178131321697}
   - component: {fileID: 1366075444950575908}
   - component: {fileID: 7770125798654813102}
-  - component: {fileID: 4617795577957635889}
   m_Layer: 8
   m_Name: SemiTank
   m_TagString: Enemy
@@ -554,29 +553,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4617795577957635889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7090447527747214131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 786b3feb5e119264895d49778a02229c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 200
-  currentHealth: 0
-  baseMoveSpeed: 0.5
-  damage: 3.5
-  dropChance: 100
-  attackInterval: 0.8
-  particles: {fileID: 6229015611915365267, guid: 7b464b9e128fe9e4b815b4b33c33dfa1, type: 3}
-  voidFragment: {fileID: 3310398405383277556, guid: ef1ce638bcf53794783d89cbef7d8c14, type: 3}
-  turret: {fileID: 0}
-  attackTime: 0
-  player: {fileID: 0}
 --- !u!1 &7195653980837696467
 GameObject:
   m_ObjectHideFlags: 0
