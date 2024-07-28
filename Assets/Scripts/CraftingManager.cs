@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -29,10 +30,9 @@ public class CraftingManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI towerTypeVal;
     [SerializeField] private TextMeshProUGUI towerPrice;
     [Header("Tower Selected")]
-    [SerializeField] private GameObject fireSelector;
-    [SerializeField] private GameObject waterSelector;
-    [SerializeField] private GameObject windSelector;
-    [SerializeField] private GameObject earthSelector;
+    [SerializeField]
+    [ItemCanBeNull]
+    private List<GameObject> selector;
     private int selected = 0;
 
     
@@ -46,6 +46,8 @@ public class CraftingManager : MonoBehaviour
         {
             Instance = this;
         }
+        if (selector.Count != 4)
+            Debug.LogError("There isn't 4 selectors");
         elements.Add(Elements.Fire, 0);
         elements.Add(Elements.Water, 0);
         elements.Add(Elements.Wind, 0);
@@ -61,7 +63,11 @@ public class CraftingManager : MonoBehaviour
     public void SetSelected(int i)
     {
         if (i <= 3 && i >= 0)
+        {
+            selector[i]?.SetActive(false);
             selected = i;
+        }
+
         UpdateCraftingUI();
     }
 
@@ -106,11 +112,15 @@ public class CraftingManager : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
         {
+            texts[i].color = Color.black;
             if (i == selected)
-                texts[i].color = Color.black;
+            {
+                selector[i]?.SetActive(true);
+            }
             else
-                texts[i].color = Color.white;
-                
+            {
+                selector[i]?.SetActive(false);
+            }
             texts[i].text = elements[(Elements)i].ToString();
         }
         UpdateFragmentText();
@@ -189,7 +199,7 @@ public class CraftingManager : MonoBehaviour
     {
         TowerObjects tower = GetCurrentMerge();
         Debug.Log("ADD Tower");
-        if (tower.price <= InventoryManager.Instance.GetFragments())
+        if (tower && tower.price <= InventoryManager.Instance.GetFragments())
         {
             InventoryManager.Instance.AddTower(tower);
             for (int i = 0; i < tower.price; i++)
