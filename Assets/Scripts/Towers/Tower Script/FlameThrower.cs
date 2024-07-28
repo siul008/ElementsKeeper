@@ -10,6 +10,10 @@ public class FlameThrower : TowerBehaviour
     [SerializeField]
     GameObject flamethrow;
 
+    private void Start()
+    {
+        flamethrow.GetComponent<TowerProjectile>().SetupProjectile(tower.damage, tower.attackRate);
+    }
     public override bool IsEnemyInFront()
     {
         return (Physics2D.Raycast(transform.position, Vector2.right, range, mask));

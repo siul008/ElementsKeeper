@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoulderProj : MonoBehaviour
+public class BoulderProj : TowerProjectile
 {
     [SerializeField] float bulletSpeed = 5f;
-    [SerializeField] float damage;
     [SerializeField] float knockbackForce;
     List<GameObject> enemiesHit = new List<GameObject>();
 
+
+    public void SetDamage(float dmg)
+    {
+        damage = dmg;
+    }
     void Start()
     {
         Destroy(gameObject, 8f);

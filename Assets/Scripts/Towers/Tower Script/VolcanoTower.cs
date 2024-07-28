@@ -30,6 +30,7 @@ public class VolcanoTower : TowerBehaviour
     public override void Fire()
     {
         Meteor meteor = Instantiate(tower.projectile, hit.transform.position + offset, transform.rotation).GetComponent<Meteor>();
+        meteor.gameObject.GetComponent<TowerProjectile>().SetupProjectile(tower.damage, tower.attackRate);
         meteor.SetDestination(hit.transform.position);
     }
 }

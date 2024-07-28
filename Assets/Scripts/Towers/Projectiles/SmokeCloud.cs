@@ -2,12 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SmokeCloud : MonoBehaviour
+public class SmokeCloud : TowerProjectile
 {
-    [SerializeField]
-    float damage;
-    [SerializeField]
-    float damageRate;
+
     [SerializeField]
     float decayTime;
     float currentTime;
@@ -22,7 +19,7 @@ public class SmokeCloud : MonoBehaviour
     }
     private void Update()
     {
-        if (currentTime > damageRate)
+        if (currentTime > attackRate)
         {
             currentTime = 0;
             foreach (GameObject enemy in enemiesAffected)

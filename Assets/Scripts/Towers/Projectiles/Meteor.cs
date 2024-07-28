@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Meteor : MonoBehaviour
+public class Meteor : TowerProjectile
 {
     [SerializeField]
     Vector2 areaOfEffect;
-    [SerializeField]
-    float damage;
     Vector3 destination = Vector3.zero;
     [SerializeField]
     float speed;

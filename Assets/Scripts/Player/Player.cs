@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     public float craftingTime;
     public float damage;
     public float towerPickupDuration;
+    public float initialFragments;
     float towerPickupTime;
 
     [Header("Editor Assignation")]
@@ -67,6 +68,11 @@ public class Player : MonoBehaviour
         UpdateHealthBar();
         //HideProgBar();
         UpdateProgBar(0, towerPickupDuration);
+
+        for(int i = 0; i < initialFragments; i++)
+        {
+            InventoryManager.Instance.AddFragment();
+        }
     }
 
     void Update()

@@ -2,13 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlameThrow : MonoBehaviour
+public class FlameThrow : TowerProjectile
 {
-
-    [SerializeField]
-    float damage;
-    [SerializeField]
-    float damageRate;
     float currentTime;
     List<GameObject> enemiesAffected = new List<GameObject>();
     List<GameObject> enemiesToRemove = new List<GameObject>();
@@ -20,7 +15,8 @@ public class FlameThrow : MonoBehaviour
     }
     private void Update()
     {
-        if (currentTime > damageRate)
+        Debug.Log(damage + "" + attackRate);
+        if (currentTime > attackRate)
         {
             currentTime = 0;
             foreach (GameObject enemy in enemiesAffected)

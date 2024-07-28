@@ -26,7 +26,7 @@ public class GeyserTower : TowerBehaviour
     }
     public override void Fire()
     {
-        Instantiate(tower.projectile, new Vector3(hit.transform.position.x, transform.position.y + 0.1f, transform.position.z), Quaternion.identity);
+        Instantiate(tower.projectile, new Vector3(hit.transform.position.x, transform.position.y + 0.1f, transform.position.z), Quaternion.identity).GetComponent<TowerProjectile>().SetupProjectile(tower.damage, tower.attackRate); ;
     }
 }
 

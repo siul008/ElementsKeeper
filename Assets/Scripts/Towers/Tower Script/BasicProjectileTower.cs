@@ -8,6 +8,6 @@ public class BasicProjectileTower : TowerBehaviour
     
     public override void Fire()
     {
-        Instantiate(tower.projectile, transform.position, transform.rotation);
+        Instantiate(tower.projectile, transform.position, transform.rotation).GetComponent<TowerProjectile>().SetupProjectile(tower.damage, tower.attackRate);
     }
 }
