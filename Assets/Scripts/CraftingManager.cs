@@ -201,8 +201,6 @@ public class CraftingManager : MonoBehaviour
             slot2.ResetSlot();
         }
         return;
-
-
     }
 
     // Start is called before the first frame update
