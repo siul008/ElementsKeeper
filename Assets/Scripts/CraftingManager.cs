@@ -28,6 +28,11 @@ public class CraftingManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI towerASVal;
     [SerializeField] private TextMeshProUGUI towerTypeVal;
     [SerializeField] private TextMeshProUGUI towerPrice;
+    [Header("Tower Selected")]
+    [SerializeField] private GameObject fireSelector;
+    [SerializeField] private GameObject waterSelector;
+    [SerializeField] private GameObject windSelector;
+    [SerializeField] private GameObject earthSelector;
     private int selected = 0;
 
     
@@ -79,7 +84,7 @@ public class CraftingManager : MonoBehaviour
     {
         if (InventoryManager.Instance.GetFragments() > 0)
         {
-            elements[el] += 1;
+           // elements[el] += 1;
             InventoryManager.Instance.RemoveFragment();
         }
         UpdateCraftingUI();
