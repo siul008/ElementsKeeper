@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaterWave : MonoBehaviour
+public class WaterWave : TowerProjectile
 {
     [SerializeField] float bulletSpeed = 5f;
-    [SerializeField] float damage;
     [SerializeField] float knockbackForce;
     List<GameObject> enemiesHit = new List<GameObject>();
 
@@ -26,7 +25,7 @@ public class WaterWave : MonoBehaviour
             enemiesHit.Add(other.gameObject);
             other.GetComponent<Enemy>().TakeDamage(damage);
             other.GetComponent<Rigidbody2D>().AddForce(Vector2.right * knockbackForce, ForceMode2D.Impulse);
-            if (enemiesHit.Count > 3)
+            if (enemiesHit.Count > 2)
             {
                 Destroy(gameObject);
             }

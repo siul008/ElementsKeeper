@@ -10,6 +10,12 @@ public class SpawnerScript : MonoBehaviour
     float time;
     float timeToWait;
 
+    enum WaveState
+    {
+        Spawning,
+        WaitingToContinue,
+    }
+
     public static SpawnerScript Instance { get; private set; }
 
     private void Awake()
@@ -28,21 +34,38 @@ public class SpawnerScript : MonoBehaviour
     private void Start()
     {
         index = 0;
-        timeToWait = waves[index].delay;
         time = 0;
+        timeToWait = waves[index].delay;
     }
 
     private void Update()
     {
         if (time >= timeToWait)
         {
-            time = 0;
             Spawn();
         }
         else
         {
             time += Time.deltaTime;
         }
+    }
+
+
+
+    void GetToNextSpawn()
+    {
+        time = 0;
+        if (index + 1 < waves.Count)
+        {
+            index++;
+        }
+        timeToWait = waves[index].delay;
+    }
+
+    void Spawn()
+    {
+        Instantiate(waves[index].enemy, spawns[waves[index].lane].position, Quaternion.identity);
+        GetToNextSpawn();
     }
 
     public void EnemyDied()
@@ -62,5 +85,6 @@ public class SpawnerScript : MonoBehaviour
         public int lane;
         public GameObject enemy;
         public float delay;
+
     }
 }

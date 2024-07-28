@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MudProjectile : MonoBehaviour
+public class MudProjectile : TowerProjectile
 {
     [SerializeField] float bulletSpeed = 5f;
-    [SerializeField] float damage;
     [SerializeField] GameObject mudPound;
 
     bool hitEnemy = false;

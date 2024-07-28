@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Geyser : MonoBehaviour
+public class Geyser : TowerProjectile
 {
     BoxCollider2D boxCollider;
     [SerializeField] float stunDuration;
     [SerializeField] float bumpDistance;
     [SerializeField] float bumpSpeed;
-    [SerializeField] float damage;
 
     List<GameObject> enemiesHit = new List<GameObject>();
     void Start()
