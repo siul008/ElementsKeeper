@@ -64,6 +64,7 @@ public class SpawnerScript : MonoBehaviour
 
     void Spawn()
     {
+        Debug.Log("Spawning " + waves[index].name);
         Instantiate(waves[index].enemy, spawns[waves[index].lane].position, Quaternion.identity);
         GetToNextSpawn();
     }
