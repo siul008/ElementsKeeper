@@ -64,7 +64,7 @@ public class Player : MonoBehaviour
         cursorHolder.localScale = Grid.Instance.GetTileSize();
 
         ChangeState(new PlayerIdleState());
-        UpdateHealthBar();
+        //UpdateHealthBar();
         UpdateProgBar(0, towerPickupDuration);
 
         for(int i = 0; i < initialFragments; i++)
@@ -409,17 +409,17 @@ public class Player : MonoBehaviour
         {
             currentHealth += healthRegen;
         }
-        UpdateHealthBar();
+        //UpdateHealthBar();
     }
     public void Die()
     {
         Destroy(gameObject);
     }
-    public void UpdateHealthBar()
+   /* public void UpdateHealthBar()
     {
         healthBar.maxValue = maxHealth;
         healthBar.value = currentHealth;
-    }
+    }*/
 
     public void TakeDamage(float damage)
     {
@@ -428,7 +428,7 @@ public class Player : MonoBehaviour
         {
             Die();
         }
-        UpdateHealthBar();
+       // UpdateHealthBar();
     }
 
     public void HideProgBar()

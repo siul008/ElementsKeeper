@@ -7,15 +7,12 @@ public class TowerScript : MonoBehaviour
 {
     [SerializeField] private TowerObjects currentTower;
     float health;
-    Slider energyBar;
     [SerializeField]
     SpriteRenderer sRenderer;
 
     private void Start()
     {
-        energyBar = GetComponentInChildren<Slider>();
         health = currentTower.maxHealth;
-        UpdateEnergyBar();
     }
 
     public TowerObjects GetScriptable()
@@ -37,13 +34,6 @@ public class TowerScript : MonoBehaviour
         {
             Die();
         }
-        UpdateEnergyBar();
-    }
-
-    void UpdateEnergyBar()
-    {
-        energyBar.maxValue = currentTower.maxHealth;
-        energyBar.value = health;
     }
 
 
