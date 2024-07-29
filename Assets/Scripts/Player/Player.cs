@@ -174,10 +174,6 @@ public class Player : MonoBehaviour
     {
         return (true);
     }
-    public void ChangeStateText(string text)
-    {
-        state.text = text;
-    }
     public void ChangeState(PlayerState newState)
     {
         if (currentState != null)

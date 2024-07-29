@@ -6,7 +6,6 @@ public class PlayerTransmuteState : PlayerState
 {
     public override void Enter(Player player)
     {
-        player.ChangeStateText("PlayerTransmuteState");
         CraftingManager.Instance.UpdateFragmentText();
         SoundManager.Instance.InstantPlaySfx("TransmuteBook", false);
         player.SetCraftingTableUIVisibility(true);

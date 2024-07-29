@@ -6,7 +6,6 @@ public class PlayerAttackState : PlayerState
 {
     public override void Enter(Player player)
     {
-        player.ChangeStateText("PlayerAttackState");
     }
 
     public override void Execute(Player player)

@@ -6,7 +6,7 @@ public class PlayerIdleState : PlayerState
 {
     public override void Enter(Player player)
     {
-        player.ChangeStateText("PlayerIdleState");
+        
     }
 
     public override void Execute(Player player)

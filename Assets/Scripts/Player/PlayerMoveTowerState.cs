@@ -6,7 +6,6 @@ public class PlayerMoveTowerState : PlayerState
 {
     public override void Enter(Player player)
     {
-        player.ChangeStateText("PlayerMoveTowerState");
     }
 
     public override void Execute(Player player)
