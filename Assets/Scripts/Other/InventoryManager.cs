@@ -73,9 +73,9 @@ public class InventoryManager : MonoBehaviour
         {
             Image child = imagesParent.GetChild(i).GetComponent<Image>();
             if (i == selected)
-                child.color = new Color(child.color.r, child.color.g, child.color.b, 0.9f);
+                child.color = new Color(child.color.r, child.color.g, child.color.b, 1f);
             else
-                child.color = new Color(child.color.r, child.color.g, child.color.b, 0.2f);
+                child.color = new Color(child.color.r, child.color.g, child.color.b, 0.7f);
             if (inv[i] == null)
             {
                 images[i].gameObject.SetActive(false);
