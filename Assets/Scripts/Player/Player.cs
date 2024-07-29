@@ -313,17 +313,34 @@ public class Player : MonoBehaviour
     
     public void OnPause(InputValue value)
     {
-        if (!paused)
+        if (isNearTransmute && paused)
         {
-            Time.timeScale = 0;
-            paused = true;
-            moveDir = Vector2.zero;
+            ChangeState(new PlayerIdleState());
         }
         else
         {
-            Time.timeScale = 1;
-            paused = false;
+            if (!paused)
+            {
+                PauseGame();
+            }
+            else
+            {
+                UnpauseGame();
+            }
         }
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+        paused = true;
+        moveDir = Vector2.zero;
+    }
+
+    public void UnpauseGame()
+    {
+        Time.timeScale = 1;
+        paused = false;
     }
 
     public void OnMove(InputValue value)
@@ -358,7 +375,14 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        spaceRelease = !value.isPressed;
+        if (isNearTransmute)
+        {
+            ChangeState(new PlayerTransmuteState());
+        }
+        else
+        {
+            spaceRelease = !value.isPressed;
+        }
     }
     
     void RegenHealth()
