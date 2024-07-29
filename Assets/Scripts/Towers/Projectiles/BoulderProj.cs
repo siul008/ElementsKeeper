@@ -7,6 +7,10 @@ public class BoulderProj : TowerProjectile
     [SerializeField] float bulletSpeed = 5f;
     [SerializeField] float knockbackForce;
     List<GameObject> enemiesHit = new List<GameObject>();
+    [SerializeField] int stateBeforeDestroy = 3;
+    [SerializeField] float damageReductionPerState = 0.8f;
+    [SerializeField] int enemiesToDecreaseState;
+     int enemyHitCount;
 
 
     public void SetDamage(float dmg)
@@ -15,6 +19,7 @@ public class BoulderProj : TowerProjectile
     }
     void Start()
     {
+        enemyHitCount = 0;
         Destroy(gameObject, 8f);
     }
 
@@ -30,6 +35,17 @@ public class BoulderProj : TowerProjectile
             enemiesHit.Add(other.gameObject);
             other.GetComponent<Enemy>().TakeDamage(damage);
             other.GetComponent<Rigidbody2D>().AddForce(Vector2.right * knockbackForce, ForceMode2D.Impulse);
+            enemyHitCount++;
+            if (enemyHitCount >= enemiesToDecreaseState)
+            {
+                damage *= damageReductionPerState;
+                enemyHitCount = 0;
+                stateBeforeDestroy--;
+                if (stateBeforeDestroy <= 0)
+                {
+                    Destroy(gameObject);
+                }
+            }
         }
     }
 }

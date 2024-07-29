@@ -170,7 +170,7 @@ SpriteRenderer:
   m_Size: {x: 0.32, y: 0.32}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &9006132136988529940
@@ -242,8 +242,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 3
-  damage: 50
   knockbackForce: 12000
+  stateBeforeDestroy: 3
+  damageReductionPerState: 0.7
+  enemiesToDecreaseState: 3
 --- !u!1 &7494601125455536870
 GameObject:
   m_ObjectHideFlags: 0
