@@ -12,6 +12,7 @@ public enum Elements
     Wind,
     Earth
 }
+
 public class CraftingManager : MonoBehaviour
 {
     private Dictionary<Elements, int> elements = new Dictionary<Elements, int>();
