@@ -412,7 +412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 550
   currentHealth: 0
-  baseMoveSpeed: 0.17
+  baseMoveSpeed: 0.24
   damage: 3.5
   dropChance: 100
   attackInterval: 0.8

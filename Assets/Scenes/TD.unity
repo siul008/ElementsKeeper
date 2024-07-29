@@ -12729,7 +12729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[0].delay
-      value: 8
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[0].enemy
@@ -17507,6 +17507,21 @@ MonoBehaviour:
   - name: TowerCarry
     volume: 0.1
     clip: {fileID: 8300000, guid: 089f2f77a8a80bf4290f576a55a82fa0, type: 3}
+  - name: TowerDestroy
+    volume: 0.05
+    clip: {fileID: 8300000, guid: f6a4111d8a54b284db8c59e50c622308, type: 3}
+  - name: FlamethrowStart
+    volume: 0.1
+    clip: {fileID: 8300000, guid: d021218b153e1a14ca5ba2871d6d13e5, type: 3}
+  - name: FlamethrowLoop
+    volume: 0.1
+    clip: {fileID: 8300000, guid: 5b9f6b9658125b7449b0bd4f0e60e0e4, type: 3}
+  - name: FlamethrowEnd
+    volume: 0.1
+    clip: {fileID: 8300000, guid: 7e4f63c6e8cfd9545a0778f694134cb3, type: 3}
+  - name: EnemyAttack
+    volume: 0.1
+    clip: {fileID: 8300000, guid: 2a1a12912a4b6df47bc7776ead1d3968, type: 3}
 --- !u!82 &2125018594
 AudioSource:
   m_ObjectHideFlags: 0

@@ -25,11 +25,13 @@ public class TowerScript : MonoBehaviour
 
     public void Die()
     {
+        SoundManager.Instance.InstantPlaySfx("TowerDestroy", false);
         transform.parent.GetComponent<Tile>().RemoveTower(true);
     }
     
     public void TakeDamage(float damage)
     {
+        StartCoroutine(SoundManager.Instance.PlaySfx("EnemyAttack", 0));
         health -= damage;
         if (health <= 0)
         {
