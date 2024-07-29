@@ -16,7 +16,7 @@ MonoBehaviour:
   towerName: Fireball tower
   dmgType: 0
   level: 1
-  damage: 30
+  damage: 20
   maxHealth: 20
   projectile: {fileID: 6614357707742448129, guid: 7f588817d114bd54cb30408a80e74d22, type: 3}
   attackRate: 2

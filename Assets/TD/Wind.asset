@@ -16,7 +16,7 @@ MonoBehaviour:
   towerName: Slicing winds
   dmgType: 0
   level: 1
-  damage: 8
+  damage: 6
   maxHealth: 20
   projectile: {fileID: 6614357707742448129, guid: b1039bdd9f8d7c84dbaffc7df476524c, type: 3}
   attackRate: 1
