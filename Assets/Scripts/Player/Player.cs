@@ -117,6 +117,7 @@ public class Player : MonoBehaviour
                 {
                     currentTower.GetComponent<TowerBehaviour>().ResetAttackTime();
                 }
+                StartCoroutine(SoundManager.Instance.PlaySfx("TowerCarry", 0f));
                 currentTower.SetActive(false);
                 t.RemoveTower(false);
                 towerPickupTime = 0;
@@ -135,6 +136,7 @@ public class Player : MonoBehaviour
             {
                 t.SetTower(carriedTower);
                 carriedTower.SetActive(true);
+                StartCoroutine(SoundManager.Instance.PlaySfx("TowerDrop", 0f));
                 isCarrying = false;
                 carriedTower = null;
                 spaceRelease = true;
@@ -146,6 +148,7 @@ public class Player : MonoBehaviour
                 {
                     t.SetTower(tower);
                     spaceRelease = true;
+                    StartCoroutine(SoundManager.Instance.PlaySfx("TowerSpawn", 0f));
                 }
             }
         }
