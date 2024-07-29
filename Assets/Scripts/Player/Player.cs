@@ -66,7 +66,6 @@ public class Player : MonoBehaviour
 
         ChangeState(new PlayerIdleState());
         UpdateHealthBar();
-        //HideProgBar();
         UpdateProgBar(0, towerPickupDuration);
 
         for(int i = 0; i < initialFragments; i++)
@@ -77,7 +76,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        //HandleMovement();
         RegenHealth();
         CheckTowerOnTile();
         ManageShadow();
@@ -315,7 +313,7 @@ public class Player : MonoBehaviour
     {
         if (isNearTransmute && paused)
         {
-            ChangeState(new PlayerIdleState());
+            LeaveTransmuteTable();
         }
         else
         {
@@ -328,6 +326,14 @@ public class Player : MonoBehaviour
                 UnpauseGame();
             }
         }
+    }
+
+
+    public void LeaveTransmuteTable()
+    {
+        Debug.Log("Leave");
+        ChangeState(new PlayerIdleState());
+        UnpauseGame();
     }
 
     public void PauseGame()
@@ -352,7 +358,6 @@ public class Player : MonoBehaviour
         var v = value.Get<Vector2>();
         moveDir.x = v.x;
         moveDir.y = v.y;
-        Debug.Log("Player is moving");
         if (v.x < 0)
         {
             FaceLeft();
@@ -375,9 +380,11 @@ public class Player : MonoBehaviour
         {
             return;
         }
-        if (isNearTransmute)
+
+        if (isNearTransmute && !paused)
         {
             ChangeState(new PlayerTransmuteState());
+            
         }
         else
         {
