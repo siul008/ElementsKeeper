@@ -26,9 +26,29 @@ public class ElementSlot : MonoBehaviour, IDropHandler
         return currentElement;
     }
 
+    public void SetCurrentElement(GameObject newElement)
+    {
+        currentElement = newElement;
+    }
+
     public void ResetSlot()
     {
         Destroy(currentElement);
         CraftingManager.Instance.ResetCurrentTower();
+    }
+
+    public bool AutoAddElement(GameObject el)
+    {
+        if (!currentElement)
+        {
+            currentElement = Instantiate(el, canvas);
+            CraftingManager.Instance.RemoveElement(currentElement.GetComponent<DragElements>().GetElement());
+            CraftingManager.Instance.SetCurrentTower();
+            currentElement.GetComponent<DragElements>().Duplicate();
+            currentElement.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+            SoundManager.Instance.PlayUISound();
+            return true;
+        }
+        return false;
     }
 }

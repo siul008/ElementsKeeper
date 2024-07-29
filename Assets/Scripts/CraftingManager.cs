@@ -235,6 +235,29 @@ public class CraftingManager : MonoBehaviour
         return;
     }
 
+    public void UpdateSlotElement(GameObject el)
+    {
+        if (el.transform.position == slot1.transform.position)
+        {
+            slot1.SetCurrentElement(el);
+            SetCurrentTower();
+        }
+        else if (el.transform.position == slot2.transform.position)
+        {
+            slot2.SetCurrentElement(el);
+            SetCurrentTower();
+        }
+    }
+
+    public void AutoAddElement(GameObject element)
+    {
+        if (elements[element.GetComponent<DragElements>().GetElement()] <= 0)
+            return;
+        if (slot2.AutoAddElement(element))
+            return;
+        slot1.AutoAddElement(element);
+    }
+
     // Start is called before the first frame update
     void Start()
     {

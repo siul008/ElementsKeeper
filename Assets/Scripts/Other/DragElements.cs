@@ -33,6 +33,10 @@ public class DragElements : MonoBehaviour, IPointerDownHandler, IBeginDragHandle
     {
         pos = rect.anchoredPosition;
         CraftingManager.Instance.SetSelected((int) element);
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            CraftingManager.Instance.AutoAddElement(gameObject);
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -79,6 +83,20 @@ public class DragElements : MonoBehaviour, IPointerDownHandler, IBeginDragHandle
     
     public void OnDrop(PointerEventData eventData)
     {
-
+        if (isOriginal)
+            return;
+        if (eventData.pointerDrag != null && eventData.pointerDrag.GetComponent<DragElements>() && CraftingManager.Instance.GetElementAmount(eventData.pointerDrag.GetComponent<DragElements>().GetElement()) > 0)
+        {
+            GameObject currentElement = Instantiate(eventData.pointerDrag, transform.parent);
+            Debug.Log("Remove Element");
+            CraftingManager.Instance.RemoveElement(currentElement.GetComponent<DragElements>().GetElement());
+            CraftingManager.Instance.ForceAddElement(GetComponent<DragElements>().GetElement());
+            CraftingManager.Instance.SetCurrentTower();
+            currentElement.GetComponent<DragElements>().Duplicate();
+            currentElement.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+            SoundManager.Instance.PlayUISound();
+            CraftingManager.Instance.UpdateSlotElement(currentElement);
+            Destroy(gameObject);
+        }
     }
 }
