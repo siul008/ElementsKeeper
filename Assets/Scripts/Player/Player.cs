@@ -105,7 +105,7 @@ public class Player : MonoBehaviour
 
     void TowerInteraction()
     {
-        Tile t = Grid.Instance.GetTileAtPos(transform.position);
+        Tile t = GetTile();
 
         if (currentTower && carriedTower == null && spaceRelease == false)
         {
@@ -210,9 +210,14 @@ public class Player : MonoBehaviour
         return (enemyTarget);
     }
 
+    public Tile GetTile()
+    {
+        return Grid.Instance.GetTileAtPos(transform.position + new Vector3(1.1f * (sRenderer.flipX ? 1 : -1) , 0, 0));
+    }
+
     void CheckTowerOnTile()
     {
-        Tile t = Grid.Instance.GetTileAtPos(transform.position);
+        Tile t = GetTile();
         if (!t)
         {
             cursor.SetActive(false);
@@ -240,7 +245,7 @@ public class Player : MonoBehaviour
     void ManageShadow()
     {
         GameObject selected = InventoryManager.Instance.GetSelectedTowerGO();
-        Tile t = Grid.Instance.GetTileAtPos(transform.position);
+        Tile t = GetTile();
         if (t && !t.GetTower() && (selected || isCarrying))
         {
             if (currentShadow)
