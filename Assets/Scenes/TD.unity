@@ -12308,6 +12308,11 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!212 &477180950 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8846072994503681453, guid: 27abef29747cdbd45b6603866cbc2ac0, type: 3}
+  m_PrefabInstance: {fileID: 7020607652629645183}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &487101073
 GameObject:
   m_ObjectHideFlags: 0
@@ -12700,7 +12705,7 @@ PrefabInstance:
       objectReference: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[9].delay
-      value: 0.4
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[9].enemy
@@ -12708,7 +12713,7 @@ PrefabInstance:
       objectReference: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[10].delay
-      value: 0.6
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[10].enemy
@@ -12724,7 +12729,7 @@ PrefabInstance:
       objectReference: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[12].delay
-      value: 0.6
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[12].enemy
@@ -12732,7 +12737,7 @@ PrefabInstance:
       objectReference: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[13].delay
-      value: 0.4
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 7963237069821508931, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: waves.Array.data[13].enemy
@@ -16795,7 +16800,7 @@ MonoBehaviour:
   music:
     name: MainLoop
     volume: 0.02
-    clip: {fileID: 8300000, guid: b6faa82380750074f93eb6b50d08d62f, type: 3}
+    clip: {fileID: 8300000, guid: 12c454fe40a8806408bed853ae620b0f, type: 3}
   sfxSounds:
   - name: Fireball1
     volume: 0.1
@@ -16997,7 +17002,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -17127,10 +17132,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 894960988349071346, guid: 27abef29747cdbd45b6603866cbc2ac0, type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 894960988349071346, guid: 27abef29747cdbd45b6603866cbc2ac0, type: 3}
       propertyPath: InitialModule.startSize.minScalar
       value: 0.05
       objectReference: {fileID: 0}
@@ -17142,6 +17143,10 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2162012678671286470, guid: 27abef29747cdbd45b6603866cbc2ac0, type: 3}
+      propertyPath: sRenderer
+      value: 
+      objectReference: {fileID: 477180950}
     - target: {fileID: 2162012678671286470, guid: 27abef29747cdbd45b6603866cbc2ac0, type: 3}
       propertyPath: craftTableUI
       value: 
@@ -17173,10 +17178,6 @@ PrefabInstance:
     - target: {fileID: 3669767992238780015, guid: 27abef29747cdbd45b6603866cbc2ac0, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5084863342241391509, guid: 27abef29747cdbd45b6603866cbc2ac0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5221635716877083277, guid: 27abef29747cdbd45b6603866cbc2ac0, type: 3}
       propertyPath: m_AnchorMax.y

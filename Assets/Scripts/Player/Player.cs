@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
 
     GameObject cursor;
     Rigidbody2D rb;
-    SpriteRenderer sRenderer;
+    [SerializeField] SpriteRenderer sRenderer;
     GameObject enemyTarget;
     Vector2 moveDir;
     PlayerState currentState = null;
@@ -56,7 +56,6 @@ public class Player : MonoBehaviour
     {
         paused = false;
         rb = GetComponent<Rigidbody2D>();
-        sRenderer = GetComponent<SpriteRenderer>();
 
         spaceRelease = true;
         enemyTarget = null;
