@@ -14565,7 +14565,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6640074701820371636
 Transform:
   m_ObjectHideFlags: 0
@@ -19430,7 +19430,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 5
-  damage: 7
 --- !u!58 &8918419441939292376
 CircleCollider2D:
   m_ObjectHideFlags: 0

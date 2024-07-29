@@ -13,11 +13,8 @@ public class BasicEnemy : Enemy
 
     public override void Die()
     {
-        int drop = Random.Range(0, 101);
-        if (drop <= dropChance)
-        {
-            Instantiate(voidFragment, transform.position, Quaternion.identity);
-        }
+        SoundManager.Instance.InstantPlaySfx("EnemyHit", true);
+        Instantiate(voidFragment, transform.position, Quaternion.identity);
         SpawnerScript.Instance.EnemyDied();
         Instantiate(particles, transform.position, Quaternion.identity);
         Destroy(gameObject);
@@ -49,6 +46,10 @@ public class BasicEnemy : Enemy
         if (currentHealth <= 0)
         {
             Die();
+        }
+        else
+        {
+            StartCoroutine(SoundManager.Instance.PlaySfx("EnemyHit", Random.Range(0, 0.15f)));
         }
         UpdateHealthBar();
     }

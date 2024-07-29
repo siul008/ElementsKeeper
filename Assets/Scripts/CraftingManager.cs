@@ -19,6 +19,8 @@ public class CraftingManager : MonoBehaviour
     [SerializeField] List<TextMeshProUGUI> texts = new List<TextMeshProUGUI>();
     [SerializeField] private TextMeshProUGUI voidTxt;
     [SerializeField] private ElementSlot slot1, slot2;
+    [SerializeField] private TextMeshProUGUI mergeButtonText;
+    [SerializeField] private TextMeshProUGUI transmuteButtonText;
     private TowerObjects currentTower;
     [SerializeField] private Image towerImg;
     [Header("Tower Informations ")]
@@ -82,7 +84,11 @@ public class CraftingManager : MonoBehaviour
         {
             elements[(Elements)selected] += 1;
             AddElement((Elements)selected);
-
+            SoundManager.Instance.PlayUISound();
+        }
+        else
+        {
+            SoundManager.Instance.PlayUISoundDisabled();
         }
     }
 
@@ -141,6 +147,18 @@ public class CraftingManager : MonoBehaviour
     void GetTowerInfosText()
     {
         towerDes.text = currentTower.description;
+        Color mergeColor = mergeButtonText.color; ;
+        if (currentTower.price > InventoryManager.Instance.GetFragments())
+        {
+            mergeColor.a = 0.6f;
+            towerPrice.color = Color.red;
+        }
+        else
+        {
+            mergeColor.a = 1f;
+            towerPrice.color = Color.black;
+        }
+        mergeButtonText.color = mergeColor;
         towerPrice.text = currentTower.price.ToString();
         towerName.text = currentTower.towerName.ToUpper();
         towerDmgVal.text = currentTower.damage.ToString();
@@ -198,9 +216,9 @@ public class CraftingManager : MonoBehaviour
     public void Merge()
     {
         TowerObjects tower = GetCurrentMerge();
-        Debug.Log("ADD Tower");
         if (tower && tower.price <= InventoryManager.Instance.GetFragments())
         {
+            SoundManager.Instance.PlayUISound();
             InventoryManager.Instance.AddTower(tower);
             for (int i = 0; i < tower.price; i++)
             {
@@ -209,6 +227,10 @@ public class CraftingManager : MonoBehaviour
             UpdateFragmentText();
             slot1.ResetSlot();
             slot2.ResetSlot();
+        }
+        else
+        {
+            SoundManager.Instance.PlayUISoundDisabled();
         }
         return;
     }
@@ -220,9 +242,4 @@ public class CraftingManager : MonoBehaviour
             Debug.LogError("Not Enough TXT");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

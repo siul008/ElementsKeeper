@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class SteamTower : TowerBehaviour
 {
-    
+    [SerializeField] float towerAttackRate;
+
+    private void Start()
+    {
+        attackTime = towerAttackRate / 2;
+    }
     public override void Update()
     {
-        if (attackTime >= tower.attackRate)
+        if (attackTime >= towerAttackRate)
         {
             Fire();
             attackTime = 0;

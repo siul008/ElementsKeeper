@@ -17,6 +17,7 @@ public class ElementSlot : MonoBehaviour, IDropHandler
             CraftingManager.Instance.SetCurrentTower();
             currentElement.GetComponent<DragElements>().Duplicate();
             currentElement.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
+            SoundManager.Instance.PlayUISound();
         }
     }
 

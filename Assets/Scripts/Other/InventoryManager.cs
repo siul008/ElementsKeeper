@@ -14,7 +14,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] TowerObjects[] voidFragments = new TowerObjects[4];
     [SerializeField] private Transform imagesParent;
     public TowerObjects test;
-    private int currentFragments = 100;
+    private int currentFragments = 0;
     [SerializeField] private int minFragments = 1;
     [SerializeField] private TextMeshProUGUI fragmentText;
     int selected = 0;
@@ -41,7 +41,7 @@ public class InventoryManager : MonoBehaviour
             images.Add(imagesParent.GetChild(6 + i));
         }
     }
-    
+
     void Update()
     {            
         UpdateInventoryUI();

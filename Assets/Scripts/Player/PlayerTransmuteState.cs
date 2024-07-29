@@ -8,6 +8,7 @@ public class PlayerTransmuteState : PlayerState
     {
         player.ChangeStateText("PlayerTransmuteState");
         CraftingManager.Instance.UpdateFragmentText();
+        SoundManager.Instance.InstantPlaySfx("TransmuteBook", false);
         player.SetCraftingTableUIVisibility(true);
         player.PauseGame();
     }

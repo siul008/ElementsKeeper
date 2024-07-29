@@ -134,9 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcd1067331845424fbb19a492824d0f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
-  damageRate: 0.2
-  decayTime: 3
+  decayTime: 5
 --- !u!1 &5506118600485655620
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,7 +176,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5506118600485655620}
   serializedVersion: 8
-  lengthInSec: 2.5
+  lengthInSec: 5
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -360,7 +358,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 0.039215688}
+      maxColor: {r: 1, g: 1, b: 1, a: 0.043137256}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
