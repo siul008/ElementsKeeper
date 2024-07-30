@@ -5,8 +5,11 @@ using UnityEngine;
 public class MainMenuMusic : MonoBehaviour
 {
     [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioSource UISource;
     [SerializeField] AudioClip musicClip;
     [SerializeField] float volume;
+    [SerializeField] AudioClip UIClick;
+    [SerializeField] AudioClip UIClickDisabled;
     void Start()
     {
         PlayMusic();
@@ -18,5 +21,15 @@ public class MainMenuMusic : MonoBehaviour
         audioSource.volume = volume;
         audioSource.clip = musicClip;
         audioSource.Play();
+    }
+
+    public void PlayUISound()
+    {
+        UISource.PlayOneShot(UIClick, volume);
+    }
+
+    public void PlayUISoundDisabled()
+    {
+        UISource.PlayOneShot(UIClickDisabled);
     }
 }

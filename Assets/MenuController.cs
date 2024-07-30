@@ -7,25 +7,25 @@ public class MenuController : MonoBehaviour
 {
     [SerializeField] GameObject mainCanvas;
     [SerializeField] GameObject optionCanvas;
-    [SerializeField] GameObject keysCanvas;
+    [SerializeField] GameObject howToPlay;
 
     public void MainScreen()
     {
         mainCanvas.SetActive(true);
-        keysCanvas.SetActive(false);
+        howToPlay.SetActive(false);
         optionCanvas.SetActive(false);
     }
     public void OptionScreen()
     {
         mainCanvas.SetActive(false);
-        keysCanvas.SetActive(false);
+        howToPlay.SetActive(false);
         optionCanvas.SetActive(true);
     }
 
-    public void KeyScreen()
+    public void HowtoPlayScreen()
     {
         mainCanvas.SetActive(false);
-        keysCanvas.SetActive(true);
+        howToPlay.SetActive(true);
         optionCanvas.SetActive(false);
     }
 
