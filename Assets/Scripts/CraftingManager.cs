@@ -44,6 +44,9 @@ public class CraftingManager : MonoBehaviour
     [SerializeField] private List<DragElements> dragElements = new List<DragElements>();
     [SerializeField] private List<Image> elementsImg = new List<Image>();
     [SerializeField] private Button transmuteBtn;
+    [Header("Slider")] 
+    [SerializeField] private Image slider1;
+    [SerializeField] private Image slider2;
 
 
     
@@ -112,6 +115,14 @@ public class CraftingManager : MonoBehaviour
     public void UnlockElement(Elements el)
     {
         unlockedElements[el] = true;
+    }
+
+    public void UpdateSlider(int i, Color c)
+    {
+        if (i == 1)
+            slider1.color = c;
+        else if (i == 2)
+            slider2.color = c;
     }
 
     public void AddElement(Elements el)

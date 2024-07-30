@@ -19,6 +19,7 @@ public class DragElements : MonoBehaviour, IPointerDownHandler, IBeginDragHandle
     [SerializeField] private Elements element;
     private bool unlocked = false;
     [SerializeField] private List<Elements> unlockedElements = new List<Elements>();
+    [SerializeField] private Color color;
 
     private void Awake()
     {
@@ -42,6 +43,11 @@ public class DragElements : MonoBehaviour, IPointerDownHandler, IBeginDragHandle
         }
     }
 
+    public Color GetColor()
+    {
+        return color;
+    }
+    
     public void OnPointerDown(PointerEventData eventData)
     {
         pos = rect.anchoredPosition;

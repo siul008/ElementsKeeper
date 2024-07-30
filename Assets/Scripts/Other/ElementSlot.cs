@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 public class ElementSlot : MonoBehaviour, IDropHandler
 {
     [SerializeField] private Transform canvas;
+    [SerializeField] private int index;
     private GameObject currentElement;
     public void OnDrop(PointerEventData eventData)
     {
@@ -15,6 +16,7 @@ public class ElementSlot : MonoBehaviour, IDropHandler
             Debug.Log("Remove Element");
             CraftingManager.Instance.RemoveElement(currentElement.GetComponent<DragElements>().GetElement());
             CraftingManager.Instance.SetCurrentTower();
+            CraftingManager.Instance.UpdateSlider(index, currentElement.GetComponent<DragElements>().GetColor());
             currentElement.GetComponent<DragElements>().Duplicate();
             currentElement.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
             SoundManager.Instance.PlayUISound();
