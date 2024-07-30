@@ -12,6 +12,7 @@ public class LightController : MonoBehaviour
     [SerializeField] float intensityOff;
     [SerializeField] float fallOffOff;
     [SerializeField] Vector3 scaleOff = new Vector3(0.1f, 0.1f, 0.1f);
+    [SerializeField] GameObject lightGO;
 
     public float turnOffDuration = 100f;
     public float turnOnDuration = 100f;
@@ -19,7 +20,7 @@ public class LightController : MonoBehaviour
     public IEnumerator TurnOffLight()
     {
         yield return new WaitForSeconds(turnOffDuration);
-        transform.localScale = scaleOff;
+        lightGO.transform.localScale = scaleOff;
         lightHolder.intensity = intensityOff;
         lightHolder.falloffIntensity = fallOffOff;
     }
@@ -27,7 +28,7 @@ public class LightController : MonoBehaviour
     public IEnumerator TurnOnLight()
     {
         yield return new WaitForSeconds(turnOnDuration);
-        transform.localScale = scaleOn;
+        lightGO.transform.localScale = scaleOn;
         lightHolder.intensity = intensityOn;
         lightHolder.falloffIntensity = fallOffOn;
     }

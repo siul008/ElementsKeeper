@@ -58,7 +58,7 @@ public class SpawnerScriptV2 : MonoBehaviour
         }
         if (tierTime >= tierDuration - lightDuration)
         {
-            playerLight.TurnOffLight();
+            StartCoroutine(playerLight.TurnOnLight());
             lightCalled = true;
         }
         if (tierTime >= tierDuration && state == WaveState.PROGRESS)
@@ -75,7 +75,7 @@ public class SpawnerScriptV2 : MonoBehaviour
         }
         if (state == WaveState.BIGWAVE && NoEnemyLeft())
         {
-            playerLight.TurnOnLight();
+            StartCoroutine(playerLight.TurnOnLight());
             ProgressNextTier();
         }
 
@@ -89,11 +89,11 @@ public class SpawnerScriptV2 : MonoBehaviour
     private void ChooseSpawn()
     {
         //Is a horde spawn
-        if (Random.Range(0, 101) <= wave.hordeChance)
+        if (Random.Range(0, 101) < wave.hordeChance)
         {
             DifficultyTier tier;
             //Is a horde from the tier bellow
-            if (difficultyIndex > 0 && Random.Range(0, 101) <= wave.bellowTierHordeChance)
+            if (difficultyIndex > 0 && Random.Range(0, 101) < wave.bellowTierHordeChance)
             {
                 tier = tiers[difficultyIndex - 1];
             }
