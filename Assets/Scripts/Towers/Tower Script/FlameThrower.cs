@@ -9,6 +9,8 @@ public class FlameThrower : TowerBehaviour
     [SerializeField]
     GameObject flamethrow;
 
+    private Animator flameAnim;
+
     // Audio sources for the flame sounds
 
     private bool isFiring = false;
@@ -16,6 +18,7 @@ public class FlameThrower : TowerBehaviour
     private void Start()
     {
         flamethrow.GetComponent<TowerProjectile>().SetupProjectile(tower.damage, tower.attackRate);
+        flameAnim = flamethrow.GetComponent<Animator>();
     }
 
     public override bool IsEnemyInFront()
@@ -25,6 +28,8 @@ public class FlameThrower : TowerBehaviour
 
     public override void Update()
     {
+        Debug.Log(isFiring);
+        flameAnim.SetBool("isFiring", isFiring);
         if (IsEnemyInFront())
         {
             if (!isFiring)
@@ -44,7 +49,7 @@ public class FlameThrower : TowerBehaviour
     void StopFire()
     {
         isFiring = false;
-        flamethrow.SetActive(false);
+        //flamethrow.SetActive(false);
 
         SoundManager.Instance.InstantPlaySfx("FlamethrowEnd", false);
         //flameLoopAudioSource.Stop();
