@@ -9,7 +9,7 @@ public class ElementSlot : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         
-        if (eventData.pointerDrag != null && eventData.pointerDrag.GetComponent<DragElements>() && CraftingManager.Instance.GetElementAmount(eventData.pointerDrag.GetComponent<DragElements>().GetElement()) > 0)
+        if (eventData.pointerDrag != null && eventData.pointerDrag.GetComponent<DragElements>() && CraftingManager.Instance.GetElementUnlocked(eventData.pointerDrag.GetComponent<DragElements>().GetElement()))
         {
             currentElement = Instantiate(eventData.pointerDrag, canvas);
             Debug.Log("Remove Element");

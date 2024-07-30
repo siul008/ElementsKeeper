@@ -242,6 +242,12 @@ public class InventoryManager : MonoBehaviour
         fragmentText.text = GetFragments().ToString();
     }
     
+    public void RemoveFragment(int i)
+    {
+        currentFragments -= i;
+        fragmentText.text = GetFragments().ToString();
+    }
+    
     public void RemoveFragment()
     {
         currentFragments--;

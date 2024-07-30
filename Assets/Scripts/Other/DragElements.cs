@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class DragElements : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IDropHandler
 {
@@ -16,6 +17,8 @@ public class DragElements : MonoBehaviour, IPointerDownHandler, IBeginDragHandle
     private bool isOriginal = true;
     [SerializeField] private Canvas canvas;
     [SerializeField] private Elements element;
+    private bool unlocked = false;
+    [SerializeField] private List<Elements> unlockedElements = new List<Elements>();
 
     private void Awake()
     {
@@ -27,6 +30,16 @@ public class DragElements : MonoBehaviour, IPointerDownHandler, IBeginDragHandle
     public Elements GetElement()
     {
         return element;
+    }
+
+    public void Unlocked()
+    {
+        unlocked = true;
+        GetComponent<Image>().color = Color.white;
+        foreach (var el in unlockedElements)
+        {
+            CraftingManager.Instance.UnlockElement(el);
+        }
     }
 
     public void OnPointerDown(PointerEventData eventData)
@@ -41,14 +54,14 @@ public class DragElements : MonoBehaviour, IPointerDownHandler, IBeginDragHandle
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (CraftingManager.Instance.GetElementAmount(element) <= 0 && isOriginal)
+        if (!unlocked && isOriginal)
             return;
         rect.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        if (CraftingManager.Instance.GetElementAmount(element) <= 0 && isOriginal)
+        if (!unlocked && isOriginal)
             return;
         group.alpha = 0.6f;
         group.blocksRaycasts = false;
@@ -85,7 +98,7 @@ public class DragElements : MonoBehaviour, IPointerDownHandler, IBeginDragHandle
     {
         if (isOriginal)
             return;
-        if (eventData.pointerDrag != null && eventData.pointerDrag.GetComponent<DragElements>() && CraftingManager.Instance.GetElementAmount(eventData.pointerDrag.GetComponent<DragElements>().GetElement()) > 0)
+        if (eventData.pointerDrag != null && eventData.pointerDrag.GetComponent<DragElements>() && CraftingManager.Instance.GetElementUnlocked(eventData.pointerDrag.GetComponent<DragElements>().GetElement()))
         {
             GameObject currentElement = Instantiate(eventData.pointerDrag, transform.parent);
             Debug.Log("Remove Element");

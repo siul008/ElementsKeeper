@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum Elements
+public enum ElementsCopy
 {
     Fire,
     Water,
@@ -13,10 +13,10 @@ public enum Elements
     Earth
 }
 
-public class CraftingManager : MonoBehaviour
+public class CraftingManagerCopy : MonoBehaviour
 {
-    private Dictionary<Elements, bool> elements = new Dictionary<Elements, bool>();
-    public static CraftingManager Instance { get; private set; }
+    private Dictionary<Elements, int> elements = new Dictionary<Elements, int>();
+    public static CraftingManagerCopy Instance { get; private set; }
     [SerializeField] List<TextMeshProUGUI> texts = new List<TextMeshProUGUI>();
     [SerializeField] private TextMeshProUGUI voidTxt;
     [SerializeField] private ElementSlot slot1, slot2;
@@ -37,13 +37,6 @@ public class CraftingManager : MonoBehaviour
     [ItemCanBeNull]
     private List<GameObject> selector;
     private int selected = 0;
-    [Header("Unlock Elements")] 
-    [SerializeField] private int increasePrice = 5;
-    private int currentPrice = 0;
-    private Dictionary<Elements, bool> unlockedElements = new Dictionary<Elements, bool>();
-    [SerializeField] private List<DragElements> dragElements = new List<DragElements>();
-    [SerializeField] private Button transmuteBtn;
-
 
     
     private void Awake()
@@ -58,20 +51,14 @@ public class CraftingManager : MonoBehaviour
         }
         if (selector.Count != 4)
             Debug.LogError("There isn't 4 selectors");
-        if (dragElements.Count != 4)
-            Debug.LogError("There isn't 4 DragElements");
-        elements.Add(Elements.Fire, false);
-        elements.Add(Elements.Water, false);
-        elements.Add(Elements.Wind, false);
-        elements.Add(Elements.Earth, false);
-        unlockedElements.Add(Elements.Fire, true);
-        unlockedElements.Add(Elements.Water, false);
-        unlockedElements.Add(Elements.Wind, false);
-        unlockedElements.Add(Elements.Earth, false);
+        elements.Add(Elements.Fire, 0);
+        elements.Add(Elements.Water, 0);
+        elements.Add(Elements.Wind, 0);
+        elements.Add(Elements.Earth, 0);
         UpdateCraftingUI();
     }
 
-    public bool GetElementUnlocked(Elements el)
+    public int GetElementAmount(Elements el)
     {
         return elements[el];
     }
@@ -94,21 +81,16 @@ public class CraftingManager : MonoBehaviour
     
     public void AddSelected()
     {
-        if (elements[(Elements)selected])
-            return;
-        if (unlockedElements[(Elements)selected] && InventoryManager.Instance.GetFragments() >= currentPrice)
+        if (InventoryManager.Instance.GetFragments() >= 1)
         {
-            InventoryManager.Instance.RemoveFragment(currentPrice);
-            currentPrice += increasePrice;
-            dragElements[selected].Unlocked();
-            elements[(Elements)selected] = true;
-            UpdateCraftingUI();
+            elements[(Elements)selected] += 1;
+            AddElement((Elements)selected);
+            SoundManager.Instance.PlayUISound();
         }
-    }
-
-    public void UnlockElement(Elements el)
-    {
-        unlockedElements[el] = true;
+        else
+        {
+            SoundManager.Instance.PlayUISoundDisabled();
+        }
     }
 
     public void AddElement(Elements el)
@@ -116,30 +98,25 @@ public class CraftingManager : MonoBehaviour
         if (InventoryManager.Instance.GetFragments() > 0)
         {
            // elements[el] += 1;
-           //InventoryManager.Instance.RemoveFragment();
+            InventoryManager.Instance.RemoveFragment();
         }
         UpdateCraftingUI();
     }
 
     public void ForceAddElement(Elements el)
     {
-        //elements[el] += 1;
+        elements[el] += 1;
         UpdateCraftingUI();
     }
     
     public void RemoveElement(Elements el)
     {
-        //elements[el] -= 1;
+        elements[el] -= 1;
         UpdateCraftingUI();
     }
 
     void UpdateCraftingUI()
     {
-        if (!elements[(Elements)selected] && unlockedElements[(Elements)selected])
-            transmuteBtn.interactable = true;
-        else
-            transmuteBtn.interactable = false;
-        
         for (int i = 0; i < 4; i++)
         {
             texts[i].color = Color.black;
@@ -244,7 +221,10 @@ public class CraftingManager : MonoBehaviour
         {
             SoundManager.Instance.PlayUISound();
             InventoryManager.Instance.AddTower(tower);
-            InventoryManager.Instance.RemoveFragment(tower.price);
+            for (int i = 0; i < tower.price; i++)
+            {
+                InventoryManager.Instance.RemoveFragment();
+            }
             UpdateFragmentText();
             slot1.ResetSlot();
             slot2.ResetSlot();
@@ -272,7 +252,7 @@ public class CraftingManager : MonoBehaviour
 
     public void AutoAddElement(GameObject element)
     {
-        if (elements[element.GetComponent<DragElements>().GetElement()] == false)
+        if (elements[element.GetComponent<DragElements>().GetElement()] <= 0)
             return;
         if (slot2.AutoAddElement(element))
             return;
