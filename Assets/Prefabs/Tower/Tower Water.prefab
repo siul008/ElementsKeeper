@@ -225,7 +225,7 @@ MonoBehaviour:
   tower: {fileID: 11400000, guid: 84ca8aa57fbb0bc4baf43bdc5d80448a, type: 2}
   mask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 1280
 --- !u!95 &1908278792509026192
 Animator:
   serializedVersion: 5

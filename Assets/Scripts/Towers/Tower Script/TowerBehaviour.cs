@@ -12,7 +12,17 @@ public abstract class TowerBehaviour : MonoBehaviour
 
     public virtual bool IsEnemyInFront()
     {
-        return (Physics2D.Raycast(transform.position, Vector2.right, 100f, mask));
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, 100f, mask);
+
+        if (hit.collider != null)
+        {
+            if (hit.collider.CompareTag("MaxRange"))
+            {
+                return false;
+            }
+            return true;
+        }
+        return false;
     }
 
     public virtual void Update()

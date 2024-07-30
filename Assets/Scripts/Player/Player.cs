@@ -64,7 +64,6 @@ public class Player : MonoBehaviour
         cursorHolder.localScale = Grid.Instance.GetTileSize();
 
         ChangeState(new PlayerIdleState());
-        //UpdateHealthBar();
         UpdateProgBar(0, towerPickupDuration);
 
         for(int i = 0; i < initialFragments; i++)
@@ -124,6 +123,7 @@ public class Player : MonoBehaviour
             }
             else
             {
+                ShowProgBar();
                 towerPickupTime += Time.deltaTime;
             }
             UpdateProgBar(towerPickupTime, towerPickupDuration);
@@ -207,7 +207,8 @@ public class Player : MonoBehaviour
 
     public Tile GetTile()
     {
-        return Grid.Instance.GetTileAtPos(transform.position + new Vector3(1.1f * (sRenderer.flipX ? 1 : -1) , 0, 0));
+        //return Grid.Instance.GetTileAtPos(transform.position + new Vector3(1.1f * (sRenderer.flipX ? 1 : -1) , 0, 0));
+        return (Grid.Instance.GetTileAtPos(transform.position));
     }
 
     void CheckTowerOnTile()

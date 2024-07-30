@@ -9,6 +9,7 @@ TagManager:
   - Collectables
   - PlayerCollider
   - Craft
+  - MaxRange
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Collectables
   - Enemy
   - Collider
-  - 
+  - MaxRange
   - 
   - 
   - 

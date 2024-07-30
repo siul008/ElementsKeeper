@@ -23,7 +23,17 @@ public class FlameThrower : TowerBehaviour
 
     public override bool IsEnemyInFront()
     {
-        return Physics2D.Raycast(transform.position, Vector2.right, range, mask);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, range, mask);
+
+        if (hit.collider != null)
+        {
+            if (hit.collider.CompareTag("MaxRange"))
+            {
+                return false;
+            }
+            return true;
+        }
+        return false;
     }
 
     public override void Update()

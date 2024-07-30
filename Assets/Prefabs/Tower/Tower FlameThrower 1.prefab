@@ -424,7 +424,7 @@ MonoBehaviour:
   tower: {fileID: 11400000, guid: 264885b5256d42c4cbb4566274065c06, type: 2}
   mask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 1280
   range: 2.41
   flamethrow: {fileID: 164433562864952915}
 --- !u!95 &4564106667967451607

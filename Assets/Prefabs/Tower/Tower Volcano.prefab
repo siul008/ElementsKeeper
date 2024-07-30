@@ -140,7 +140,7 @@ MonoBehaviour:
   tower: {fileID: 11400000, guid: 583878cbb3d57734298c83379523cae9, type: 2}
   mask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 1280
   offset: {x: -2, y: 2, z: 0}
 --- !u!95 &7062987295798115882
 Animator:
