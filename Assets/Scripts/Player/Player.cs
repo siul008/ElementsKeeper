@@ -100,7 +100,6 @@ public class Player : MonoBehaviour
         {
             UpdateProgBar(towerPickupTime, towerPickupDuration);
         }
-
     }
 
     void TowerInteraction()
@@ -314,7 +313,7 @@ public class Player : MonoBehaviour
     
     public void OnPause(InputValue value)
     {
-        if (isNearTransmute && paused)
+        if (currentState is PlayerTransmuteState)
         {
             LeaveTransmuteTable();
         }
@@ -323,10 +322,12 @@ public class Player : MonoBehaviour
             if (!paused)
             {
                 PauseGame();
+                PauseController.Instance.DisplayMenuPause();
             }
             else
             {
                 UnpauseGame();
+                PauseController.Instance.UnpauseCanvas();
             }
         }
     }
