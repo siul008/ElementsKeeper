@@ -47,9 +47,13 @@ public class CraftingManager : MonoBehaviour
     [Header("Slider")] 
     [SerializeField] private Image slider1;
     [SerializeField] private Image slider2;
+    [SerializeField] private Animator canvasAnim;
+    [SerializeField] private Button mergeBtn;
+
+    private TowerObjects currentMerge;
+    private static readonly int Merge1 = Animator.StringToHash("Merge");
 
 
-    
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -256,18 +260,25 @@ public class CraftingManager : MonoBehaviour
             return null;
         return tower;
     }
-    
+
     public void Merge()
     {
-        TowerObjects tower = GetCurrentMerge();
-        if (tower && tower.price <= InventoryManager.Instance.GetFragments())
+        SoundManager.Instance.PlayUISound();
+        InventoryManager.Instance.AddTower(currentMerge);
+        InventoryManager.Instance.RemoveFragment(currentMerge.price);
+        UpdateFragmentText();
+        slot1.ResetSlot();
+        slot2.ResetSlot();
+        mergeBtn.interactable = true;
+    }
+    
+    public void TriggerMerge()
+    {
+        currentMerge = GetCurrentMerge();
+        if (currentMerge && currentMerge.price <= InventoryManager.Instance.GetFragments())
         {
-            SoundManager.Instance.PlayUISound();
-            InventoryManager.Instance.AddTower(tower);
-            InventoryManager.Instance.RemoveFragment(tower.price);
-            UpdateFragmentText();
-            slot1.ResetSlot();
-            slot2.ResetSlot();
+            mergeBtn.interactable = false;
+            canvasAnim.SetTrigger("Merge");
         }
         else
         {

@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 public class ElementSlot : MonoBehaviour, IDropHandler
 {
     [SerializeField] private Transform canvas;
-    [SerializeField] private int index;
+    [SerializeField] private int index = 1;
     private GameObject currentElement;
     public void OnDrop(PointerEventData eventData)
     {
@@ -46,6 +46,7 @@ public class ElementSlot : MonoBehaviour, IDropHandler
             currentElement = Instantiate(el, canvas);
             CraftingManager.Instance.RemoveElement(currentElement.GetComponent<DragElements>().GetElement());
             CraftingManager.Instance.SetCurrentTower();
+            CraftingManager.Instance.UpdateSlider(index, currentElement.GetComponent<DragElements>().GetColor());
             currentElement.GetComponent<DragElements>().Duplicate();
             currentElement.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
             SoundManager.Instance.PlayUISound();
