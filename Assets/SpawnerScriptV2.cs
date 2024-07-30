@@ -56,9 +56,9 @@ public class SpawnerScriptV2 : MonoBehaviour
         {
             spawnTime += Time.deltaTime;
         }
-        if (tierTime >= tierDuration - lightDuration)
+        if (tierTime >= tierDuration - lightDuration && !lightCalled)
         {
-            StartCoroutine(playerLight.TurnOnLight());
+            playerLight.TurnOffLight();
             lightCalled = true;
         }
         if (tierTime >= tierDuration && state == WaveState.PROGRESS)
@@ -75,7 +75,7 @@ public class SpawnerScriptV2 : MonoBehaviour
         }
         if (state == WaveState.BIGWAVE && NoEnemyLeft())
         {
-            StartCoroutine(playerLight.TurnOnLight());
+            playerLight.TurnOnLight();
             ProgressNextTier();
         }
 

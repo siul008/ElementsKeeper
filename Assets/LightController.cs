@@ -14,27 +14,73 @@ public class LightController : MonoBehaviour
     [SerializeField] Vector3 scaleOff = new Vector3(0.1f, 0.1f, 0.1f);
     [SerializeField] GameObject lightGO;
 
-    public float turnOffDuration = 100f;
-    public float turnOnDuration = 100f;
+    public float turnOffDuration = 1f; // Duration in seconds
+    public float turnOnDuration = 1f;
 
-    public IEnumerator TurnOffLight()
+    private bool isTurningOff = false;
+    private bool isTurningOn = false;
+    private float transitionProgress = 0f;
+
+    private void Start()
     {
-        yield return new WaitForSeconds(turnOffDuration);
-        lightGO.transform.localScale = scaleOff;
-        lightHolder.intensity = intensityOff;
-        lightHolder.falloffIntensity = fallOffOff;
+        // Optional initialization
     }
 
-    public IEnumerator TurnOnLight()
+    void Update()
     {
-        yield return new WaitForSeconds(turnOnDuration);
-        lightGO.transform.localScale = scaleOn;
-        lightHolder.intensity = intensityOn;
-        lightHolder.falloffIntensity = fallOffOn;
+        if (isTurningOff)
+        {
+            transitionProgress += Time.deltaTime / turnOffDuration;
+            transitionProgress = Mathf.Clamp01(transitionProgress); // Ensure progress stays within 0 and 1
+            UpdateLightProperties(transitionProgress);
+
+            if (transitionProgress >= 1f)
+            {
+                isTurningOff = false; // Stop turning off
+            }
+        }
+        else if (isTurningOn)
+        {
+            transitionProgress += Time.deltaTime / turnOnDuration;
+            transitionProgress = Mathf.Clamp01(transitionProgress); // Ensure progress stays within 0 and 1
+            UpdateLightProperties(transitionProgress);
+
+            if (transitionProgress >= 1f)
+            {
+                isTurningOn = false; // Stop turning on
+            }
+        }
+    }
+
+    public void TurnOffLight()
+    {
+        Debug.Log("Turn off light");
+        if (!isTurningOff && !isTurningOn) // Prevent starting if already transitioning
+        {
+            isTurningOff = true;
+            transitionProgress = 0f;
+        }
+    }
+
+    public void TurnOnLight()
+    {
+        Debug.Log("Turn on light");
+        if (!isTurningOn && !isTurningOff) // Prevent starting if already transitioning
+        {
+            isTurningOn = true;
+            transitionProgress = 0f;
+        }
+    }
+
+    private void UpdateLightProperties(float progress)
+    {
+        lightHolder.intensity = Mathf.Lerp(intensityOn, intensityOff, progress);
+        lightHolder.pointLightInnerRadius = Mathf.Lerp(fallOffOn, fallOffOff, progress); // Assuming this corresponds to falloff size
+        lightGO.transform.localScale = Vector3.Lerp(scaleOn, scaleOff, progress);
     }
 
     public float GetTurnOffDuration()
     {
-        return (turnOffDuration);
+        return turnOffDuration;
     }
 }

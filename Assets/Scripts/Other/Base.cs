@@ -18,8 +18,7 @@ public class Base : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             currentHealth--;
-            Destroy(other.gameObject);
-            SpawnerScript.Instance.EnemyDied();
+            Destroy(other.gameObject);;
         }
     }
 
