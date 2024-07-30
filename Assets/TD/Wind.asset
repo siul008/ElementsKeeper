@@ -16,10 +16,10 @@ MonoBehaviour:
   towerName: Slicing winds
   dmgType: 0
   level: 1
-  damage: 6
+  damage: 12
   maxHealth: 20
   projectile: {fileID: 6614357707742448129, guid: b1039bdd9f8d7c84dbaffc7df476524c, type: 3}
-  attackRate: 1
+  attackRate: 2
   sprite: {fileID: 21300000, guid: 1d72b7397ecda834f9af59eca791c3b0, type: 3}
   spawnableTower: {fileID: 4787322843192972366, guid: f2e5585e1373e09428767b79849ed813, type: 3}
   bulletColor: {r: 0.3793884, g: 1, b: 0.16037738, a: 1}
