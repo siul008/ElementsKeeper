@@ -42,6 +42,7 @@ public class CraftingManager : MonoBehaviour
     private int currentPrice = 0;
     private Dictionary<Elements, bool> unlockedElements = new Dictionary<Elements, bool>();
     [SerializeField] private List<DragElements> dragElements = new List<DragElements>();
+    [SerializeField] private List<Image> elementsImg = new List<Image>();
     [SerializeField] private Button transmuteBtn;
 
 
@@ -60,6 +61,8 @@ public class CraftingManager : MonoBehaviour
             Debug.LogError("There isn't 4 selectors");
         if (dragElements.Count != 4)
             Debug.LogError("There isn't 4 DragElements");
+        if (elementsImg.Count != 4)
+            Debug.LogError("There isn't 4 Elements Img");
         elements.Add(Elements.Fire, false);
         elements.Add(Elements.Water, false);
         elements.Add(Elements.Wind, false);
@@ -142,6 +145,12 @@ public class CraftingManager : MonoBehaviour
         
         for (int i = 0; i < 4; i++)
         {
+            if (elements[(Elements)i])
+                elementsImg[i].color = new Color(255, 255, 255, 0.6f);
+            else if (unlockedElements[(Elements)i])
+                elementsImg[i].color = new Color(255, 255, 255, 0.35f);
+            else
+                elementsImg[i].color = new Color(255, 255, 255, 0f);
             texts[i].color = Color.black;
             if (i == selected)
             {
