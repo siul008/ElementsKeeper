@@ -1,14 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class PauseController : MonoBehaviour
 {
     [SerializeField] GameObject mainCanvas;
     [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject gameOver;
     [SerializeField] GameObject howToPlay;
     [SerializeField] GameObject options;
+
+    [Header("Post Processing")] 
+    [SerializeField] private VolumeProfile normalVolume;
+    [SerializeField] private VolumeProfile blurVolume;
+    [SerializeField] private Volume postProcess;
 
     public static PauseController Instance { get; private set; }
 
@@ -30,6 +37,7 @@ public class PauseController : MonoBehaviour
         mainCanvas.SetActive(false);
         howToPlay.SetActive(true);
         options.SetActive(false);
+        gameOver.SetActive(false);
     }
 
     public void DisplayOptions()
@@ -38,6 +46,8 @@ public class PauseController : MonoBehaviour
         mainCanvas.SetActive(false);
         howToPlay.SetActive(false);
         options.SetActive(true);
+        gameOver.SetActive(false);
+        postProcess.profile = blurVolume;
     }
 
     public void DisplayMenuPause()
@@ -46,6 +56,18 @@ public class PauseController : MonoBehaviour
         mainCanvas.SetActive(false);
         howToPlay.SetActive(false);
         options.SetActive(false);
+        gameOver.SetActive(false);
+        postProcess.profile = blurVolume;
+    }
+    
+    public void DisplayGameOver()
+    {
+        gameOver.SetActive(true);
+        mainCanvas.SetActive(false);
+        howToPlay.SetActive(false);
+        options.SetActive(false);
+        postProcess.profile = blurVolume;
+        Time.timeScale = 0;
     }
 
     public void UnpauseCanvas()
@@ -54,6 +76,8 @@ public class PauseController : MonoBehaviour
         pauseMenu.SetActive(false);
         howToPlay.SetActive(false);
         options.SetActive(false);
+        gameOver.SetActive(false);
+        postProcess.profile = normalVolume;
     }
 
     public void ExitGame()
