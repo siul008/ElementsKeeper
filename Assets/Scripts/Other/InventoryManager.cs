@@ -45,10 +45,6 @@ public class InventoryManager : MonoBehaviour
     void Update()
     {            
         UpdateInventoryUI();
-        if(Input.GetKeyDown(KeyCode.Y))
-            AddFragment();
-        if (Input.GetKeyDown(KeyCode.U))
-            GenerateTower();
         if (Input.GetKeyDown(KeyCode.E))
         {
             selected++;

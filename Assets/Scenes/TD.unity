@@ -22499,7 +22499,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &956888738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32072,19 +32072,62 @@ MonoBehaviour:
     - enemyPrefab: {fileID: 4495079335045865582, guid: 06c389cb49e1d2e4ca2df65875ecd742, type: 3}
       weight: 100
   - name: Tier 1
-    hordeChance: 10
+    hordeChance: 20
     bellowTierHordeChance: 0
     spawnRate: 7
-    endWave: {fileID: 6661581070367227536, guid: 52dcc2811c1982e4184b067416d73080, type: 3}
+    endWave: {fileID: 276442058745697753, guid: 0fcacefc518e0e945b011deab7a9d086, type: 3}
     lanes:
     - lane: 0
-      weight: 100
+      weight: 90
     - lane: 1
-      weight: 10
+      weight: 40
+    - lane: 2
+      weight: 20
     horde:
-    - name: 
-      hordePrefab: {fileID: 0}
+    - name: 5 Normal
+      hordePrefab: {fileID: 9192966597449222416, guid: ee362499753c3904c9fdb6326896cb2d, type: 3}
+      breathingTime: 1
+    - name: S 3 N
+      hordePrefab: {fileID: 6362981535474437497, guid: 1cf0c6cb2bf2e9a4fa691257473dc6b9, type: 3}
+      breathingTime: 5
+    - name: S 3 N
+      hordePrefab: {fileID: 6362981535474437497, guid: 6b71c7f8d7c954f4f8f992fd2df80b39, type: 3}
       breathingTime: 0
+    - name: S 3 N
+      hordePrefab: {fileID: 8259504059310547825, guid: f855a660adbc4b44fad2fcbcdf2c2216, type: 3}
+      breathingTime: 3
+    enemies:
+    - enemyPrefab: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
+      weight: 100
+    - enemyPrefab: {fileID: 7090447527747214131, guid: 3c684ae6f52daa148a9b18215163f1e0, type: 3}
+      weight: 30
+  - name: Tier 2
+    hordeChance: 50
+    bellowTierHordeChance: 10
+    spawnRate: 7
+    endWave: {fileID: 6693673517446306498, guid: 6b0d32e725800ff4a84d5712b3edaa2e, type: 3}
+    lanes:
+    - lane: 0
+      weight: 60
+    - lane: 1
+      weight: 40
+    - lane: 2
+      weight: 20
+    - lane: 3
+      weight: 20
+    horde:
+    - name: 5 Normal
+      hordePrefab: {fileID: 9192966597449222416, guid: ee362499753c3904c9fdb6326896cb2d, type: 3}
+      breathingTime: 0
+    - name: S 3 N
+      hordePrefab: {fileID: 6362981535474437497, guid: 1cf0c6cb2bf2e9a4fa691257473dc6b9, type: 3}
+      breathingTime: 5
+    - name: S 3 N
+      hordePrefab: {fileID: 6362981535474437497, guid: 6b71c7f8d7c954f4f8f992fd2df80b39, type: 3}
+      breathingTime: 0
+    - name: S 3 N
+      hordePrefab: {fileID: 8259504059310547825, guid: f855a660adbc4b44fad2fcbcdf2c2216, type: 3}
+      breathingTime: 3
     enemies:
     - enemyPrefab: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
       weight: 200

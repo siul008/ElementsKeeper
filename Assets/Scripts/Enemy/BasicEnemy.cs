@@ -14,7 +14,7 @@ public class BasicEnemy : Enemy
     public override void Die()
     {
         SoundManager.Instance.InstantPlaySfx("EnemyHit", true);
-        for (int i = 0; i < dropCount; i++)
+        for (int i = 0; i <= dropCount; i++)
         {
             if (Random.Range(0, 101) <= dropChance)
             {
