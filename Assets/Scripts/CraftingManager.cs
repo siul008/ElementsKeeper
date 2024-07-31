@@ -153,14 +153,7 @@ public class CraftingManager : MonoBehaviour
 
     public void UpdateCraftingUI()
     {
-        if (currentPrice == 0)
-        {
-            voidTxt.text = "Free";
-        }
-        else
-        {
-            voidTxt.text = currentPrice.ToString();
-        }
+        UpdateCostTxt();
         if (!elements[(Elements)selected] && unlockedElements[(Elements)selected])
             transmuteBtn.interactable = true;
         else
@@ -186,6 +179,22 @@ public class CraftingManager : MonoBehaviour
             texts[i].text = elements[(Elements)i].ToString();
         }
         UpdateFragmentText();
+    }
+
+    void UpdateCostTxt()
+    {
+        if (!unlockedElements[(Elements)selected])
+            voidTxt.text = "Not unlockable";
+        else if (elements[(Elements)selected])
+            voidTxt.text = "Unlocked";
+        else if (currentPrice == 0)
+        {
+            voidTxt.text = "Free";
+        }
+        else
+        {
+            voidTxt.text = currentPrice.ToString();
+        }
     }
 
     public TowerObjects GetCurrentTower()
