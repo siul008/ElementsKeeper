@@ -423,7 +423,7 @@ MonoBehaviour:
   currentHealth: 0
   baseMoveSpeed: 0.22
   damage: 5
-  dropChance: 50
+  dropChance: 100
   attackInterval: 0.7
   particles: {fileID: 6229015611915365267, guid: 7b464b9e128fe9e4b815b4b33c33dfa1, type: 3}
   voidFragment: {fileID: 3310398405383277556, guid: ef1ce638bcf53794783d89cbef7d8c14, type: 3}

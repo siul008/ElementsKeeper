@@ -7,6 +7,7 @@ public class Base : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 0;
     private int currentHealth;
+    private bool isDead;
 
     private void Start()
     {
@@ -18,15 +19,17 @@ public class Base : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             currentHealth--;
-            Destroy(other.gameObject);;
+            Destroy(other.gameObject);
         }
     }
 
     private void Update()
     {
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !isDead)
         {
-            Debug.Log("Player base has been destroyed");
+            isDead = true;
+            PauseController.Instance.DisplayGameOver();
+            Debug.Log("display gameover");
         }
     }
 }
