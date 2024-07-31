@@ -197,6 +197,10 @@ public class SpawnerScriptV2 : MonoBehaviour
         {
             difficultyIndex++;
         }
+        else
+        {
+            PauseController.Instance.DisplayWinMenu();
+        }
         day++;
         state = WaveState.PROGRESS;
         wave = tiers[difficultyIndex];
