@@ -198,6 +198,7 @@ public class SpawnerScriptV2 : MonoBehaviour
             difficultyIndex++;
         }
         day++;
+        state = WaveState.PROGRESS;
         wave = tiers[difficultyIndex];
         lightCalled = true;
         dayCounterText = "Day " + day;
