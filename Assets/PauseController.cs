@@ -12,6 +12,7 @@ public class PauseController : MonoBehaviour
     [SerializeField] GameObject howToPlay;
     [SerializeField] GameObject options;
     [SerializeField] GameObject dayText;
+    [SerializeField] private GameObject winMenu;
 
     [Header("Post Processing")] 
     [SerializeField] private VolumeProfile normalVolume;
@@ -39,6 +40,7 @@ public class PauseController : MonoBehaviour
         howToPlay.SetActive(true);
         options.SetActive(false);
         gameOver.SetActive(false);
+        winMenu.SetActive(false);
     }
 
     public void DisplayOptions()
@@ -48,6 +50,7 @@ public class PauseController : MonoBehaviour
         howToPlay.SetActive(false);
         options.SetActive(true);
         gameOver.SetActive(false);
+        winMenu.SetActive(false);
         postProcess.profile = blurVolume;
     }
 
@@ -59,6 +62,7 @@ public class PauseController : MonoBehaviour
         options.SetActive(false);
         gameOver.SetActive(false);
         dayText.SetActive(false);
+        winMenu.SetActive(false);
         postProcess.profile = blurVolume;
     }
     
@@ -68,6 +72,18 @@ public class PauseController : MonoBehaviour
         mainCanvas.SetActive(false);
         howToPlay.SetActive(false);
         options.SetActive(false);
+        winMenu.SetActive(false);
+        postProcess.profile = blurVolume;
+        Time.timeScale = 0;
+    }
+    
+    public void DisplayWinMenu()
+    {
+        gameOver.SetActive(false);
+        mainCanvas.SetActive(false);
+        howToPlay.SetActive(false);
+        options.SetActive(false);
+        winMenu.SetActive(true);
         postProcess.profile = blurVolume;
         Time.timeScale = 0;
     }
@@ -80,6 +96,7 @@ public class PauseController : MonoBehaviour
         options.SetActive(false);
         gameOver.SetActive(false);
         dayText.SetActive(true);
+        winMenu.SetActive(false);
         postProcess.profile = normalVolume;
     }
 
