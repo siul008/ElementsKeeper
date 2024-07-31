@@ -120,6 +120,16 @@ public class InventoryManager : MonoBehaviour
         // }
     }
 
+    public bool isFull()
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            if (inv[i] == null)
+                return false;
+        }
+        return true;
+    }
+
     public bool Swap(int index1, int index2)
     {
         if (inv[index1] != null && inv[index2] != null)

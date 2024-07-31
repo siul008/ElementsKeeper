@@ -6,7 +6,8 @@ public class PlayerTransmuteState : PlayerState
 {
     public override void Enter(Player player)
     {
-        CraftingManager.Instance.UpdateFragmentText();
+        CraftingManager.Instance.UpdateCraftingUI();
+        CraftingManager.Instance.SetCurrentTower();
         SoundManager.Instance.InstantPlaySfx("TransmuteBook", false);
         player.SetCraftingTableUIVisibility(true);
         player.PauseGame();

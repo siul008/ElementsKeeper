@@ -20,6 +20,7 @@ public class DragElements : MonoBehaviour, IPointerDownHandler, IBeginDragHandle
     private bool unlocked = false;
     [SerializeField] private List<Elements> unlockedElements = new List<Elements>();
     [SerializeField] private Color color;
+    private ElementSlot slot = null;
 
     private void Awake()
     {
@@ -65,6 +66,11 @@ public class DragElements : MonoBehaviour, IPointerDownHandler, IBeginDragHandle
         rect.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 
+    public void SetSlot(ElementSlot elementSlot)
+    {
+        slot = elementSlot;
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (!unlocked && isOriginal)
@@ -79,8 +85,10 @@ public class DragElements : MonoBehaviour, IPointerDownHandler, IBeginDragHandle
         {
             Debug.Log("Add Element");
             CraftingManager.Instance.ForceAddElement(element);
-            CraftingManager.Instance.ResetCurrentTower();
-            Destroy(gameObject);
+            if (slot)
+                slot.ResetSlot();
+            //CraftingManager.Instance.SetCurrentTower();
+            //Destroy(gameObject);
         }
         group.alpha = 1f;
         group.blocksRaycasts = true;
