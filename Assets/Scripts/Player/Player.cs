@@ -50,7 +50,9 @@ public class Player : MonoBehaviour
     GameObject currentTower = null;
     GameObject currentShadow;
     GameObject carriedTower = null;
-    
+
+    [SerializeField] GameObject craftingTableText;
+
     void Start()
     {
         paused = false;
@@ -479,14 +481,21 @@ public class Player : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Craft"))
         {
+            CraftingTableTextVisible(true);
             isNearTransmute = true;
         }
+    }
+
+    public void CraftingTableTextVisible(bool visible)
+    {
+        craftingTableText.SetActive(visible);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Craft"))
         {
+            CraftingTableTextVisible(false);
             isNearTransmute = false;
         }
     }
