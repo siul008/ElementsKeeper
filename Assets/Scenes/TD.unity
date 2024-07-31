@@ -970,7 +970,7 @@ Transform:
   m_GameObject: {fileID: 46167234}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1175.3572, y: 851.23303, z: 9.553684}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -17267,15 +17267,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1273663099993843171, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1162.3271
+      value: 11.63
       objectReference: {fileID: 0}
     - target: {fileID: 1273663099993843171, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -849.223
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1273663099993843171, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.553684
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 1273663099993843171, guid: 02c98cf3dbab41b4b93a8ad04275d69e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -32099,6 +32099,22 @@ MonoBehaviour:
   - name: Tier 0
     hordeChance: 0
     bellowTierHordeChance: 0
+    spawnRate: 6
+    endWave: {fileID: 6661581070367227536, guid: 52dcc2811c1982e4184b067416d73080, type: 3}
+    lanes:
+    - lane: 0
+      weight: 50
+    - lane: 1
+      weight: 50
+    horde: []
+    enemies:
+    - enemyPrefab: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
+      weight: 40
+    - enemyPrefab: {fileID: 4495079335045865582, guid: 06c389cb49e1d2e4ca2df65875ecd742, type: 3}
+      weight: 100
+  - name: Tier 1
+    hordeChance: 10
+    bellowTierHordeChance: 0
     spawnRate: 7
     endWave: {fileID: 6661581070367227536, guid: 52dcc2811c1982e4184b067416d73080, type: 3}
     lanes:
@@ -32106,7 +32122,10 @@ MonoBehaviour:
       weight: 100
     - lane: 1
       weight: 10
-    horde: []
+    horde:
+    - name: 
+      hordePrefab: {fileID: 0}
+      breathingTime: 0
     enemies:
     - enemyPrefab: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
       weight: 200
@@ -32118,8 +32137,8 @@ MonoBehaviour:
   - {fileID: 2099115785}
   - {fileID: 2134607850}
   - {fileID: 23915135}
-  tierDuration: 50
-  minMultSpawnRate: 0.7
+  tierDuration: 60
+  minMultSpawnRate: 0.5
 --- !u!224 &1800449077 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1616945497007593922, guid: aea0cdd05285c384aae01498ab76a0de, type: 3}
