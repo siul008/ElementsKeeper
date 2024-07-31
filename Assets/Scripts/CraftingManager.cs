@@ -151,7 +151,7 @@ public class CraftingManager : MonoBehaviour
         UpdateCraftingUI();
     }
 
-    void UpdateCraftingUI()
+    public void UpdateCraftingUI()
     {
         if (!elements[(Elements)selected] && unlockedElements[(Elements)selected])
             transmuteBtn.interactable = true;
@@ -204,7 +204,7 @@ public class CraftingManager : MonoBehaviour
         else
         {
             mergeColor.a = 1f;
-            towerPrice.color = Color.black;
+            towerPrice.color = Color.white;
         }
         mergeButtonText.color = mergeColor;
         towerPrice.text = currentTower.price.ToString();
@@ -248,12 +248,12 @@ public class CraftingManager : MonoBehaviour
         GameObject tmp = slot1.GetCurrentElement();
         if (!tmp)
             return null;
-        Debug.Log("slot 1 OK");
+        Debug.Log("slot 1 = " + tmp);
         Elements el1 = tmp.GetComponent<DragElements>().GetElement();
         tmp = slot2.GetCurrentElement();
         if (!tmp)
             return null;
-        Debug.Log("slot 2 OK");
+        Debug.Log("slot 2 = " + tmp);
         Elements el2 = tmp.GetComponent<DragElements>().GetElement();
         TowerObjects tower = MergeManager.Instance.Merge(el1, el2);
         if (!tower)
@@ -275,7 +275,7 @@ public class CraftingManager : MonoBehaviour
     public void TriggerMerge()
     {
         currentMerge = GetCurrentMerge();
-        if (currentMerge && currentMerge.price <= InventoryManager.Instance.GetFragments())
+        if (currentMerge && currentMerge.price <= InventoryManager.Instance.GetFragments() && !InventoryManager.Instance.isFull())
         {
             mergeBtn.interactable = false;
             canvasAnim.SetTrigger("Merge");
