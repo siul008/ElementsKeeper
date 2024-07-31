@@ -69,7 +69,7 @@ public class SpawnerScriptV2 : MonoBehaviour
         {
             tierTime += Time.deltaTime;
         }
-        if (state == WaveState.WAITINGBIGWAVE && NoEnemyLeft())
+        if (state == WaveState.WAITINGBIGWAVE && NoEnemyLeft() && spawnTime >= wave.spawnRate * GetCurrentSpawnRateMult())
         {
             StartBigWave();
         }
@@ -219,6 +219,7 @@ public class SpawnerScriptV2 : MonoBehaviour
     [System.Serializable]
     class EnemyEntity
     {
+        string name;
         public GameObject enemyPrefab;
         public int weight;
     }
@@ -226,6 +227,7 @@ public class SpawnerScriptV2 : MonoBehaviour
     [System.Serializable]
     class LanesSelector
     {
+        string name;
         public Lanes lane;
         public int weight;
 
