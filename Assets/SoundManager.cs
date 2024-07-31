@@ -36,7 +36,7 @@ public class SoundManager : MonoBehaviour
     public void PlayMusic()
     {
         musicSource.loop = true;
-        musicSource.volume = music.volume;
+        //musicSource.volume = music.volume;
         musicSource.clip = music.clip;
         musicSource.Play();
     }
