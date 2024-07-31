@@ -11,6 +11,7 @@ public class PlayerTransmuteState : PlayerState
         SoundManager.Instance.InstantPlaySfx("TransmuteBook", false);
         player.SetCraftingTableUIVisibility(true);
         player.PauseGame();
+        player.CraftingTableTextVisible(false);
     }
 
     public override void Execute(Player player)
@@ -25,5 +26,6 @@ public class PlayerTransmuteState : PlayerState
     {
         player.UnpauseGame();
         player.SetCraftingTableUIVisibility(false);
+        player.CraftingTableTextVisible(true);
     }
 }
