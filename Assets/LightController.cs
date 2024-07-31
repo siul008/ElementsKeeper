@@ -19,36 +19,13 @@ public class LightController : MonoBehaviour
 
     bool isTurningOff = false;
     bool isTurningOn = false;
-    bool intensitySet = false;
     bool fallOffSet = false;
     bool scaleSet = false;
 
-    private void Start()
-    {
-       
-    }
-
     void Update()
     {
-        if (Input.GetKey(KeyCode.N))
-        {
-            TurnOnLight();
-        }
-        if (Input.GetKey(KeyCode.F))
-        {
-            TurnOffLight();
-        }
         if (isTurningOff)
         {
-            if (lightHolder.intensity + 0.1f * Time.deltaTime < intensityOff)
-            {
-                lightHolder.intensity += 0.1f * Time.deltaTime;
-            }
-            else
-            {
-                lightHolder.intensity = intensityOff;
-                intensitySet = true;
-            }
             if (lightHolder.shapeLightFalloffSize + fallOfSpeed * Time.deltaTime < fallOffOff)
             {
                 lightHolder.shapeLightFalloffSize += fallOfSpeed * Time.deltaTime;
@@ -67,24 +44,14 @@ public class LightController : MonoBehaviour
                 lightGO.transform.localScale = scaleOff;
                 scaleSet = true;
             }
-            if (scaleSet && fallOffSet && intensitySet)
+            if (scaleSet && fallOffSet)
             {
-                Debug.Log("Turned off finished");
                 isTurningOff = false;
             }
         }
 
         else if (isTurningOn)
         {
-            if (lightHolder.intensity + 0.1f * Time.deltaTime < intensityOn)
-            {
-                lightHolder.intensity += 0.1f * Time.deltaTime;
-            }
-            else
-            {
-                lightHolder.intensity = intensityOn;
-                intensitySet = true;
-            }
             if (lightHolder.shapeLightFalloffSize - fallOfSpeed * Time.deltaTime > fallOffOn)
             {
                 lightHolder.shapeLightFalloffSize -= fallOfSpeed * Time.deltaTime;
@@ -103,9 +70,8 @@ public class LightController : MonoBehaviour
                 lightGO.transform.localScale = scaleOn;
                 scaleSet = true;
             }
-            if (scaleSet && fallOffSet && intensitySet)
+            if (scaleSet && fallOffSet)
             {
-                Debug.Log("Turning on finished");
                 isTurningOn = false;
             }
         }
@@ -115,24 +81,20 @@ public class LightController : MonoBehaviour
     {
         isTurningOn = false;
         isTurningOff = true;
-        intensitySet = false;
         scaleSet = false;
         fallOffSet = false;
-        Debug.Log("Turned off called");
     }
 
     public void TurnOnLight()
     {
-        Debug.Log("Turn on caled");
         isTurningOn = true;
         isTurningOff = false;
-        intensitySet = false;
         scaleSet = false;
         fallOffSet = false;
     }
 
     public float GetTurnOffDuration()
     {
-        return 5f;
+        return 10f;
     }
 }
