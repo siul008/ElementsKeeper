@@ -3622,7 +3622,7 @@ MonoBehaviour:
   audioSource: {fileID: 1571126087}
   UISource: {fileID: 1571126089}
   musicClip: {fileID: 8300000, guid: 8b09d50a553f2e44e815ab3de63674c0, type: 3}
-  volume: 0.4
+  volume: 0.6
   UIClick: {fileID: 8300000, guid: 7ef04b4fe09eea744a95ce744a8c0384, type: 3}
   UIClickDisabled: {fileID: 8300000, guid: 16435ae349546e943b32fab0993af30c, type: 3}
 --- !u!82 &1571126089
@@ -3735,7 +3735,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSlider: {fileID: 684724509}
   sfxSlider: {fileID: 104023638}
-  prefs: {fileID: 1221858045}
   musicSource: {fileID: 1571126087}
   sfxSource: {fileID: 1571126089}
 --- !u!224 &1646820644 stripped
