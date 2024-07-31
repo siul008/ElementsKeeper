@@ -99,7 +99,7 @@ public class CraftingManager : MonoBehaviour
 
     public void UpdateFragmentText()
     {
-        voidTxt.text = InventoryManager.Instance.GetFragments().ToString();
+        //voidTxt.text = InventoryManager.Instance.GetFragments().ToString();
     }
     
     public void AddSelected()
@@ -153,6 +153,7 @@ public class CraftingManager : MonoBehaviour
 
     public void UpdateCraftingUI()
     {
+        voidTxt.text = currentPrice.ToString();
         if (!elements[(Elements)selected] && unlockedElements[(Elements)selected])
             transmuteBtn.interactable = true;
         else

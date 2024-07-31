@@ -29,6 +29,7 @@ public class Player : MonoBehaviour
     [SerializeField] TextMeshProUGUI state;
     [SerializeField] GameObject cursorPrefab;
     [SerializeField] GameObject craftTableUI;
+    [SerializeField] private Transform respawnPoint;
 
     GameObject cursor;
     Rigidbody2D rb;
@@ -422,6 +423,11 @@ public class Player : MonoBehaviour
        // UpdateHealthBar();
     }
 
+    public void RespawnPlayer()
+    {
+        transform.position = respawnPoint.position;
+    }
+    
     public void HideProgBar()
     {
         progBar.gameObject.SetActive(false);

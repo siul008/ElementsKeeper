@@ -59,6 +59,7 @@ public class BasicEnemy : Enemy
         if (collision.gameObject.CompareTag("Player"))
         {
             isPlayerContact = true;
+            collision.gameObject.GetComponent<Player>().RespawnPlayer();
         }
         if (collision.gameObject.CompareTag("Tower"))
         {
