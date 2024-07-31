@@ -14,7 +14,13 @@ public class BasicEnemy : Enemy
     public override void Die()
     {
         SoundManager.Instance.InstantPlaySfx("EnemyHit", true);
-        Instantiate(voidFragment, transform.position, Quaternion.identity);
+        for (int i = 0; i < dropCount; i++)
+        {
+            if (Random.Range(0, 101) <= dropChance)
+            {
+                Instantiate(voidFragment, transform.position, Quaternion.identity);
+            }
+        }
         Instantiate(particles, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }

@@ -25,6 +25,7 @@ public abstract class Enemy : MonoBehaviour
     public float attackTime;
     Slider healthBar;
     public GameObject player;
+    [SerializeField] protected int dropCount;
 
     [SerializeField] SpriteRenderer visual;
     Color baseColor;

@@ -496,6 +496,7 @@ MonoBehaviour:
   turret: {fileID: 0}
   attackTime: 0
   player: {fileID: 0}
+  dropCount: 3
   visual: {fileID: 1039764518318486716}
 --- !u!58 &3264086405420743821
 CircleCollider2D:
