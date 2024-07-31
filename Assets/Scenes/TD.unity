@@ -21097,7 +21097,7 @@ MonoBehaviour:
   fallOffOff: 0.87
   scaleOff: {x: 1.481884, y: 1.481884, z: 1.481884}
   lightGO: {fileID: 1839128468}
-  fallOfSpeed: 0.01
+  fallOfSpeed: 0.1
   scaleSpeed: 0.4
 --- !u!1 &817501611
 GameObject:
