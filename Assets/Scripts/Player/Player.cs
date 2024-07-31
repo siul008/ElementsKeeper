@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject cursorPrefab;
     [SerializeField] GameObject craftTableUI;
     [SerializeField] private Transform respawnPoint;
+    [SerializeField] private ParticleSystem deathEffect;
 
     GameObject cursor;
     Rigidbody2D rb;
@@ -204,7 +205,7 @@ public class Player : MonoBehaviour
         //return Grid.Instance.GetTileAtPos(transform.position + new Vector3(1.1f * (sRenderer.flipX ? 1 : -1) , 0, 0));
         return (Grid.Instance.GetTileAtPos(transform.position));
     }
-
+    
     void CheckTowerOnTile()
     {
         Tile t = GetTile();
@@ -405,7 +406,9 @@ public class Player : MonoBehaviour
     }
     public void Die()
     {
-        Destroy(gameObject);
+        GetComponent<Animator>().SetTrigger("Death");
+        deathEffect.Play();
+        //Destroy(gameObject);
     }
    /* public void UpdateHealthBar()
     {
