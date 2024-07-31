@@ -16,10 +16,7 @@ public class Player : MonoBehaviour
     public float maxHealth;
     public float currentHealth;
     public float healthRegen;
-    public float attackTime;
-    public float attackInterval;
     public float craftingTime;
-    public float damage;
     public float towerPickupDuration;
     public float initialFragments;
     float towerPickupTime;
@@ -83,10 +80,6 @@ public class Player : MonoBehaviour
         }
 
         currentState.Execute(this);
-        if (attackTime < attackInterval)
-        {
-            attackTime += Time.deltaTime;
-        }
         if (!spaceRelease)
         {
             TowerInteraction();

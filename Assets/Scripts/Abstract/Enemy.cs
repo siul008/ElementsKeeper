@@ -26,6 +26,9 @@ public abstract class Enemy : MonoBehaviour
     Slider healthBar;
     public GameObject player;
 
+    [SerializeField] SpriteRenderer visual;
+    Color baseColor;
+
     protected EnemyState currentState;
 
     private void Awake()
@@ -38,6 +41,7 @@ public abstract class Enemy : MonoBehaviour
         player = GameObject.Find("Player");
         attackTime = attackInterval;
         moveSpeed = baseMoveSpeed;
+        baseColor = visual.color;
     }
 
     private void Start()
@@ -54,6 +58,13 @@ public abstract class Enemy : MonoBehaviour
         {
             currentState.Execute(this);
         }
+    }
+
+    public IEnumerator DamageFeedback()
+    {
+        visual.color = Color.black;
+        yield return new WaitForSeconds(0.10f);
+        visual.color = baseColor;
     }
 
     public void SetStunState(float dur, float dist, float speed)

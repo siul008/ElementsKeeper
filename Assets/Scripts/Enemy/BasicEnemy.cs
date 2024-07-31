@@ -48,6 +48,7 @@ public class BasicEnemy : Enemy
         }
         else
         {
+            StartCoroutine(DamageFeedback());
             StartCoroutine(SoundManager.Instance.PlaySfx("EnemyHit", Random.Range(0, 0.15f)));
         }
         UpdateHealthBar();

@@ -588,6 +588,7 @@ MonoBehaviour:
   turret: {fileID: 0}
   attackTime: 0
   player: {fileID: 0}
+  visual: {fileID: 7846728588769826016}
 --- !u!58 &1366075444950575908
 CircleCollider2D:
   m_ObjectHideFlags: 0
