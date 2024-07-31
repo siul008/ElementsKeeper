@@ -153,7 +153,14 @@ public class CraftingManager : MonoBehaviour
 
     public void UpdateCraftingUI()
     {
-        voidTxt.text = currentPrice.ToString();
+        if (currentPrice == 0)
+        {
+            voidTxt.text = "Free";
+        }
+        else
+        {
+            voidTxt.text = currentPrice.ToString();
+        }
         if (!elements[(Elements)selected] && unlockedElements[(Elements)selected])
             transmuteBtn.interactable = true;
         else
