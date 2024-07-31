@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class SpawnerScriptV2 : MonoBehaviour
 {
@@ -22,23 +23,28 @@ public class SpawnerScriptV2 : MonoBehaviour
         BIGWAVE
     }
 
+    [SerializeField] TextMeshProUGUI dayCounter; 
     [SerializeField] LightController playerLight;
     [SerializeField] DifficultyTier[] tiers;
     [SerializeField] Transform[] lanesTransform;
     DifficultyTier wave;
     float spawnTime;
     int difficultyIndex;
+    int day;
     WaveState state;
     bool lightCalled;
     [SerializeField] float tierDuration;
     [SerializeField] float minMultSpawnRate;
     float lightDuration;
     float tierTime;
+    string dayCounterText = "Day 0";
+    [SerializeField] Animator dayCounterAnimator;
        
     void Start()
     {
         tierTime = 0;
         difficultyIndex = -1;
+        day = -1;
         ProgressNextTier();
         state = WaveState.PROGRESS;
         lightCalled = false;
@@ -191,8 +197,23 @@ public class SpawnerScriptV2 : MonoBehaviour
         {
             difficultyIndex++;
         }
+        day++;
         wave = tiers[difficultyIndex];
         lightCalled = true;
+        dayCounterText = "Day " + day;
+        if (difficultyIndex > 0)
+        {
+            dayCounterAnimator.SetTrigger("ChangeText");
+        }
+        else
+        {
+            SetDayCounterText();
+        }
+    }
+
+    public void SetDayCounterText()
+    {
+        dayCounter.text = dayCounterText;
     }
 
     [System.Serializable]
