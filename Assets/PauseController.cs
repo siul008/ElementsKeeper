@@ -11,6 +11,7 @@ public class PauseController : MonoBehaviour
     [SerializeField] GameObject gameOver;
     [SerializeField] GameObject howToPlay;
     [SerializeField] GameObject options;
+    [SerializeField] GameObject dayText;
 
     [Header("Post Processing")] 
     [SerializeField] private VolumeProfile normalVolume;
@@ -57,6 +58,7 @@ public class PauseController : MonoBehaviour
         howToPlay.SetActive(false);
         options.SetActive(false);
         gameOver.SetActive(false);
+        dayText.SetActive(false);
         postProcess.profile = blurVolume;
     }
     
@@ -77,6 +79,7 @@ public class PauseController : MonoBehaviour
         howToPlay.SetActive(false);
         options.SetActive(false);
         gameOver.SetActive(false);
+        dayText.SetActive(true);
         postProcess.profile = normalVolume;
     }
 

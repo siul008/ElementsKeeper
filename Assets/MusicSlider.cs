@@ -7,13 +7,14 @@ public class MusicSlider : MonoBehaviour
 {
     public Slider musicSlider;
     public Slider sfxSlider;
-    [SerializeField] PlayerPrefs prefs;
+    PlayerPrefs prefs;
     public AudioSource musicSource;
     public AudioSource sfxSource;
     // Start is called before the first frame update
 
     void Start()
     {
+        prefs = GameObject.Find("PlayerPrefs").GetComponent<PlayerPrefs>();
         musicSlider.value = prefs.GetMusicMult();
         musicSlider.minValue = 0;
         musicSlider.maxValue = 1;
