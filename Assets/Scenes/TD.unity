@@ -28332,7 +28332,7 @@ MonoBehaviour:
   - {fileID: 789746358}
   - {fileID: 1893109978}
   transmuteBtn: {fileID: 1583537629}
-  transmuteTxt: {fileID: 0}
+  transmuteTxt: {fileID: 373200509}
   slider1: {fileID: 892002745}
   slider2: {fileID: 1550652469}
   canvasAnim: {fileID: 641795365}
@@ -37068,11 +37068,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 406343068368012264, guid: 27abef29747cdbd45b6603866cbc2ac0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.88
+      value: -2.23
       objectReference: {fileID: 0}
     - target: {fileID: 406343068368012264, guid: 27abef29747cdbd45b6603866cbc2ac0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.34
+      value: 1.83
       objectReference: {fileID: 0}
     - target: {fileID: 406343068368012264, guid: 27abef29747cdbd45b6603866cbc2ac0, type: 3}
       propertyPath: m_LocalPosition.z
