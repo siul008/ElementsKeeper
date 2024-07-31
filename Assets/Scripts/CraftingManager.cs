@@ -44,6 +44,7 @@ public class CraftingManager : MonoBehaviour
     [SerializeField] private List<DragElements> dragElements = new List<DragElements>();
     [SerializeField] private List<Image> elementsImg = new List<Image>();
     [SerializeField] private Button transmuteBtn;
+    [SerializeField] private TextMeshProUGUI transmuteTxt;
     [Header("Slider")] 
     [SerializeField] private Image slider1;
     [SerializeField] private Image slider2;
@@ -183,18 +184,32 @@ public class CraftingManager : MonoBehaviour
 
     void UpdateCostTxt()
     {
+        Color color = transmuteTxt.color;
+        transmuteTxt.color = new Color(color.r, color.g, color.b, 0.4f);
         if (!unlockedElements[(Elements)selected])
-            voidTxt.text = "Not unlockable";
+            voidTxt.text = "";
         else if (elements[(Elements)selected])
-            voidTxt.text = "Unlocked";
+            voidTxt.text = "";
         else if (currentPrice == 0)
         {
+            transmuteTxt.color = Color.black;
             voidTxt.text = "Free";
+            Debug.Log(voidTxt.color);
         }
         else
         {
             voidTxt.text = currentPrice.ToString();
+            if (currentPrice > InventoryManager.Instance.GetFragments())
+            {
+                voidTxt.color = Color.red;
+                return;
+            }
+            else
+            {
+                transmuteTxt.color = Color.black;
+            }
         }
+        voidTxt.color = Color.white;
     }
 
     public TowerObjects GetCurrentTower()
