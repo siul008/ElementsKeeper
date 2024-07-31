@@ -28346,6 +28346,41 @@ MonoBehaviour:
       weight: 200
     - enemyPrefab: {fileID: 4495079335045865582, guid: 06c389cb49e1d2e4ca2df65875ecd742, type: 3}
       weight: 10
+  - name: Tier 3
+    hordeChance: 50
+    bellowTierHordeChance: 10
+    spawnRate: 7
+    endWave: {fileID: 6693673517446306498, guid: 6b0d32e725800ff4a84d5712b3edaa2e, type: 3}
+    lanes:
+    - lane: 0
+      weight: 60
+    - lane: 1
+      weight: 40
+    - lane: 2
+      weight: 20
+    - lane: 3
+      weight: 20
+    - lane: 4
+      weight: 20
+    horde:
+    - name: S 3 N
+      hordePrefab: {fileID: 6362981535474437497, guid: 1cf0c6cb2bf2e9a4fa691257473dc6b9, type: 3}
+      breathingTime: 5
+    - name: S 3 N
+      hordePrefab: {fileID: 6362981535474437497, guid: 6b71c7f8d7c954f4f8f992fd2df80b39, type: 3}
+      breathingTime: 0
+    - name: S 3 N
+      hordePrefab: {fileID: 8259504059310547825, guid: f855a660adbc4b44fad2fcbcdf2c2216, type: 3}
+      breathingTime: 3
+    enemies:
+    - enemyPrefab: {fileID: 4495079335045865582, guid: a9c974ef048e1c041b487be72fd75640, type: 3}
+      weight: 200
+    - enemyPrefab: {fileID: 4495079335045865582, guid: 06c389cb49e1d2e4ca2df65875ecd742, type: 3}
+      weight: 10
+    - enemyPrefab: {fileID: 7090447527747214131, guid: 3c684ae6f52daa148a9b18215163f1e0, type: 3}
+      weight: 150
+    - enemyPrefab: {fileID: 3364090009576408598, guid: d321850b53a95fa46943d0b212c23955, type: 3}
+      weight: 50
   lanesTransform:
   - {fileID: 1539371427}
   - {fileID: 1033487222}
@@ -32117,7 +32152,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
