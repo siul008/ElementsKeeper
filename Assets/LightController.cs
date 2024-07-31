@@ -13,74 +13,126 @@ public class LightController : MonoBehaviour
     [SerializeField] float fallOffOff;
     [SerializeField] Vector3 scaleOff = new Vector3(0.1f, 0.1f, 0.1f);
     [SerializeField] GameObject lightGO;
+    [SerializeField] float fallOfSpeed;
+    [SerializeField] float scaleSpeed;
 
-    public float turnOffDuration = 1f; // Duration in seconds
-    public float turnOnDuration = 1f;
 
-    private bool isTurningOff = false;
-    private bool isTurningOn = false;
-    private float transitionProgress = 0f;
+    bool isTurningOff = false;
+    bool isTurningOn = false;
+    bool intensitySet = false;
+    bool fallOffSet = false;
+    bool scaleSet = false;
 
     private void Start()
     {
-        // Optional initialization
+       
     }
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.N))
+        {
+            TurnOnLight();
+        }
+        if (Input.GetKey(KeyCode.F))
+        {
+            TurnOffLight();
+        }
         if (isTurningOff)
         {
-            transitionProgress += Time.deltaTime / turnOffDuration;
-            transitionProgress = Mathf.Clamp01(transitionProgress); // Ensure progress stays within 0 and 1
-            UpdateLightProperties(transitionProgress);
-
-            if (transitionProgress >= 1f)
+            if (lightHolder.intensity + 0.1f * Time.deltaTime < intensityOff)
             {
-                isTurningOff = false; // Stop turning off
+                lightHolder.intensity += 0.1f * Time.deltaTime;
+            }
+            else
+            {
+                lightHolder.intensity = intensityOff;
+                intensitySet = true;
+            }
+            if (lightHolder.shapeLightFalloffSize + fallOfSpeed * Time.deltaTime < fallOffOff)
+            {
+                lightHolder.shapeLightFalloffSize += fallOfSpeed * Time.deltaTime;
+            }
+            else
+            {
+                lightHolder.shapeLightFalloffSize = fallOffOff;
+                fallOffSet = true;
+            }
+            if (lightGO.transform.localScale.x - scaleSpeed * Time.deltaTime > scaleOff.x)
+            {
+                lightGO.transform.localScale -= new Vector3(scaleSpeed, scaleSpeed, scaleSpeed) * Time.deltaTime;
+            }
+            else
+            {
+                lightGO.transform.localScale = scaleOff;
+                scaleSet = true;
+            }
+            if (scaleSet && fallOffSet && intensitySet)
+            {
+                Debug.Log("Turned off finished");
+                isTurningOff = false;
             }
         }
+
         else if (isTurningOn)
         {
-            transitionProgress += Time.deltaTime / turnOnDuration;
-            transitionProgress = Mathf.Clamp01(transitionProgress); // Ensure progress stays within 0 and 1
-            UpdateLightProperties(transitionProgress);
-
-            if (transitionProgress >= 1f)
+            if (lightHolder.intensity + 0.1f * Time.deltaTime < intensityOn)
             {
-                isTurningOn = false; // Stop turning on
+                lightHolder.intensity += 0.1f * Time.deltaTime;
+            }
+            else
+            {
+                lightHolder.intensity = intensityOn;
+                intensitySet = true;
+            }
+            if (lightHolder.shapeLightFalloffSize - fallOfSpeed * Time.deltaTime > fallOffOn)
+            {
+                lightHolder.shapeLightFalloffSize -= fallOfSpeed * Time.deltaTime;
+            }
+            else
+            {
+                lightHolder.shapeLightFalloffSize = fallOffOn;
+                fallOffSet = true;
+            }
+            if (lightGO.transform.localScale.x + scaleSpeed * Time.deltaTime < scaleOn.x)
+            {
+                lightGO.transform.localScale += new Vector3(scaleSpeed, scaleSpeed, scaleSpeed) * Time.deltaTime;
+            }
+            else
+            {
+                lightGO.transform.localScale = scaleOn;
+                scaleSet = true;
+            }
+            if (scaleSet && fallOffSet && intensitySet)
+            {
+                Debug.Log("Turning on finished");
+                isTurningOn = false;
             }
         }
     }
 
     public void TurnOffLight()
     {
-        Debug.Log("Turn off light");
-        if (!isTurningOff && !isTurningOn) // Prevent starting if already transitioning
-        {
-            isTurningOff = true;
-            transitionProgress = 0f;
-        }
+        isTurningOn = false;
+        isTurningOff = true;
+        intensitySet = false;
+        scaleSet = false;
+        fallOffSet = false;
+        Debug.Log("Turned off called");
     }
 
     public void TurnOnLight()
     {
-        Debug.Log("Turn on light");
-        if (!isTurningOn && !isTurningOff) // Prevent starting if already transitioning
-        {
-            isTurningOn = true;
-            transitionProgress = 0f;
-        }
-    }
-
-    private void UpdateLightProperties(float progress)
-    {
-        lightHolder.intensity = Mathf.Lerp(intensityOn, intensityOff, progress);
-        lightHolder.pointLightInnerRadius = Mathf.Lerp(fallOffOn, fallOffOff, progress); // Assuming this corresponds to falloff size
-        lightGO.transform.localScale = Vector3.Lerp(scaleOn, scaleOff, progress);
+        Debug.Log("Turn on caled");
+        isTurningOn = true;
+        isTurningOff = false;
+        intensitySet = false;
+        scaleSet = false;
+        fallOffSet = false;
     }
 
     public float GetTurnOffDuration()
     {
-        return turnOffDuration;
+        return 5f;
     }
 }

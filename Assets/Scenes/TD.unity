@@ -21084,7 +21084,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 816277586}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50bd9ff90ca636b46be53ec45c75ac60, type: 3}
   m_Name: 
@@ -21095,10 +21095,10 @@ MonoBehaviour:
   scaleOn: {x: 4.7055216, y: 4.7055216, z: 4.7055216}
   intensityOff: 0.86
   fallOffOff: 0.87
-  scaleOff: {x: 1.4818835, y: 1.4113175, z: 1.7641474}
+  scaleOff: {x: 1.481884, y: 1.481884, z: 1.481884}
   lightGO: {fileID: 1839128468}
-  turnOffDuration: 10
-  turnOnDuration: 10
+  fallOfSpeed: 0.01
+  scaleSpeed: 0.4
 --- !u!1 &817501611
 GameObject:
   m_ObjectHideFlags: 0
