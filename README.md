@@ -22,7 +22,7 @@ The game was developed in Unity and features homemade assets, including sound, v
 
 - Custom Assets: All game assets, including visuals, sound effects, and UI elements, are designed from scratch to give the game a unique and cohesive style.
 
-- Alchemy and Shadows Theme: The game is built around the themes of Alchemy (through elemental combinations) and Shadows (which affect tower visibility or damage in some cases), providing a deep thematic connection to the core gameplay mechanics.
+- Alchemy and Shadows Theme: The game is built around the themes of Alchemy (through elemental combinations) and Shadows (Enemies are coming from the shadow and are shadows, the light slowly fades indicating the wave is coming and the game currency are void fragments), providing a deep thematic connection to the core gameplay mechanics.
 
 ## Technologies Used
 - Unity: The game was developed using Unity, a powerful game engine for building both 2D and 3D games.
