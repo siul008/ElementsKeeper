@@ -32,10 +32,10 @@ The game was developed in Unity and features homemade assets, including sound, v
 - Krita : All the visual artwork was made using krita
 
 ## Game Jam Result:
-- **Playability**	    #1	   5.000	5.000
-- **Theme**	          #653	 3.000	3.000
-- **Artistic Style**	#970	 3.000	3.000
-- **Cleverness***	    #1471	 2.000	2.000
+- **Playability**	    #1
+- **Theme**	          #653
+- **Artistic Style**	#970
+- **Cleverness***	    #1471
 
 # Try it
 https://ejacquem.itch.io/elements-keeper
