@@ -1,5 +1,5 @@
-# ElementsKeeper
-**ElementsKeeper** is a unique tower defense game developed in 1 week for a game jam based on the theme "**Shadows**" and "**Alchemy**". In this game, players can unlock and combine the **four base elements** (Fire, Wind, Water, Earth) to create powerful towers that defend against incoming waves of enemies. The goal is to survive three challenging waves by strategically using elemental combinations, such as combining Fire and Water to create a Steam Tower.
+# Elements Keeper
+**Elements Keeper** is a unique tower defense game developed in 1 week for a game jam based on the theme "**Shadows**" and "**Alchemy**". In this game, players can unlock and combine the **four base elements** (Fire, Wind, Water, Earth) to create powerful towers that defend against incoming waves of enemies. The goal is to survive three challenging waves by strategically using elemental combinations, such as combining Fire and Water to create a Steam Tower.
 
 ## Game Overview
 ElementsKeeper is a tower defense game where players use elemental combinations to create towers with unique abilities. The game introduces a creative mechanic by allowing players to combine basic elements to craft specialized towers that will help them fend off waves of enemies. As players progress, they unlock more advanced elemental combinations, allowing for deeper strategies and tactical gameplay.
